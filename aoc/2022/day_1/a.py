@@ -10,7 +10,7 @@ for item in cal:
     if item != '':
         num = int(item)
         count += num
-
+ 
     else:
         a.append(count)
         count = 0
