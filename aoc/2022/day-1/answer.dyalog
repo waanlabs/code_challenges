@@ -1,5 +1,5 @@
 ⍝ Answer 1
-cal ← ⍎¨¨((×≢¨)⊆⊢)⊃⎕NGET 'c.txt' 1
+cal ← ⍎¨¨((×≢¨)⊆⊢)⊃⎕NGET 'cal.txt' 1
 
 ⍝ Part 1
 ⌈/+/¨cal
@@ -9,7 +9,7 @@ cal ← ⍎¨¨((×≢¨)⊆⊢)⊃⎕NGET 'c.txt' 1
 
 
 ⍝ Answer 2
-c←+/¨⍎¨¨(×≢¨c)⊆c←⊃⎕NGET'c.txt' 1
+c←+/¨⍎¨¨(×≢¨c)⊆c←⊃⎕NGET 'cal.txt' 1
 
 ⍝ Part 1
 ⌈/p
