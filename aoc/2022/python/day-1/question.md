@@ -41,7 +41,7 @@ In case the Elves get hungry and need extra snacks, they need to know which Elf 
 
 Find the Elf carrying the most Calories. How many total Calories is that Elf carrying?
 
-Source: <https://adventofcode.com/2022/day/1>
+*Source: <https://adventofcode.com/2022/day/1>*
 
 ## Part Two
 
@@ -53,7 +53,9 @@ In the example above, the top three Elves are the fourth Elf (with 24000 Calorie
 
 Find the top three Elves carrying the most Calories. How many Calories are those Elves carrying in total?
 
-Source: <https://adventofcode.com/2022/day/1>
+*Source: <https://adventofcode.com/2022/day/1>*
+
+## Answers
 
 **Sample input answers - 24000 & 45000** \
 **Puzzle input answers - 67633 & 199628**
