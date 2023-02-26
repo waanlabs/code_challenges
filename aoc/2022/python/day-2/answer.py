@@ -42,10 +42,7 @@ expected_outcomes = {
     "CX": 7, "CY": 2, "CZ": 6
 }
 
-expected_score = 0
-for round in rounds:
-    expected_score += expected_outcomes[round]
-
+expected_score = sum(expected_outcomes[round] for round in rounds)
 print(expected_score)
 
 # A is Rock = 1
@@ -87,8 +84,5 @@ desired_outcomes = {
     "CX": 2, "CY": 6, "CZ": 7
 }
 
-desired_score = 0
-for round in rounds:
-    desired_score += desired_outcomes[round]
-
+desired_score = sum(desired_outcomes[round] for round in rounds)
 print(desired_score)
