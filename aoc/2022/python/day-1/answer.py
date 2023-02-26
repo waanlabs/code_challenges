@@ -35,11 +35,11 @@ calories_sum = [sum(group) for is_empty, group in itertools.groupby(
 """
 The 'max()' function takes the 'calories_sum' list as an argument and returns the highest value in the list. The resulting value is then passed to the 'print()' function, which displays it in the console.
 """
-# print(max(calories_sum))  # 1st answer
+print(max(calories_sum))  # 1st answer
 
 """
 The 'heapq.nlargest()' function is used to find the three largest values in the 'calories_sum' list. The first argument of 'heapq.nlargest()' is the number of largest values to return, which in this case is three. The second argument is the list to search, which is the 'calories_sum' list. The resulting values are returned as a list.
 
 The 'sum()' function is then used to calculate the sum of the three largest values in the list. The resulting sum is passed to the 'print()' function, which displays it in the console.
 """
-# print(sum(heapq.nlargest(3, calories_sum)))  # 2nd answer
+print(sum(heapq.nlargest(3, calories_sum)))  # 2nd answer
