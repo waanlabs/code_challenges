@@ -14,7 +14,7 @@ Finally, when the 'with open' block is exited, the file is automatically closed.
 with open('./day-1/puzzle-input.txt', 'r') as file:
     calories = [int(line) if line.strip() else '' for line in file]
 
-print(calories)
+# print(calories)
 
 """
 The code calculates the sum of consecutive non-empty groups of integers in the 'calories' list, which is assumed to have been previously defined.
