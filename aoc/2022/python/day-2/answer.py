@@ -43,7 +43,7 @@ expected_outcomes = {
 }
 
 expected_score = sum(expected_outcomes[round] for round in rounds)
-print(expected_score)
+print(expected_score)  # 1st answer
 
 # A is Rock = 1
 # B is Paper = 2
@@ -85,4 +85,4 @@ desired_outcomes = {
 }
 
 desired_score = sum(desired_outcomes[round] for round in rounds)
-print(desired_score)
+print(desired_score)  # 2nd answer
