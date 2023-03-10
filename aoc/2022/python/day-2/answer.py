@@ -1,8 +1,22 @@
+"""
+The code reads in the contents of a file named "puzzle-input.txt" located in the current directory and stores each line of the file as a string element in a list called "rounds". The "with" statement is used to open the file in read-only mode, and it automatically closes the file when the block of code inside the "with" statement is finished executing.
+
+The list comprehension inside the "with" statement removes any spaces from each line of the file using the "replace" method and removes the newline character at the end of each line using the "rstrip" method with the "\n" argument.
+
+Finally, the code prints out the "rounds" list, which contains all the lines from the "puzzle-input.txt" file as string elements, with spaces removed and newline characters stripped.
+"""
 with open('./day-2/puzzle-input.txt', 'r') as file:
     rounds = [line.replace(" ", "").strip("\n") for line in file]
 
 # print(rounds)
 
+"""
+The code is a comment that explains the mappings and rules for a game played using three items - rock, paper, and scissors - represented by the integers 1, 2, and 3, respectively. The comment also defines the scoring system for the game, with a win worth 6 points, a draw worth 3 points, and a loss worth 0 points.
+
+The code then defines a dictionary called "expected_outcomes" that maps each possible matchup between the three items to its expected outcome based on the game's rules. The expected outcomes are calculated using the scoring system defined in the comment.
+
+Finally, the code uses the "sum" function to calculate the expected score for the given set of rounds using the "expected_outcomes" dictionary, which was defined earlier in the comment. The result is stored in a variable called "expected_score", which is then printed out. This value represents the total expected score for the given set of rounds based on the expected outcomes from the "expected_outcomes" dictionary.
+"""
 # A is Rock = 1
 # B is Paper = 2
 # C is Scissors = 3
@@ -45,6 +59,13 @@ expected_outcomes = {
 expected_score = sum(expected_outcomes[round] for round in rounds)
 print(expected_score)  # 1st answer
 
+"""
+This code is a comment that explains the mappings and rules for a game played using three items - rock, paper, and scissors - represented by the integers 1, 2, and 3, respectively. The comment also defines a new scoring system for the game, with a win worth 6 points, a draw worth 3 points, and a loss worth 0 points, and assigns the labels X, Y, and Z to the values of 0, 3, and 6, respectively.
+
+The code then defines a dictionary called "desired_outcomes" that maps each possible matchup between the three items to its expected outcome based on the new scoring system. The desired outcomes are calculated using the scoring system defined in the comment.
+
+Finally, the code uses the "sum" function to calculate the desired score for the given set of rounds using the "desired_outcomes" dictionary, which was defined earlier in the comment. The result is stored in a variable called "desired_score", which is then printed out. This value represents the total desired score for the given set of rounds based on the desired outcomes from the "desired_outcomes" dictionary.
+"""
 # A is Rock = 1
 # B is Paper = 2
 # C is Scissors = 3
