@@ -1,0 +1,53 @@
+{
+    "name": "Nerdcore | Code Challenges",
+    "build": {
+        "context": ".",
+        "dockerfile": "Dockerfile",
+        "args": {}
+    },
+    "mounts": [
+        "source=${localWorkspaceFolder},target=/home/axneo/app,type=bind"
+    ],
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "aaron-bond.better-comments",
+                "ms-azuretools.vscode-docker",
+                "GitHub.copilot",
+                "GitHub.copilot-chat",
+                "GitHub.vscode-pull-request-github",
+                "ms-python.vscode-pylance",
+                "ms-python.python",
+                "ms-python.debugpy",
+                "ms-toolsai.jupyter",
+                "donjayamanne.python-environment-manager",
+                "evendead.help-me-add",
+                "eamodio.gitlens",
+                "TeamHub.teamhub",
+                "jasonlhy.hungry-delete",
+                "oderwat.indent-rainbow",
+                "yzhang.markdown-all-in-one",
+                "yzane.markdown-pdf",
+                "shd101wyy.markdown-preview-enhanced",
+                "bierner.markdown-preview-github-styles",
+                "bierner.markdown-mermaid",
+                "DavidAnson.vscode-markdownlint",
+                "philsinatra.nested-comments",
+                "ionutvmi.path-autocomplete",
+                "christian-kohler.path-intellisense",
+                "Gruntfuggly.todo-tree",
+                "hbenl.vscode-test-explorer",
+                "github.vscode-github-actions",
+                "arturock.gitstash",
+                "donjayamanne.githistory",
+                "tombonnike.vscode-status-bar-format-toggle",
+                "sleistner.vscode-fileutils",
+                "tamasfe.even-better-toml",
+                "EditorConfig.EditorConfig",
+                "formulahendry.code-runner",
+                "formulahendry.auto-complete-tag",
+                "dkundel.vscode-new-file"
+            ]
+        }
+    }
+}
