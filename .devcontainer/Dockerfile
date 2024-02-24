@@ -34,7 +34,7 @@ RUN groupadd -g ${GID} ${USER} && \
 USER ${USER}
 
 # Set the working directory
-WORKDIR /home/${USER}/app
+WORKDIR /home/${USER}/code-challenges
 
 RUN sudo apt-get install -y software-properties-common \
     git \

@@ -6,7 +6,7 @@
         "args": {}
     },
     "mounts": [
-        "source=${localWorkspaceFolder},target=/home/axneo/app,type=bind"
+        "source=${localWorkspaceFolder},target=/home/waan/code-challenges,type=bind"
     ],
     "customizations": {
         "vscode": {
@@ -46,7 +46,9 @@
                 "EditorConfig.EditorConfig",
                 "formulahendry.code-runner",
                 "formulahendry.auto-complete-tag",
-                "dkundel.vscode-new-file"
+                "dkundel.vscode-new-file",
+                "ryanluker.vscode-coverage-gutters",
+                "ms-python.autopep8"
             ]
         }
     }

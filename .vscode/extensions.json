@@ -36,7 +36,9 @@
         "editorconfig.editorconfig",
         "formulahendry.code-runner",
         "formulahendry.auto-complete-tag",
-        "dkundel.vscode-new-file"
+        "dkundel.vscode-new-file",
+        "ryanluker.vscode-coverage-gutters",
+        "ms-python.autopep8"
     ],
     "unwantedRecommendations": []
 }

@@ -1,0 +1,7 @@
+[run]
+omit =
+    */tests/*
+    __init__.py
+concurrency = multiprocessing
+parallel = true
+sigterm = true
