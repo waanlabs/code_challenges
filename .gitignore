@@ -1,4 +1,6 @@
-.venv
+.cache
+.coverage
+*.lock
 .pytest_cache
 __pycache__
-*.lock
+.venv

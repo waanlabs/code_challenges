@@ -2,6 +2,7 @@
 omit =
     */tests/*
     __init__.py
+    test.py
 concurrency = multiprocessing
 parallel = true
 sigterm = true

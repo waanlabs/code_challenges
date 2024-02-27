@@ -1,5 +1,5 @@
 import unittest
-from calorie_counter import CalorieCounter
+from code_challenges.aoc.y2k22.day_1.calorie_counter import CalorieCounter
 
 
 class TestCalorieCounter(unittest.TestCase):
@@ -9,7 +9,9 @@ class TestCalorieCounter(unittest.TestCase):
 
     def setUp(self) -> None:
 
-        self.calorie_counter = CalorieCounter("./aoc/2022/day-1/puzzle-input.txt")
+        self.calorie_counter = CalorieCounter(
+            "./code_challenges/aoc/y2k22/day_1/puzzle-input.txt"
+        )
         self.calorie_counter.read_and_process()
 
     def test_file_not_found(self):
@@ -25,7 +27,10 @@ class TestCalorieCounter(unittest.TestCase):
         self.assertEqual(self.calorie_counter.max_group_sum(), self.max_group_sum)
 
     def test_sum_of_largest_three(self) -> None:
-        self.assertEqual(self.calorie_counter.sum_of_largest_three(), self.sum_of_largest_three)
+        self.assertEqual(
+            self.calorie_counter.sum_of_largest_three(), self.sum_of_largest_three
+        )
+
 
 if __name__ == "__main__":
     unittest.main()

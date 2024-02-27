@@ -15,7 +15,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 # Set the timezone to EST (Eastern Standard Time)
 ENV TZ=EST
 
-# Update package lists and install sudo with minimal additional packages
+# Update package lists and install sudo with minimal additional packagessou
 # Clean up in the RUN statement to keep the image size down
 RUN apt-get update \
     && apt-get install sudo
@@ -33,13 +33,26 @@ RUN groupadd -g ${GID} ${USER} && \
 # Switch to new user in the docker image
 USER ${USER}
 
-# Set the working directory
-WORKDIR /home/${USER}/code-challenges
+# Set path for Python and pip
+ENV PATH="/home/${USER}/.local/bin:${PATH}"
 
+# Set the working directory
+WORKDIR /home/${USER}/code_challenges
+
+# Install Python, pip and virtualenv
 RUN sudo apt-get install -y software-properties-common \
     git \
     python3-pip \
-    python3-venv \
+    python3-venv
+
+RUN pip install --upgrade pip \
+    pip install npx \
+    pip install pipenv \
+    pip install poetry
+
+ENV PIPENV_VERBOSITY=-1
+
+RUN sudo apt-get autoremove -y \
     && sudo apt-get clean \
     && sudo rm -rf /var/lib/apt/lists/*
 

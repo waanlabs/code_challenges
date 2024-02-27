@@ -16,7 +16,6 @@ class CalorieCounter:
 
     def read_and_process(self) -> None:
         if not os.path.exists(self.file_path):
-
             raise FileNotFoundError(f"File not found: {self.file_path}")
 
         with open(self.file_path, "r") as file:

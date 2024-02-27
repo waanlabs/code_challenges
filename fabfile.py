@@ -1,11 +1,26 @@
-from fabric import *
+from fabric2 import task
 
 
 @task
-def test(ctx, folder_name):
-    ctx.run(f'pytest --cov={folder_name} --cov-report=xml')
+def format(ctx):
+    ctx.run("black .")
+
+
+@task
+def lint(ctx):
+    ctx.run("flake8 .")
+
+
+@task
+def pylint(ctx):
+    ctx.run("pylint code_challenges")
+
+
+@task
+def test(ctx):
+    ctx.run("pytest --cov=code_challenges --cov-report=xml")
 
 
 @task
 def coverage(ctx):
-    ctx.run('coverage report --show-missing')
+    ctx.run("coverage report --show-missing")

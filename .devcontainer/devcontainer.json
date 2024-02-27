@@ -6,7 +6,7 @@
         "args": {}
     },
     "mounts": [
-        "source=${localWorkspaceFolder},target=/home/waan/code-challenges,type=bind"
+        "source=${localWorkspaceFolder},target=/home/waan/code_changes,type=bind"
     ],
     "customizations": {
         "vscode": {
@@ -48,7 +48,8 @@
                 "formulahendry.auto-complete-tag",
                 "dkundel.vscode-new-file",
                 "ryanluker.vscode-coverage-gutters",
-                "ms-python.autopep8"
+                "ms-python.autopep8",
+                "ms-python.black-formatter"
             ]
         }
     }
