@@ -8,18 +8,22 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.10"
-flake8 = "^7.0.0"
 
 [tool.poetry.group.dev.dependencies]
 pytest-cov = "^4.1.0"
 pytest = "^8.0.2"
 black = "^24.2.0"
 fabric2 = "^3.2.2"
+flake8 = "^7.0.0"
 
 [tool.poetry.scripts]
-test = "pytest --cov=code_challenges --cov-report=xml"
-coverage = "coverage report --show-missing"
-format = "black ."
+black = "black ."
+flake = "flake8 ."
+pylint = "pylint code_challenges"
+autoflake = "autoflake --in-place --remove-all-unused-imports --expand-star-imports --ignore-init-module-imports --remove-duplicate-keys --remove-unused-variables -r code_challenges"
+mypy = "mypy code_challenges"
+pytest = "pytest --cov=code_challenges --cov-report=xml"
+coverage = "coverage report"
 
 [build-system]
 requires = ["poetry-core"]

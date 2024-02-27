@@ -5,6 +5,7 @@ name = "pypi"
 
 [packages]
 
+
 [dev-packages]
 pytest = "*"
 pytest-cov = "*"
@@ -12,13 +13,20 @@ black = "*"
 fabric2 = "*"
 flake8 = "*"
 pylint = "*"
+mypy = "*"
+autoflake = "*"
+pydocstringformatter = "*"
+
 
 [scripts]
-format = "black ."
-lint = "flake8 ."
-pylint = "pylint code_challenges"
-test = "pytest --cov=code_challenges --cov-report=xml"
-coverage = "coverage report --show-missing"
+black = "black ." # format code
+flake = "flake8 ." # lint code
+pylint = "pylint code_challenges" # lint code (advance)
+autoflake = "autoflake --in-place --remove-all-unused-imports --expand-star-imports --ignore-init-module-imports --remove-duplicate-keys --remove-unused-variables -r code_challenges"
+# remove unused code
+mypy = "mypy code_challenges" # type check
+pytest = "pytest --cov=code_challenges --cov-report=xml" # run tests
+coverage = "coverage report" # show coverage
 
 [requires]
 python_version = "3.10"
