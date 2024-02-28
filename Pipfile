@@ -5,7 +5,6 @@ name = "pypi"
 
 [packages]
 
-
 [dev-packages]
 pytest = "*"
 pytest-cov = "*"
@@ -16,7 +15,6 @@ pylint = "*"
 mypy = "*"
 autoflake = "*"
 pydocstringformatter = "*"
-
 
 [scripts]
 black = "black ." # format code

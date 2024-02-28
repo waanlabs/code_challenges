@@ -1,7 +1,15 @@
 """
-This module contains unit tests for the CalorieCounter class in the calorie_counter module.
-To run these tests, use the command: python -m unittest test.py
-Advent of Code 2022 - Day 1 optimized solution in Python.
+This module contains optimized calorie_counter solution for Advent of Code 2022 - Day 1. This is a class and
+method/function based solution for learning industrial programming practices.
+----
+
+Package: code_challenges
+Subpackage: aoc/y2k22/day_1
+File: calorie_counter.py
+Author: Waan <admin@waan.email>
+Version: 1.0.0
+Created: 01/12/2022
+Modified: 01/02/2024 by admin@waan.email
 """
 
 import itertools
@@ -12,8 +20,7 @@ import os
 class CalorieCounter:
     """
     A class used to count calories from a file.
-
-    ...
+    ----
 
     Attributes
     ----------
@@ -38,8 +45,8 @@ class CalorieCounter:
 
         Parameters
         ----------
-            file_path : str
-                file path of the calorie data
+        file_path : str
+            file path of the calorie data
         """
         self.file_path = file_path
         self.calories_sum: list[int] = []
