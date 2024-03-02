@@ -1,6 +1,6 @@
 """
 This module contains optimized calorie_counter solution for Advent of Code 2022 - Day 1. This is a class and
-method/function based solution for learning industrial programming practices.
+function/ based solution for learning industrial programming practices.
 ----
 
 Package: code_challenges
@@ -15,6 +15,9 @@ Modified: 01/02/2024 by admin@waan.email
 import itertools
 import heapq
 import os
+
+# from pydantic import BaseModel
+# from icecream import ic
 
 
 class CalorieCounter:
@@ -39,6 +42,9 @@ class CalorieCounter:
         Returns the sum of the three largest calorie groups.
     """
 
+    file_path: str
+    calories_sum: list[int]
+
     def __init__(self, file_path: str) -> None:
         """
         Constructs all the necessary attributes for the CalorieCounter object.
@@ -48,17 +54,39 @@ class CalorieCounter:
         file_path : str
             file path of the calorie data
         """
-        self.file_path = file_path
-        self.calories_sum: list[int] = []
+        self._file_path = file_path
+
+    @property
+    def puzzle_file_path(self) -> str:
+        """
+        Get the file path associated with the calorie counter and return as an immutable string.
+
+        Returns:
+            str: The file path.
+        """
+        return self._file_path
+
+    @puzzle_file_path.setter
+    def puzzle_file_path(self, value: str) -> None:
+        """
+        Set the file path for the puzzle input.
+
+        Parameters:
+        - value (str): The file path to set.
+
+        Returns:
+        - str: The file path.
+        """
+        self._file_path = value
 
     def read_and_process(self) -> None:
         """
         Reads the file and processes the calorie data.
         """
-        if not os.path.exists(self.file_path):
-            raise FileNotFoundError(f"File not found: {self.file_path}")
+        if not os.path.exists(self.puzzle_file_path):
+            raise FileNotFoundError(f"File not found: {self.puzzle_file_path}")
 
-        with open(self.file_path, "r", encoding="utf-8") as file:
+        with open(self.puzzle_file_path, "r", encoding="utf-8") as file:
             calories = [int(line) if line.strip() else "" for line in file]
 
             self.calories_sum = [
@@ -98,8 +126,12 @@ class CalorieCounter:
 #     calorie_counter = CalorieCounter("./puzzle-input.txt")
 #     calorie_counter.read_and_process()
 
-#     print(f"Max group sum: {calorie_counter.max_group_sum()}")
-#     print(f"Sum of largest three: {calorie_counter.sum_of_largest_three()}")
+#     ic(calorie_counter.puzzle_file_path)
+#     ic(calorie_counter.max_group_sum())
+#     ic(calorie_counter.sum_of_largest_three())
+
+#     # print(f"Max group sum: {calorie_counter.max_group_sum()}")
+#     # print(f"Sum of largest three: {calorie_counter.sum_of_largest_three()}")
 
 
 # if __name__ == "__main__":
