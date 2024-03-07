@@ -2,6 +2,13 @@ from fabric2 import task
 
 
 @task
+def autoflake(ctx):
+    ctx.run(
+        "autoflake --remove-all-unused-imports --recursive --remove-unused-variables --in-place code_challenges"
+    )
+
+
+@task
 def black(ctx):
     ctx.run("black .")
 
@@ -14,13 +21,6 @@ def flake(ctx):
 @task
 def pylint(ctx):
     ctx.run("pylint code_challenges")
-
-
-@task
-def autoflake(ctx):
-    ctx.run(
-        "autoflake --remove-all-unused-imports --recursive --remove-unused-variables --in-place code_challenges"
-    )
 
 
 @task
@@ -40,10 +40,10 @@ def coverage(ctx):
 
 @task
 def check(ctx):
+    autoflake(ctx)
     black(ctx)
     flake(ctx)
     pylint(ctx)
-    autoflake(ctx)
     mypy(ctx)
     pytest(ctx)
     coverage(ctx)

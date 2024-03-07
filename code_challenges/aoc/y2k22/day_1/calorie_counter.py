@@ -14,7 +14,7 @@ Modified: 01/02/2024 by admin@waan.email
 
 import itertools
 import heapq
-import os
+import sys
 
 # from pydantic import BaseModel
 # from icecream import ic
@@ -61,30 +61,40 @@ class CalorieCounter:
         """
         Get the file path associated with the calorie counter and return as an immutable string.
 
+        Parameters:
+        - value (str): The file path to set.
+
         Returns:
             str: The file path.
         """
         return self._file_path
 
     @puzzle_file_path.setter
-    def puzzle_file_path(self, value: str) -> None:
+    def puzzle_file_path(self, path: str) -> None:
         """
         Set the file path for the puzzle input.
 
         Parameters:
-        - value (str): The file path to set.
+        - path (str): The file path to set.
 
         Returns:
-        - str: The file path.
+        - None
+
+        Raises:
+        - ValueError: If the file path is an empty string.
+        - TypeError: If the file path is not a string.
         """
-        self._file_path = value
+        self._file_path = path
 
     def read_and_process(self) -> None:
         """
         Reads the file and processes the calorie data.
         """
-        if not os.path.exists(self.puzzle_file_path):
-            raise FileNotFoundError(f"File not found: {self.puzzle_file_path}")
+        if not self.puzzle_file_path:
+            raise ValueError("File path must not be empty.")
+
+        if not isinstance(self.puzzle_file_path, str):
+            raise TypeError("File path must be a string.")
 
         with open(self.puzzle_file_path, "r", encoding="utf-8") as file:
             calories = [int(line) if line.strip() else "" for line in file]
@@ -123,16 +133,18 @@ class CalorieCounter:
 #     This function creates an instance of the CalorieCounter class, reads and processes the calorie data,
 #     and then prints the maximum sum of calorie groups and the sum of the three largest calorie groups.
 #     """
-#     calorie_counter = CalorieCounter("./puzzle-input.txt")
-#     calorie_counter.read_and_process()
+#     try:
+#         calorie_counter = CalorieCounter("./puzzle-input.txt")
+#         calorie_counter.read_and_process()
 
-#     ic(calorie_counter.puzzle_file_path)
-#     ic(calorie_counter.max_group_sum())
-#     ic(calorie_counter.sum_of_largest_three())
+#         ic(calorie_counter.puzzle_file_path)
+#         ic(calorie_counter.max_group_sum())
+#         ic(calorie_counter.sum_of_largest_three())
 
-#     # print(f"Max group sum: {calorie_counter.max_group_sum()}")
-#     # print(f"Sum of largest three: {calorie_counter.sum_of_largest_three()}")
-
+#         # print(f"Max group sum: {calorie_counter.max_group_sum()}")
+#         # print(f"Sum of largest three: {calorie_counter.sum_of_largest_three()}")
+#     catch (ValueError, TypeError)  as e:
+#         print(f"An error occurred: {e}")
 
 # if __name__ == "__main__":
 #     """

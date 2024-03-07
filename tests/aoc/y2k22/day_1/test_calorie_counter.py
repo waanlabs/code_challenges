@@ -9,28 +9,31 @@ class TestCalorieCounter(unittest.TestCase):
     file_path = "./code_challenges/aoc/y2k22/day_1/puzzle-input.txt"
 
     def setUp(self) -> None:
-
         self.calorie_counter = CalorieCounter(self.file_path)
         self.calorie_counter.read_and_process()
 
-    def test_file_not_found(self):
-        error_calorie_counter = CalorieCounter("./puzzle-input.txt")
+    def test_puzzle_file_path_getter(self) -> None:
+        self.calorie_counter.puzzle_file_path = self.file_path
+        self.assertEqual(self.calorie_counter.puzzle_file_path, self.file_path)
 
-        with self.assertRaises(FileNotFoundError) as context:
-            error_calorie_counter.read_and_process()
-
-        expected_error_message = (
-            f"File not found: {error_calorie_counter.puzzle_file_path}"
-        )
-        self.assertEqual(str(context.exception), expected_error_message)
-
-    def test_puzzle_file_path_setter(self):
+    def test_puzzle_file_path_setter(self) -> None:
         self.calorie_counter.puzzle_file_path = self.file_path
         self.assertEqual(self.calorie_counter._file_path, self.file_path)
 
-    def test_set_puzzle_file_path(self) -> None:
+    # def test_read_and_process_empty_file(self) -> None:
+    #     self.calorie_counter.puzzle_file_path = ()
+    #     self.calorie_counter.read_and_process()
+    #     self.assertEqual(len(self.calorie_counter.calories_sum), 0)
+
+    # def test_read_and_process_invalid_file(self) -> None:
+    #     self.calorie_counter.puzzle_file_path = 123
+    #     with self.assertRaises(ValueError):
+    #         self.calorie_counter.read_and_process()
+
+    def test_read_and_process_valid_file(self) -> None:
         self.calorie_counter.puzzle_file_path = self.file_path
-        self.assertEqual(self.calorie_counter.puzzle_file_path, self.file_path)
+        self.calorie_counter.read_and_process()
+        self.assertIsNotNone(self.calorie_counter.calories_sum)
 
     def test_max_group_sum(self) -> None:
         self.assertEqual(self.calorie_counter.max_group_sum(), self.max_group_sum)

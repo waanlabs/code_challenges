@@ -21,10 +21,10 @@ pipx = "*"
 poetry = "*"
 
 [scripts]
+autoflake = "autoflake --in-place --remove-all-unused-imports --expand-star-imports --ignore-init-module-imports --remove-duplicate-keys --remove-unused-variables -r code_challenges" # remove unused code
 black = "black ." # format code
 flake = "flake8 ." # lint code
 pylint = "pylint code_challenges" # lint code (advance)
-autoflake = "autoflake --in-place --remove-all-unused-imports --expand-star-imports --ignore-init-module-imports --remove-duplicate-keys --remove-unused-variables -r code_challenges" # remove unused code
 mypy = "mypy code_challenges" # type check
 pytest = "pytest --cov=code_challenges --cov-report=xml" # run tests
 coverage = "coverage report" # show coverage

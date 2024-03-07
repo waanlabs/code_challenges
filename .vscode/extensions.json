@@ -38,7 +38,9 @@
         "formulahendry.auto-complete-tag",
         "dkundel.vscode-new-file",
         "ryanluker.vscode-coverage-gutters",
-        "ms-python.black-formatter"
+        "ms-python.black-formatter",
+        "kaih2o.python-resource-monitor",
+        "mgesbert.python-path"
     ],
     "unwantedRecommendations": []
 }
