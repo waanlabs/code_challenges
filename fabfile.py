@@ -9,6 +9,11 @@ def autoflake(ctx):
 
 
 @task
+def isort(ctx):
+    ctx.run("isort code_challenges")
+
+
+@task
 def black(ctx):
     ctx.run("black .")
 
@@ -29,6 +34,11 @@ def mypy(ctx):
 
 
 @task
+def bandit(ctx):
+    ctx.run("bandit -r code_challenges")
+
+
+@task
 def pytest(ctx):
     ctx.run("pytest --cov=code_challenges --cov-report=xml")
 
@@ -41,9 +51,11 @@ def coverage(ctx):
 @task
 def check(ctx):
     autoflake(ctx)
+    isort(ctx)
     black(ctx)
     flake(ctx)
     pylint(ctx)
     mypy(ctx)
+    bandit(ctx)
     pytest(ctx)
     coverage(ctx)

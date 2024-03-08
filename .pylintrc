@@ -3,7 +3,7 @@
 ignore=CVS
 
 # Add files or directories matching the regex patterns to the blacklist. The regex matches against # base names, not paths.
-ignore-patterns=test.py
+ignore-patterns=
 
 # Use multiple processes to speed up Pylint.
 # jobs=1
