@@ -23,13 +23,21 @@ icecream = "^2.1.3"
 pydocstringformatter = "^0.7.3"
 
 [tool.poetry.scripts]
-black = "black ."
+black = "black ." # Python formatter
 flake = "flake8 ."
 pylint = "pylint code_challenges"
 autoflake = "autoflake --in-place --remove-all-unused-imports --expand-star-imports --ignore-init-module-imports --remove-duplicate-keys --remove-unused-variables -r code_challenges"
 mypy = "mypy code_challenges"
 pytest = "pytest --cov=code_challenges --cov-report=xml"
 coverage = "coverage report"
+
+# [tool.black]
+# line-length =120
+# target-version = ['py310']
+# exclude = "/(\\.git|\\.devcontainer|\\.github|\\.mypy_cache|\\.pytest_cache|\\.venv|__pycache__|__init__.py)/"
+
+[tool.pydocstringformatter]
+write = true
 
 [build-system]
 requires = ["poetry-core"]
