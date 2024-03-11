@@ -32,10 +32,10 @@ flake = "pyproject:flake"
 # pytest = "pytest --cov=code_challenges --cov-report=xml"
 # coverage = "coverage report"
 
-[tool.black]
-line-length =120
-target-version = ['py310']
-exclude = "/(\\.git|\\.devcontainer|\\.github|\\.mypy_cache|\\.pytest_cache|\\.venv|__pycache__|__init__.py)/"
+# [tool.black]
+# line-length = 120
+# target-version = ['py310']
+# exclude = "/(__init__.py|\\.git|\\.devcontainer|\\.github|\\.mypy_cache|\\.pytest_cache|\\.venv|__pycache__)/"
 
 [tool.pydocstringformatter]
 write = true
