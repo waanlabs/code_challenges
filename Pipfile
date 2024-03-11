@@ -26,7 +26,7 @@ vulture = "*"
 pyroma = "*"
 
 [scripts]
-autoflake = "autoflake --in-place --remove-all-unused-imports --expand-star-imports --ignore-init-module-imports --remove-duplicate-keys --remove-unused-variables -r code_challenges" # remove unused code
+autoflake = "autoflake -i -r ." # remove unused code
 isort = "isort code_challenges" # sort imports
 black = "black ." # format code
 flake = "flake8 ." # lint code

@@ -27,18 +27,20 @@ radon = "^6.0.1"
 vulture = "^2.11"
 pyroma = "^4.2"
 
-[tool.poetry.scripts]
-autoflake = "pyproject:autoflake"
-isort = "pyproject:isort"
-black = "pyproject:black"
-flake = "pyproject:flake"
-# pylint = "pylint code_challenges"
-# mypy = "mypy code_challenges"
-# pytest = "pytest --cov=code_challenges --cov-report=xml"
-# coverage = "coverage report"
+[tool.autoflake]
+remove-all-unused-imports = true
+expand-star-imports = true
+ignore-init-module-imports = true
+remove-duplicate-keys = true
+remove-unused-variables = true
+exclude = "__init__.py"
+
+[tool.isort]
+profile = "black"
+line_length = 100
 
 [tool.black]
-line-length = 120
+line-length = 100
 target-version = ['py310']
 exclude = "/(__init__.py|\\.git|\\.devcontainer|\\.github|\\.mypy_cache|\\.pytest_cache|\\.venv|__pycache__)/"
 
