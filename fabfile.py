@@ -3,9 +3,7 @@ from fabric2 import task
 
 @task
 def autoflake(ctx):
-    ctx.run(
-        "autoflake --remove-all-unused-imports --recursive --remove-unused-variables --in-place code_challenges"
-    )
+    ctx.run("autoflake --remove-all-unused-imports --recursive --remove-unused-variables --in-place code_challenges")
 
 
 @task
