@@ -137,7 +137,9 @@ class TestCalorieCounter(unittest.TestCase):
         Returns:
             None
         """
-        self.assertEqual(self.calorie_counter.sum_of_largest_three(), self.sum_of_largest_three)
+        self.assertEqual(
+            self.calorie_counter.sum_of_largest_three(), self.sum_of_largest_three
+        )
 
 
 if __name__ == "__main__":

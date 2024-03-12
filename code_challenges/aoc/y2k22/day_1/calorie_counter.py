@@ -1,8 +1,7 @@
 """
 This module contains optimized calorie_counter solution for Advent of Code 2022 - Day 1.
 
-This is a class and
-function/ based solution for learning industrial programming practices.
+This is a class and function/ based solution for learning industrial programming practices.
 
 Package: code_challenges
 Subpackage: code_challenges/aoc/y2k22/day_1
