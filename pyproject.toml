@@ -26,6 +26,7 @@ isort = "^5.13.2"
 radon = "^6.0.1"
 vulture = "^2.11"
 pyroma = "^4.2"
+pygount = "^1.6.1"
 
 [tool.autoflake]
 remove-all-unused-imports = true

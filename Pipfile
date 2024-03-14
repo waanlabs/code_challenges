@@ -24,9 +24,10 @@ isort = "*"
 radon = "*"
 vulture = "*"
 pyroma = "*"
+pygount = "*"
 
 [scripts]
-autoflake = "autoflake -i -r ." # remove unused code
+autoflake = "autoflake -i -r ." # remove unused codeclea
 isort = "isort code_challenges" # sort imports
 black = "black ." # format code
 flake = "flake8 ." # lint code
