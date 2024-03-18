@@ -95,13 +95,13 @@ class CalorieCounter:
         """
         Reads the file and processes the calorie data.
 
-        returns
+        Returns
         -------
         list[Union[int, str]]
             The calorie data.
 
-        variables
-        ---------
+        Parameters
+        ----------
         calories: list[Union[int, str]]
             list of integers or empty strings representing calorie data, or None
 
@@ -174,8 +174,7 @@ class CalorieCounter:
 
 def test() -> None:
     """
-    This function creates an instance of the CalorieCounter class, reads and processes the calorie data,
-    and then prints the maximum sum of calorie groups and the sum of the three largest calorie groups.
+    This function creates an instance of the CalorieCounter class, reads and processes the calorie data, and then prints the maximum sum of calorie groups and the sum of the three largest calorie groups.
     """
     try:
         calorie_counter = CalorieCounter("./puzzle-input.txt")
