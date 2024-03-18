@@ -1,6 +1,6 @@
 """
 This module contains optimized calorie_counter solution for Advent of Code 2022 - Day 1.
-This is a class and function/ based solution for learning industrial programming practices.
+This is a class based solution for learning industrial programming practices.
 
 Package: code_challenges
 Subpackage: code_challenges/aoc/y2k22/day_1
@@ -14,8 +14,8 @@ Modified: 01/02/2024 by admin@waan.email
 import heapq
 import itertools
 from typing import Union
-from icecream import ic
 
+# from icecream import ic
 # from pydantic import BaseModel
 
 
@@ -172,23 +172,23 @@ class CalorieCounter:
         return sum(heapq.nlargest(3, self.calories_sum)) if self.calories_sum else None
 
 
-def test() -> None:
-    """
-    This function creates an instance of the CalorieCounter class, reads and processes the calorie data, and then prints the maximum sum of calorie groups and the sum of the three largest calorie groups.
-    """
-    try:
-        calorie_counter = CalorieCounter("./puzzle-input.txt")
-        file = calorie_counter.read_calaories()
-        calorie_counter.process_calories(file)
+# def test() -> None:
+#     """
+#     This function creates an instance of the CalorieCounter class, reads and processes the calorie data, and then prints the maximum sum of calorie groups and the sum of the three largest calorie groups.
+#     """
+#     try:
+#         calorie_counter = CalorieCounter("./puzzle-input.txt")
+#         file = calorie_counter.read_calaories()
+#         calorie_counter.process_calories(file)
 
-        ic(calorie_counter.puzzle_file_path)
-        ic(calorie_counter.max_group_sum())
-        ic(calorie_counter.sum_of_largest_three())
+#         ic(calorie_counter.puzzle_file_path)
+#         ic(calorie_counter.max_group_sum())
+#         ic(calorie_counter.sum_of_largest_three())
 
-    except (FileNotFoundError, TypeError, ValueError) as error:
-        print(f"System error: {error}")
+#     except (FileNotFoundError, TypeError, ValueError) as error:
+#         print(f"System error: {error}")
 
 
-if __name__ == "__main__":
-    """If the script is being run directly (not imported as a module), the test function is called."""
-    test()
+# if __name__ == "__main__":
+#     """If the script is being run directly (not imported as a module), the test function is called."""
+#     test()
