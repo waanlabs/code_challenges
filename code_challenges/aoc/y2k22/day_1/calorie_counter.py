@@ -25,15 +25,23 @@ class CalorieCounter:
 
     Attributes
     ----------
-    file_path : str
+    file_path: str
         The file path of the calorie data.
-    calories_sum : list
+    calories_sum: list
         A list of sums of calorie groups.
 
     Methods
     -------
-    read_and_process():
-        Reads the file and processes the calorie data.
+    @property
+    puzzle_file_path():
+        Returns the file path associated with the calorie counter.
+    @puzzle_file_path.setter
+    puzzle_file_path():
+        Set the file path for the puzzle input.
+    read_calaories():
+        Reads the file and create a list.
+    process_calories():
+        Processes the calorie data.
     max_group_sum():
         Returns the maximum sum of calorie groups.
     sum_of_largest_three():
@@ -49,7 +57,7 @@ class CalorieCounter:
 
         Parameters
         ----------
-        file_path : str
+        file_path: str
             The file path of the calorie data.
         """
         self.puzzle_file_path = file_path
@@ -73,7 +81,7 @@ class CalorieCounter:
 
         Parameters
         ----------
-        file_path : str
+        file_path: str
             The file path to set.
 
         Raises
@@ -93,7 +101,7 @@ class CalorieCounter:
 
     def read_calaories(self) -> list[Union[int | str]]:
         """
-        Reads the file and processes the calorie data.
+        Reads the file and create a list.
 
         Returns
         -------
@@ -126,12 +134,12 @@ class CalorieCounter:
 
     def process_calories(self, calories: list[Union[int | str]]) -> None:
         """
-        Processes the calorie data.
+        Processes the calorie list.
 
         parameters
         ----------
-        calories : list[int]
-            The calorie data to process.
+        calories: list[int | str]
+            list of integers or empty strings representing calorie data, or None
 
         Raises
         ------
