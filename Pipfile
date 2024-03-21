@@ -25,6 +25,7 @@ radon = "*"
 vulture = "*"
 pyroma = "*"
 pygount = "*"
+pympler = "*"
 
 [scripts]
 autoflake = "autoflake -i -r ." # remove unused codeclea
