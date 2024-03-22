@@ -14,11 +14,10 @@ Modified: 01/02/2024 by admin@waan.email
 import heapq
 import itertools
 from typing import Union
-
 from icecream import ic
+from pympler import asizeof
 
 # from pydantic import BaseModel
-from pympler import asizeof
 
 
 class CalorieCounter:

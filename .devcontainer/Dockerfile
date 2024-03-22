@@ -46,7 +46,7 @@ RUN sudo apt-get install -y software-properties-common \
     python3-venv
 
 RUN pip install --upgrade pip \
-    pip install npx \
+    pip install pipx \
     pip install pipenv \
     pip install poetry
 
