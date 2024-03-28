@@ -1,9 +1,9 @@
 """
-This module contains optimized calorie_counter solution for Advent of Code 2022 - Day 1.
-This is a class based solution for learning industrial programming practices.
+This module contains optimized solution for Advent of Code 2022 - Day 1.
+This is a class based solution for learning industrial programming.
 
 Package: code_challenges
-Subpackage: code_challenges/aoc/y2k22/day_1
+Subpackage: aoc/y2k22/day_1
 File: calorie_counter.py
 Author: Waan <admin@waan.email>
 Version: 1.0.0
@@ -69,7 +69,7 @@ class CalorieCounter:
 
         Note
         ----
-            Since Python is a GC language, this is not a must.
+            Since Python is a GC language, this is not a must and there are better use for __del__.
         """
         del self.calories_sum
         del self._file_path
@@ -91,7 +91,7 @@ class CalorieCounter:
         """
         Set the file path for the puzzle input.
 
-        Parameters
+        Parametersx
         ----------
         file_path: str
             The file path to set.
@@ -218,3 +218,7 @@ class CalorieCounter:
 #     If the script is being run directly (not imported as a module), the test function is called.
 #     """
 #     test()
+
+"""
+End of calorie_counter.py
+"""
