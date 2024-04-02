@@ -159,7 +159,9 @@ class CalorieCounter:
             If the calorie data is empty.
         """
         if not calories:
-            raise ValueError("Make sure the calories file is not empty and contains valid data.")
+            raise ValueError(
+                "Make sure the calories file is not empty and contains valid data."
+            )
 
         self.calories_sum = [
             sum(x for x in group if isinstance(x, int))

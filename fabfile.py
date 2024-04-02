@@ -139,7 +139,8 @@ def bandit(ctx: Any) -> None:
 @task
 def pytest(ctx: Any) -> None:
     """
-    Runs pytest to execute the tests in the code_challenges directory and generate a coverage report.
+    Runs pytest to execute the tests in the code_challenges directory and generate a
+    coverage report.
 
     Parameters:
     -----------
@@ -173,7 +174,7 @@ def coverage(ctx: Any) -> None:
 @task
 def check(ctx: Any) -> None:
     """
-    Runs a series of tasks to check the code quality and test coverage in the code_challenges directory.
+    Runs a series of tasks to check the code quality and test coverage in the code_challenges.
 
     Parameters:
     -----------
