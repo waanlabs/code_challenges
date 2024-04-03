@@ -16,8 +16,9 @@ import heapq
 import itertools
 from typing import Union
 
-# from icecream import ic
-# from pympler import asizeof
+from icecream import ic
+from pympler import asizeof
+
 # from pydantic import BaseModel
 
 
@@ -70,10 +71,9 @@ class CalorieCounter:
 
         Note
         ----
-            Since Python is a GC language, this is not a must and there are better use for __del__.
+            Since Python is a GC language, explicit del is not necessary.
         """
-        del self.calories_sum
-        del self._file_path
+        del self.calories_sum, self._file_path
 
     @property
     def puzzle_file_path(self) -> str:
@@ -198,32 +198,32 @@ class CalorieCounter:
         return sum(heapq.nlargest(3, self.calories_sum)) if self.calories_sum else None
 
 
-# def test() -> None:
-#     """
-#     This function creates an instance of the CalorieCounter class, reads and processes the calorie
-#     data, and then prints the maximum sum of calorie groups and the sum of the three largest
-#     calorie groups.
-#     """
-#     try:
-#         calorie_counter = CalorieCounter("./puzzle-input.txt")
-#         file = calorie_counter.read_calaories()
-#         calorie_counter.process_calories(file)
+def test() -> None:
+    """
+    This function creates an instance of the CalorieCounter class, reads and processes the calorie
+    data, and then prints the maximum sum of calorie groups and the sum of the three largest
+    calorie groups.
+    """
+    try:
+        calorie_counter = CalorieCounter("./puzzle-input.txt")
+        file = calorie_counter.read_calaories()
+        calorie_counter.process_calories(file)
 
-#         ic(calorie_counter.puzzle_file_path)
-#         ic(calorie_counter.max_group_sum())
-#         ic(calorie_counter.sum_of_largest_three())
+        ic(calorie_counter.puzzle_file_path)
+        ic(calorie_counter.max_group_sum())
+        ic(calorie_counter.sum_of_largest_three())
 
-#         print(asizeof.asized(calorie_counter, detail=1).format())
+        print(asizeof.asized(calorie_counter, detail=1).format())
 
-#     except (FileNotFoundError, TypeError, ValueError) as error:
-#         print(f"System error: {error}")
+    except (FileNotFoundError, TypeError, ValueError) as error:
+        print(f"System error: {error}")
 
 
-# if __name__ == "__main__":
-#     """
-#     If the script is being run directly (not imported as a module), the test function is called.
-#     """
-#     test()
+if __name__ == "__main__":
+    """
+    If the script is being run directly (not imported as a module), the test function is called.
+    """
+    test()
 
 """
 End of calorie_counter.py
