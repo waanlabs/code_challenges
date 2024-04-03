@@ -115,7 +115,6 @@ class CalorieCounter:
         if not os.path.exists(file_path):
             raise FileNotFoundError(f"File not found: {file_path}")
 
-
         self._file_path = file_path
 
     def read_calaories(self) -> list[Union[int | str]]:

@@ -50,7 +50,10 @@
                 "ryanluker.vscode-coverage-gutters",
                 "ms-python.black-formatter",
                 "kaih2o.python-resource-monitor",
-                "mgesbert.python-path"
+                "mgesbert.python-path",
+                "ms-python.flake8",
+                "slightc.pip-manager",
+                "ms-python.pylint"
             ]
         }
     }
