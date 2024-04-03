@@ -1,7 +1,6 @@
 """
 This module contains test case for Advent of Code (AoC) 2022 - Day 1.
 
-
 Package: code_challenges
 Subpackage: tests/y2k22/day_1
 File: test_calorie_counter.py
@@ -10,6 +9,7 @@ Version: 1.0.0
 Created: 01/12/2022
 Modified: 03/04/2024 by admin@waan.email
 """
+
 import unittest
 from code_challenges.aoc.y2k22.day_1.calorie_counter import CalorieCounter
 
@@ -113,7 +113,9 @@ class TestCalorieCounter(unittest.TestCase):
     def test_puzzle_file_path_setter_invalid_string(self) -> None:
         """
         Test case to verify the behavior of the puzzle_file_path setter when an invalid string is
-        provided. It should raise a TypeError when an invalid string is passed as the puzzle file
+        provided.
+
+        It should raise a TypeError when an invalid string is passed as the puzzle file
         path.
 
         Returns:
@@ -139,8 +141,10 @@ class TestCalorieCounter(unittest.TestCase):
 
     def test_max_group_sum(self) -> None:
         """
-        Test case for the max_group_sum method of the CalorieCounter class. It asserts that the
-        result of the max_group_sum method is equal to the expected max_group_sum value.
+        Test case for the max_group_sum method of the CalorieCounter class.
+
+        It asserts that the result of the max_group_sum method is equal to the expected
+        max_group_sum value.
 
         Returns:
             None
@@ -151,6 +155,7 @@ class TestCalorieCounter(unittest.TestCase):
         """
         Test case to verify the correctness of the sum_of_largest_three method in the
         CalorieCounter class.
+
         It asserts that the sum of the largest three elements returned by the method is equal to
         the expected sum.
 
