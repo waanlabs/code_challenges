@@ -11,6 +11,7 @@ Created: 01/12/2022
 Modified: 03/04/2024 by admin@waan.email
 """
 
+import os
 import heapq
 import itertools
 from typing import Union
@@ -102,12 +103,18 @@ class CalorieCounter:
             If the file path is an empty string.
         TypeError
             If the file path is not a string.
+        FileNotFoundError
+            If the file does not exist.
         """
         if not file_path:
             raise ValueError("File path must not be empty.")
 
         if not isinstance(file_path, str):
             raise TypeError("File path must be a string.")
+
+        if not os.path.exists(file_path):
+            raise FileNotFoundError(f"File not found: {file_path}")
+
 
         self._file_path = file_path
 
