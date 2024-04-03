@@ -1,5 +1,5 @@
 """
-This module contains optimized solution for Advent of Code 2022 - Day 1.
+This module contains optimized solution for Advent of Code (AoC) 2022 - Day 1.
 This is a class based solution for learning industrial programming.
 
 Package: code_challenges
@@ -8,7 +8,7 @@ File: calorie_counter.py
 Author: Waan <admin@waan.email>
 Version: 1.0.0
 Created: 01/12/2022
-Modified: 01/02/2024 by admin@waan.email
+Modified: 03/04/2024 by admin@waan.email
 """
 
 import heapq
@@ -22,13 +22,13 @@ from typing import Union
 
 class CalorieCounter:
     """
-    Class to count calories by reading a data file.
+    Class to output answers for AoC 2022 day-1.
 
     Attributes
     ----------
     file_path: str
         The file path of the calorie data.
-    calories_sum: list
+    calories_sum: list[int]
         A list of sums of calorie groups.
 
     Methods
