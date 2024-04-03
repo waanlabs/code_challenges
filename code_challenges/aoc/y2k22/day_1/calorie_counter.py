@@ -24,7 +24,7 @@ from pympler import asizeof
 
 class CalorieCounter:
     """
-    Class to output answers for AoC 2022 day-1.
+    A class to represent a calorie counter for Advent of Code (AoC) 2022 - Day 1.
 
     Attributes
     ----------
@@ -73,7 +73,11 @@ class CalorieCounter:
         ----
             Since Python is a GC language, explicit del is not necessary.
         """
-        del self.calories_sum, self._file_path
+        if hasattr(self, "calories_sum"):
+            del self.calories_sum
+
+        if hasattr(self, "_file_path"):
+            del self._file_path
 
     @property
     def puzzle_file_path(self) -> str:
@@ -92,7 +96,7 @@ class CalorieCounter:
         """
         Set the file path for the puzzle input.
 
-        Parametersx
+        Parameters
         ----------
         file_path: str
             The file path to set.
