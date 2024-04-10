@@ -11,9 +11,9 @@ Created: 01/12/2022
 Modified: 03/04/2024 by admin@waan.email
 """
 
-import os
 import heapq
 import itertools
+import os
 from typing import Union
 
 from icecream import ic
@@ -56,7 +56,7 @@ class CalorieCounter:
 
     def __init__(self, file_path: str) -> None:
         """
-        Constructs all the necessary attributes for the CalorieCounter object.
+        Constructs all the necessary attributes for the calorie counter object.
 
         Parameters
         ----------

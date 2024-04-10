@@ -25,11 +25,11 @@ class TestCalorieCounter(unittest.TestCase):
 
     Attributes
     ----------
-    max_group_sum : int
+    max_group_sum: int
         The expected maximum sum of calorie groups.
-    sum_of_largest_three : int
+    sum_of_largest_three: int
         The expected sum of the three largest calorie groups.
-    file_path : str
+    file_path: str
         The file path of the puzzle input.
 
     Methods
@@ -64,13 +64,14 @@ class TestCalorieCounter(unittest.TestCase):
         Set up the test environment before each test case.
 
         This method is called automatically before each test case is executed.
-        It initializes the `calorie_counter` object and reads and processes the file.
+        It initializes the `calorie_counter` object, read and processe the data file.
 
         Returns:
             None
         """
         self.calorie_counter = CalorieCounter(self.file_path)
-        self.calorie_counter.read_and_process()
+        file = self.calorie_counter.read_calaories()
+        self.calorie_counter.process_calories(file)
 
     def test_puzzle_file_path_getter(self) -> None:
         """
