@@ -10,7 +10,11 @@ LABEL version="1.0.0"
 LABEL license="MIT"
 
 # Custom settings.
+<<<<<<< HEAD
 ARG USER=waan
+=======
+ARG USER=wired
+>>>>>>> main
 ARG UID=5000
 ARG GID=5000
 ARG PROJECT=code_challenges
