@@ -1,4 +1,4 @@
-# Use Ubuntu 24.04 as the base image.
+# Use Ubuntu latest as the base image.
 FROM ubuntu:24.04
 
 # Dockblock.
@@ -68,7 +68,7 @@ USER ${USER}
 # Set the working directory.
 WORKDIR /home/${USER}/${PROJECT}
 
-# Set user and group ownership to current user.
+# Set project folder permissions to current user.
 RUN chown -R ${USER}:${USER} /home/${USER}/${PROJECT}
 
 # Define the default entry point.

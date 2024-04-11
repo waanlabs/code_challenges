@@ -20,11 +20,9 @@ class TestCalorieCounterOop(unittest.TestCase):
 
     This test case contains multiple test methods to verify the functionality of the CalorieCounter
     class. It tests various methods and attributes of the CalorieCounter class, such as the puzzle
-    file path getter, setter, read_calories, process_claories, max_group_sum, and
+    file path getter and setter, the read_and_process method, the max_group_sum method, and the
     sum_of_largest_three method.
 
-    Attributes
-    ----------
     max_group_sum: int
         The expected maximum sum of calorie groups.
     sum_of_largest_three: int
