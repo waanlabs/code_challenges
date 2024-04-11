@@ -11,9 +11,8 @@ Created: 01/12/2022
 Modified: 15/04/2024 by admin@waan.email
 """
 
-from typing import Any
-
 from fabric2 import task
+from typing import Any
 
 
 @task
