@@ -27,3 +27,14 @@ pympler = "*"
 
 [requires]
 python_version = "3.12"
+
+[scripts]
+autoflake = "autoflake -i -r ." # remove unused code
+isort = "isort code_challenges" # sort imports
+black = "black ." # format code
+flake = "flake8 ." # lint code
+pylint = "pylint code_challenges" # lint code (advance)
+mypy = "mypy code_challenges" # type check
+bandit = "bandit -r code_challenges" # security check
+pytest = "pytest --cov=code_challenges --cov-report=xml" # run tests
+coverage = "coverage report" # show coverage
