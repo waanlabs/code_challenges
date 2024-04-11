@@ -55,7 +55,6 @@ paramiko==3.4.0
 pathspec==0.12.1
 pbr==6.0.0
 pexpect==4.9.0
-pipenv==2023.12.1
 pipx==1.4.3
 pkginfo==1.10.0
 platformdirs==4.2.0

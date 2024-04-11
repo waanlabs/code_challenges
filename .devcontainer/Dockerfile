@@ -36,9 +36,6 @@ RUN apt-get update && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-# Set default pipenv verbosity to -1 to reduce noise in logs.
-ENV PIPENV_VERBOSITY=-1
-
 # Install Python packages.
 RUN apt-get update && \
     apt-get install -y python3-pip \
@@ -59,9 +56,8 @@ USER ${USER}
 # Set the working directory.
 WORKDIR /home/${USER}/${PROJECT}
 
-# Set the default shell to bash.
-SHELL ["/bin/bash", "-c"]
+# Set project folder permissions to current user.
+RUN chown -R ${USER}:${USER} /home/${USER}/${PROJECT}
 
 # Define the default entry point.
 ENTRYPOINT ["/bin/bash"]
-
