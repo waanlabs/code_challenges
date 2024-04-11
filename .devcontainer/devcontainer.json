@@ -6,12 +6,12 @@
         "args": {}
     },
     "mounts": [
-        "source=${localWorkspaceFolder},target=/home/waan/code_changes,type=bind"
+        "source=${localWorkspaceFolder},target=/home/waan/code_challenges,type=bind"
     ],
     "customizations": {
         "vscode": {
             "extensions": [
-                "aaron-bond.better-comments",
+                "aaron-boddddnd.better-comments",
                 "ms-azuretools.vscode-docker",
                 "GitHub.copilot",
                 "GitHub.copilot-chat",
@@ -50,7 +50,10 @@
                 "ryanluker.vscode-coverage-gutters",
                 "ms-python.black-formatter",
                 "kaih2o.python-resource-monitor",
-                "mgesbert.python-path"
+                "mgesbert.python-path",
+                "ms-python.flake8",
+                "slightc.pip-manager",
+                "ms-python.pylint"
             ]
         }
     }

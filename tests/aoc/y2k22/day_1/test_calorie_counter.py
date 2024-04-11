@@ -1,3 +1,15 @@
+"""
+This module contains test case for Advent of Code (AoC) 2022 - Day 1.
+
+Package: code_challenges
+Subpackage: tests/y2k22/day_1
+File: test_calorie_counter.py
+Author: Waan <admin@waan.email>
+Version: 1.0.0
+Created: 01/12/2022
+Modified: 03/04/2024 by admin@waan.email
+"""
+
 import unittest
 from code_challenges.aoc.y2k22.day_1.calorie_counter import CalorieCounter
 
@@ -6,17 +18,18 @@ class TestCalorieCounter(unittest.TestCase):
     """
     A test case for the CalorieCounter class.
 
-    This test case contains multiple test methods to verify the functionality of the CalorieCounter class.
-    It tests various methods and attributes of the CalorieCounter class, such as the puzzle file path getter and setter,
-    the read_and_process method, the max_group_sum method, and the sum_of_largest_three method.
+    This test case contains multiple test methods to verify the functionality of the CalorieCounter
+    class. It tests various methods and attributes of the CalorieCounter class, such as the puzzle
+    file path getter and setter, the read_and_process method, the max_group_sum method, and the
+    sum_of_largest_three method.
 
     Attributes
     ----------
-    max_group_sum : int
+    max_group_sum: int
         The expected maximum sum of calorie groups.
-    sum_of_largest_three : int
+    sum_of_largest_three: int
         The expected sum of the three largest calorie groups.
-    file_path : str
+    file_path: str
         The file path of the puzzle input.
 
     Methods
@@ -28,15 +41,18 @@ class TestCalorieCounter(unittest.TestCase):
     test_puzzle_file_path_setter():
         Test case to verify the setter method for the puzzle file path.
     test_puzzle_file_path_setter_empty_string():
-        Test case to verify that a ValueError is raised when an empty string is passed as the puzzle file path.
+        Test case to verify that a ValueError is raised when an empty string is passed as the
+        puzzle file path.
     test_puzzle_file_path_setter_invalid_string():
-        Test case to verify the behavior of the puzzle_file_path setter when an invalid string is provided.
+        Test case to verify the behavior of the puzzle_file_path setter when an invalid string is
+        provided.
     test_read_and_process():
         Test case to verify the functionality of the read_and_process method.
     test_max_group_sum():
         Test case for the max_group_sum method of the CalorieCounter class.
     test_sum_of_largest_three():
-        Test case to verify the correctness of the sum_of_largest_three method in the CalorieCounter class.
+        Test case to verify the correctness of the sum_of_largest_three method in the
+        CalorieCounter class.
     """
 
     max_group_sum = 67633
@@ -48,20 +64,21 @@ class TestCalorieCounter(unittest.TestCase):
         Set up the test environment before each test case.
 
         This method is called automatically before each test case is executed.
-        It initializes the `calorie_counter` object and reads and processes the file.
+        It initializes the `calorie_counter` object, read and processe the data file.
 
         Returns:
             None
         """
         self.calorie_counter = CalorieCounter(self.file_path)
-        self.calorie_counter.read_and_process()
+        file = self.calorie_counter.read_calaories()
+        self.calorie_counter.process_calories(file)
 
     def test_puzzle_file_path_getter(self) -> None:
         """
         Test case to verify the getter method for the puzzle file path.
 
-        It sets the puzzle file path using the `puzzle_file_path` attribute of the `calorie_counter` object and then
-        asserts that the getter method returns the same file path.
+        It sets the puzzle file path using the `puzzle_file_path` attribute of the
+        `calorie_counter` object and then asserts that the getter method returns the same file path.
 
         Returns:
             None
@@ -73,8 +90,8 @@ class TestCalorieCounter(unittest.TestCase):
         """
         Test case to verify the setter method for the puzzle file path.
 
-        It sets the puzzle file path using the `puzzle_file_path` property of the `calorie_counter` object and asserts
-        that the internal `_file_path` attribute is updated correctly.
+        It sets the puzzle file path using the `puzzle_file_path` property of the `calorie_counter`
+        object and asserts that the internal `_file_path` attribute is updated correctly.
 
         Returns:
             None
@@ -84,7 +101,8 @@ class TestCalorieCounter(unittest.TestCase):
 
     def test_puzzle_file_path_setter_empty_string(self) -> None:
         """
-        Test case to verify that a ValueError is raised when an empty string is passed as the puzzle file path.
+        Test case to verify that a ValueError is raised when an empty string is passed as the
+        puzzle file path.
 
         Returns:
             None
@@ -95,8 +113,11 @@ class TestCalorieCounter(unittest.TestCase):
 
     def test_puzzle_file_path_setter_invalid_string(self) -> None:
         """
-        Test case to verify the behavior of the puzzle_file_path setter when an invalid string is provided.
-        It should raise a TypeError when an invalid string is passed as the puzzle file path.
+        Test case to verify the behavior of the puzzle_file_path setter when an invalid string is
+        provided.
+
+        It should raise a TypeError when an invalid string is passed as the puzzle file
+        path.
 
         Returns:
             None
@@ -122,7 +143,9 @@ class TestCalorieCounter(unittest.TestCase):
     def test_max_group_sum(self) -> None:
         """
         Test case for the max_group_sum method of the CalorieCounter class.
-        It asserts that the result of the max_group_sum method is equal to the expected max_group_sum value.
+
+        It asserts that the result of the max_group_sum method is equal to the expected
+        max_group_sum value.
 
         Returns:
             None
@@ -131,8 +154,11 @@ class TestCalorieCounter(unittest.TestCase):
 
     def test_sum_of_largest_three(self) -> None:
         """
-        Test case to verify the correctness of the sum_of_largest_three method in the CalorieCounter class.
-        It asserts that the sum of the largest three elements returned by the method is equal to the expected sum.
+        Test case to verify the correctness of the sum_of_largest_three method in the
+        CalorieCounter class.
+
+        It asserts that the sum of the largest three elements returned by the method is equal to
+        the expected sum.
 
         Returns:
             None
@@ -144,3 +170,7 @@ class TestCalorieCounter(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+"""
+End of test_calorie_counter.py
+"""

@@ -1,60 +1,63 @@
-# Use Ubuntu latest as the base image
-FROM ubuntu:22.04
+# Use Ubuntu latest as the base image.
+FROM ubuntu:24.04
 
-# Dockblock
+# Dockblock.
 LABEL maintainer="waan<admin@waan.email>"
-LABEL description="Ubuntu 22.04 Dev Container"
+LABEL description="Ubuntu Dev Container"
 LABEL website="https://waan.io"
-LABEL upstream="https://github.com/waanlabs/code-challenges"
+LABEL origin="https://github.com/waanlabs/code-challenges"
 LABEL version="1.0.0"
 LABEL license="MIT"
 
-# Set non-interactive to avoid prompts during build
+# Custom settings.
+ARG USER=waan
+ARG UID=5000
+ARG GID=5000
+ARG PROJECT=code_challenges
+
+# Set non-interactive to avoid prompts during build.
 ENV DEBIAN_FRONTEND=noninteractive
 
-# Set the timezone to EST (Eastern Standard Time)
+# Set the timezone to EST (Eastern Standard Time).
 ENV TZ=EST
 
-# Update package lists and install sudo with minimal additional packagessou
-# Clean up in the RUN statement to keep the image size down
-RUN apt-get update \
-    && apt-get install sudo
+# Update package lists and install sudo.
+RUN apt-get update && \
+    apt-get install -y sudo && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
 
-# Create a non-root user, add to sudo group, and configure sudoers
-# Using useradd with explicit user/group IDs for consistency
-ARG USER=waan
-ARG UID=1000
-ARG GID=1000
+# Install common tools.
+RUN apt-get update && \
+    apt-get install -y software-properties-common \
+    build-essential \
+    git \
+    curl && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
+# Install Python packages.
+RUN apt-get update && \
+    apt-get install -y python3-pip \
+    python3-venv && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
+# Create a non-root user, add to sudo group, and configure sudoers.
+# Using useradd with explicit user/group IDs for consistency.
 RUN groupadd -g ${GID} ${USER} && \
     useradd -m -s /bin/bash -u ${UID} -g ${GID} ${USER} && \
-    echo "${USER} ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/${USER} && \
+    echo "${USER} ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/${USER} && \
     chmod 0440 /etc/sudoers.d/${USER}
 
-# Switch to new user in the docker image
+# Switch to new sudo user.
 USER ${USER}
 
-# Set path for Python and pip
-ENV PATH="/home/${USER}/.local/bin:${PATH}"
+# Set the working directory.
+WORKDIR /home/${USER}/${PROJECT}
 
-# Set the working directory
-WORKDIR /home/${USER}/code_challenges
+# Set project folder permissions to current user.
+RUN chown -R ${USER}:${USER} /home/${USER}/${PROJECT}
 
-# Install Python, pip and virtualenv
-RUN sudo apt-get install -y software-properties-common \
-    git \
-    python3-pip \
-    python3-venv
-
-RUN pip install --upgrade pip \
-    pip install npx \
-    pip install pipenv \
-    pip install poetry
-
-ENV PIPENV_VERBOSITY=-1
-
-RUN sudo apt-get autoremove -y \
-    && sudo apt-get clean \
-    && sudo rm -rf /var/lib/apt/lists/*
-
-# Define the default command or entry point
-CMD ["/bin/bash"]
+# Define the default entry point.
+ENTRYPOINT ["/bin/bash"]

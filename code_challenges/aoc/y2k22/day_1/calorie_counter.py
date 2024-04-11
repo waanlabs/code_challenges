@@ -1,39 +1,49 @@
 """
-This module contains optimized calorie_counter solution for Advent of Code 2022 - Day 1.
-This is a class and function/ based solution for learning industrial programming practices.
+This module contains optimized solution for Advent of Code (AoC) 2022 - Day 1.
+This is a class based solution for learning industrial programming.
 
 Package: code_challenges
-Subpackage: code_challenges/aoc/y2k22/day_1
+Subpackage: aoc/y2k22/day_1
 File: calorie_counter.py
 Author: Waan <admin@waan.email>
 Version: 1.0.0
 Created: 01/12/2022
-Modified: 01/02/2024 by admin@waan.email
+Modified: 03/04/2024 by admin@waan.email
 """
 
 import heapq
 import itertools
+import os
 from typing import Union
-from icecream import ic
 
+# from icecream import ic
+# from pympler import asizeof
 # from pydantic import BaseModel
 
 
 class CalorieCounter:
     """
-    Class to count calories by reading a data file.
+    A class to represent a calorie counter for Advent of Code (AoC) 2022 - Day 1.
 
     Attributes
     ----------
-    file_path : str
+    file_path: str
         The file path of the calorie data.
-    calories_sum : list
+    calories_sum: list[int]
         A list of sums of calorie groups.
 
     Methods
     -------
-    read_and_process():
-        Reads the file and processes the calorie data.
+    @property
+    puzzle_file_path():
+        Returns the file path associated with the calorie counter.
+    @puzzle_file_path.setter
+    puzzle_file_path():
+        Set the file path for the puzzle input.
+    read_calaories():
+        Reads the file and create a list.
+    process_calories():
+        Processes the calorie data.
     max_group_sum():
         Returns the maximum sum of calorie groups.
     sum_of_largest_three():
@@ -45,14 +55,28 @@ class CalorieCounter:
 
     def __init__(self, file_path: str) -> None:
         """
-        Constructs all the necessary attributes for the CalorieCounter object.
+        Constructs all the necessary attributes for the calorie counter object.
 
         Parameters
         ----------
-        file_path : str
+        file_path: str
             The file path of the calorie data.
         """
         self.puzzle_file_path = file_path
+
+    def __del__(self) -> None:
+        """
+        Call destructor to free up memory (C-style practice).
+
+        Note
+        ----
+            Since Python is a GC language, explicit del is not necessary.
+        """
+        if hasattr(self, "calories_sum"):
+            del self.calories_sum
+
+        if hasattr(self, "_file_path"):
+            del self._file_path
 
     @property
     def puzzle_file_path(self) -> str:
@@ -73,7 +97,7 @@ class CalorieCounter:
 
         Parameters
         ----------
-        file_path : str
+        file_path: str
             The file path to set.
 
         Raises
@@ -82,6 +106,8 @@ class CalorieCounter:
             If the file path is an empty string.
         TypeError
             If the file path is not a string.
+        FileNotFoundError
+            If the file does not exist.
         """
         if not file_path:
             raise ValueError("File path must not be empty.")
@@ -89,11 +115,14 @@ class CalorieCounter:
         if not isinstance(file_path, str):
             raise TypeError("File path must be a string.")
 
+        if not os.path.exists(file_path):
+            raise FileNotFoundError(f"File not found: {file_path}")
+
         self._file_path = file_path
 
     def read_calaories(self) -> list[Union[int | str]]:
         """
-        Reads the file and processes the calorie data.
+        Reads the file and create a list.
 
         Returns
         -------
@@ -126,12 +155,12 @@ class CalorieCounter:
 
     def process_calories(self, calories: list[Union[int | str]]) -> None:
         """
-        Processes the calorie data.
+        Processes the calorie list.
 
         parameters
         ----------
-        calories : list[int]
-            The calorie data to process.
+        calories: list[int | str]
+            list of integers or empty strings representing calorie data, or None
 
         Raises
         ------
@@ -140,7 +169,7 @@ class CalorieCounter:
         """
         if not calories:
             raise ValueError(
-                "Calorie data must not be empty, make sure the file is not empty and contains valid data."
+                "Make sure the calories file is not empty and contains valid data."
             )
 
         self.calories_sum = [
@@ -172,23 +201,36 @@ class CalorieCounter:
         return sum(heapq.nlargest(3, self.calories_sum)) if self.calories_sum else None
 
 
-def test() -> None:
-    """
-    This function creates an instance of the CalorieCounter class, reads and processes the calorie data, and then prints the maximum sum of calorie groups and the sum of the three largest calorie groups.
-    """
-    try:
-        calorie_counter = CalorieCounter("./puzzle-input.txt")
-        file = calorie_counter.read_calaories()
-        calorie_counter.process_calories(file)
+# def test() -> None:
+#     """
+#     This function creates an instance of the CalorieCounter class, reads and processes the calorie
+#     data, and then prints the maximum sum of calorie groups and the sum of the three largest
+#     calorie groups.
+#     """
+#     try:
+#         calorie_counter = CalorieCounter(
+#             "./code_challenges/aoc/y2k22/day_1/puzzle-input.txt"
+#         )
+#         file = calorie_counter.read_calaories()
+#         calorie_counter.process_calories(file)
 
-        ic(calorie_counter.puzzle_file_path)
-        ic(calorie_counter.max_group_sum())
-        ic(calorie_counter.sum_of_largest_three())
+#         ic(calorie_counter.puzzle_file_path)
+#         ic(calorie_counter.max_group_sum())
+#         ic(calorie_counter.sum_of_largest_three())
 
-    except (FileNotFoundError, TypeError, ValueError) as error:
-        print(f"System error: {error}")
+#         print(asizeof.asized(calorie_counter, detail=1).format())
+
+#     except (FileNotFoundError, TypeError, ValueError) as error:
+#         print(f"System error: {error}")
 
 
-if __name__ == "__main__":
-    """If the script is being run directly (not imported as a module), the test function is called."""
-    test()
+# if __name__ == "__main__":
+#     """
+#     If the script is being run directly (not imported as a module), the test function is called.
+#     """
+#     test()
+
+"""
+./code_challenges/aoc/y2k22/day_1/calorie_counter.py
+End of calorie_counter.py
+"""
