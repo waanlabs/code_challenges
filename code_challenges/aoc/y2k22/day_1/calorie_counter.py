@@ -209,7 +209,9 @@ def test() -> None:
     calorie groups.
     """
     try:
-        calorie_counter = CalorieCounter("./puzzle-input.txt")
+        calorie_counter = CalorieCounter(
+            "./code_challenges/aoc/y2k22/day_1/puzzle-input.txt"
+        )
         file = calorie_counter.read_calaories()
         calorie_counter.process_calories(file)
 
@@ -230,5 +232,6 @@ if __name__ == "__main__":
     test()
 
 """
+./code_challenges/aoc/y2k22/day_1/calorie_counter.py
 End of calorie_counter.py
 """
