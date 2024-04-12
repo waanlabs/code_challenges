@@ -195,13 +195,13 @@ class CalorieCounter:
 #     """
 #     This function creates an instance of the CalorieCounter class, reads and processes the calorie
 #     data, and then prints the maximum sum of calorie groups and the sum of the three largest
-#     calorie groups.d
+#     calorie groups.
 #     """
 #     try:
 #         calorie_counter = CalorieCounter(
 #             "./code_challenges/aoc/y2k22/day_1/puzzle-input.txt"
 #         )
-#         file = calorie_counter.read_calories()
+#         file = calorie_counter.read_calaories()
 #         calorie_counter.process_calories(file)
 
 #         ic(calorie_counter.puzzle_file_path)
@@ -217,13 +217,7 @@ class CalorieCounter:
 #     """
 #     If the script is being run directly (not imported as a module), the test function is called.
 #     """
-#     profiler = cProfile.Profile()
-#     profiler.enable()
 #     test()
-#     profiler.disable()
-#     profiler.print_stats(sort="time")
-#     stats = pstats.Stats(profiler).sort_stats("time")
-#     stats.dump_stats("my.prof")
 
 """
 ./code_challenges/aoc/y2k22/day_1/calorie_counter.py

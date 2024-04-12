@@ -11,7 +11,6 @@ Modified: 12/04/2024 by admin@waan.email
 """
 
 import unittest
-
 from code_challenges.aoc.y2k22.day_1.calorie_counter_oop import CalorieCounter
 
 
