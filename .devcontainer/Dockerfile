@@ -10,13 +10,9 @@ LABEL version="1.0.0"
 LABEL license="MIT"
 
 # Custom settings.
-<<<<<<< HEAD
-ARG USER=waan
-=======
 ARG USER=wired
->>>>>>> main
-ARG UID=5000
-ARG GID=5000
+ARG UID=10000
+ARG GID=10000
 ARG PROJECT=code_challenges
 
 # Set non-interactive to avoid prompts during build.
@@ -59,9 +55,6 @@ USER ${USER}
 
 # Set the working directory.
 WORKDIR /home/${USER}/${PROJECT}
-
-# Set project folder permissions to current user.
-RUN chown -R ${USER}:${USER} /home/${USER}/${PROJECT}
 
 # Define the default entry point.
 ENTRYPOINT ["/bin/bash"]

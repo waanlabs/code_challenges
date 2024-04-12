@@ -6,7 +6,7 @@
         "args": {}
     },
     "mounts": [
-        "source=${localWorkspaceFolder},target=/home/waan/code_challenges,type=bind"
+        "source=${localWorkspaceFolder},target=/home/wired/code_challenges,type=bind"
     ],
     "customizations": {
         "vscode": {
