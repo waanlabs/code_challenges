@@ -1,6 +1,9 @@
 """
 This module contains optimized solution for Advent of Code (AoC) 2022 - Day 1.
+<<<<<<< HEAD
 
+=======
+>>>>>>> dd64196 (Update.)
 This is a functional programming solution for learning industrial programming.
 
 Package: code_challenges
@@ -226,6 +229,7 @@ class CalorieCounter:
 #     If the script is being run directly (not imported as a module), the test function is called.
 #     """
 #     test()
+
 """
 ./code_challenges/aoc/y2k22/day_1/calorie_counter.py
 End of calorie_counter.py
