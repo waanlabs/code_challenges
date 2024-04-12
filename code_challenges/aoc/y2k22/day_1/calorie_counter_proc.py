@@ -200,6 +200,8 @@ class CalorieCounter:
             The sum of the three largest calorie groups or None if there are less than three groups.
         """
         return sum(heapq.nlargest(3, self.calories_sum)) if self.calories_sum else None
+
+
 # def test() -> None:
 #     """
 #     This function creates an instance of the CalorieCounter class, reads and processes the calorie
