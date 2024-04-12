@@ -50,11 +50,11 @@ RUN groupadd ${USER} && \
 # Switch to new sudo user.
 USER ${USER}
 
-# Set user and group ownership to current user.
-RUN chown -R ${USER}:${USER} /home/${USER}/${PROJECT}
-
 # Set the working directory.
 WORKDIR /home/${USER}/${PROJECT}
+
+# Set user and group ownership to current user.
+RUN chown -R ${USER}:${USER} /home/${USER}/${PROJECT}
 
 # Define the default entry point.
 ENTRYPOINT ["/bin/bash"]

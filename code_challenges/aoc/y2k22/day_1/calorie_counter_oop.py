@@ -1,6 +1,14 @@
 """
 This module contains optimized solution for Advent of Code (AoC) 2022 - Day 1.
+<<<<<<< HEAD
+<<<<<<<< HEAD:code_challenges/aoc/y2k22/day_1/calorie_counter_oop.py
 This is a object oriented solution for learning industrial programming.
+========
+This is a procedural solution for learning industrial programming.
+>>>>>>>> python:code_challenges/aoc/y2k22/day_1/calorie_counter_proc.py
+=======
+This is a object oriented solution for learning industrial programming.
+>>>>>>> python
 
 Package: code_challenges
 Subpackage: aoc/y2k22/day_1
@@ -15,7 +23,6 @@ import heapq
 import itertools
 import os
 from typing import Union
-
 
 # from icecream import ic
 # from pympler import asizeof
@@ -225,6 +232,7 @@ class CalorieCounter:
 #     If the script is being run directly (not imported as a module), the test function is called.
 #     """
 #     test()
+
 """
 ./code_challenges/aoc/y2k22/day_1/calorie_counter.py
 End of calorie_counter.py
