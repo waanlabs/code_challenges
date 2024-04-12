@@ -168,7 +168,7 @@ def coverage(ctx: Any) -> None:
     --------
     None
     """
-    ctx.run("coverage report --show-missing")
+    ctx.run("coverage report")
 
 
 @task
