@@ -43,7 +43,10 @@
         "slightc.pip-manager",
         "ms-python.pylint",
         "formulahendry.auto-rename-tag",
-        "ms-vscode.live-server"
+        "ms-vscode.live-server",
+        "ms-python.python",
+        "formulahendry.auto-close-tag",
+        "ms-vscode.test-adapter-converter"
     ],
     "unwantedRecommendations": []
 }
