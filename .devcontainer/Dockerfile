@@ -56,5 +56,7 @@ USER ${USER}
 # Set the working directory.
 WORKDIR /home/${USER}/${PROJECT}
 
+RUN sudo chown -R wired:wired /home/${USER}/${PROJECT}
+
 # Define the default entry point.
 ENTRYPOINT ["/bin/bash"]
