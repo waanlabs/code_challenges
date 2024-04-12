@@ -35,13 +35,21 @@ expand-star-imports = true
 ignore-init-module-imports = true
 remove-duplicate-keys = true
 remove-unused-variables = true
-exclude = "__init__.py"
+in-place = false
+recursive = true
+exclude = ".venv,__init__.py"
 
 [tool.isort]
+py_version = 312
 profile = "black"
+line_length = 100
+lines_before_imports = 1
+lines_after_imports = 2
+lines_between_sections = 0
+skip = [".venv", "__init__.py,"]
 
 [tool.black]
-target-version = ['py310']
+target-version = ['py312']
 exclude = "/(__init__.py|\\.git|\\.devcontainer|\\.github|\\.mypy_cache|\\.pytest_cache|\\.venv|__pycache__)/"
 
 [tool.pydocstringformatter]

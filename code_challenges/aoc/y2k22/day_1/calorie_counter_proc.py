@@ -16,6 +16,7 @@ import itertools
 import os
 from typing import Union
 
+
 # from icecream import ic
 # from pympler import asizeof
 # from pydantic import BaseModel
@@ -199,8 +200,6 @@ class CalorieCounter:
             The sum of the three largest calorie groups or None if there are less than three groups.
         """
         return sum(heapq.nlargest(3, self.calories_sum)) if self.calories_sum else None
-
-
 # def test() -> None:
 #     """
 #     This function creates an instance of the CalorieCounter class, reads and processes the calorie
@@ -213,23 +212,17 @@ class CalorieCounter:
 #         )
 #         file = calorie_counter.read_calaories()
 #         calorie_counter.process_calories(file)
-
 #         ic(calorie_counter.puzzle_file_path)
 #         ic(calorie_counter.max_group_sum())
 #         ic(calorie_counter.sum_of_largest_three())
-
 #         print(asizeof.asized(calorie_counter, detail=1).format())
-
 #     except (FileNotFoundError, TypeError, ValueError) as error:
 #         print(f"System error: {error}")
-
-
 # if __name__ == "__main__":
 #     """
 #     If the script is being run directly (not imported as a module), the test function is called.
 #     """
 #     test()
-
 """
 ./code_challenges/aoc/y2k22/day_1/calorie_counter.py
 End of calorie_counter.py
