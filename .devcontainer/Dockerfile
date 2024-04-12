@@ -68,5 +68,7 @@ USER ${USER}
 # Set the working directory.
 WORKDIR /home/${USER}/${PROJECT}
 
+RUN chown -R ${USER}:${USER} /home/${USER}/${PROJECT}
+
 # Define the default entry point.
 ENTRYPOINT ["/bin/bash"]
