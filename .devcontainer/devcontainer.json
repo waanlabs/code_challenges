@@ -6,15 +6,11 @@
         "args": {}
     },
     "mounts": [
-<<<<<<< HEAD
         "type=bind,source=${localWorkspaceFolder},target=/home/wired/code_challenges",
         "type=bind,source=\\\\wsl.localhost\\Ubuntu\\home\\wired\\.ssh,target=/home/wired/.ssh",
         "type=bind,source=\\\\wsl.localhost\\Ubuntu\\home\\wired\\.gitconfig,target=/home/wired/.gitconfig",
         "type=bind,source=\\\\wsl.localhost\\Ubuntu\\home\\wired\\.gnupg,target=/home/wired/.gnupg",
         "type=bind,source=\\\\wsl.localhost\\Ubuntu\\home\\wired\\.vimrc,target=/home/wired/.vimrc"
-=======
-        "source=${localWorkspaceFolder},target=/home/waan/code_challenges,type=bind"
->>>>>>> 2ed0236 (Latest python updates. (#4))
     ],
     "customizations": {
         "vscode": {
@@ -60,15 +56,11 @@
                 "mgesbert.python-path",
                 "ms-python.flake8",
                 "slightc.pip-manager",
-<<<<<<< HEAD
                 "ms-python.pylint",
                 "formulahendry.auto-rename-tag",
                 "formulahendry.auto-close-tag",
                 "ms-vscode.test-adapter-converter",
                 "ms-vscode.live-server"
-=======
-                "ms-python.pylint"
->>>>>>> 2ed0236 (Latest python updates. (#4))
             ]
         }
     },
