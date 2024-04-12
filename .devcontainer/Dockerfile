@@ -71,8 +71,5 @@ RUN chown -R ${USER}:${USER} /home/${USER}/${PROJECT}
 # Set the working directory.
 WORKDIR /home/${USER}/${PROJECT}
 
-# Set project folder permissions to current user.
-RUN chown -R ${USER}:${USER} /home/${USER}/${PROJECT}
-
 # Define the default entry point.
 ENTRYPOINT ["/bin/bash"]
