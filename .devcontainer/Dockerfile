@@ -1,11 +1,11 @@
-# Use Ubuntu latest as the base image.
+# Use Ubuntu 24.04 as the base image.
 FROM ubuntu:24.04
 
 # Dockblock.
 LABEL maintainer="waan<admin@waan.email>"
 LABEL description="Ubuntu Dev Container"
 LABEL website="https://waan.io"
-LABEL origin="https://github.com/waanlabs/code-challenges"
+LABEL origin="https://github.com/waanlabs/code_challenges"
 LABEL version="1.0.0"
 LABEL license="MIT"
 
@@ -50,11 +50,11 @@ RUN groupadd ${USER} && \
 # Switch to new sudo user.
 USER ${USER}
 
-# Set the working directory.
-WORKDIR /home/${USER}/${PROJECT}
-
 # Set user and group ownership to current user.
 RUN chown -R ${USER}:${USER} /home/${USER}/${PROJECT}
+
+# Set the working directory.
+WORKDIR /home/${USER}/${PROJECT}
 
 # Define the default entry point.
 ENTRYPOINT ["/bin/bash"]
