@@ -10,9 +10,7 @@ LABEL version="1.0.0"
 LABEL license="MIT"
 
 # Custom settings.
-ARG USER=waan
-ARG UID=5000
-ARG GID=5000
+ARG USER=wired
 ARG PROJECT=code_challenges
 
 # Set non-interactive to avoid prompts during build.
@@ -44,9 +42,8 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 # Create a non-root user, add to sudo group, and configure sudoers.
-# Using useradd with explicit user/group IDs for consistency.
-RUN groupadd -g ${GID} ${USER} && \
-    useradd -m -s /bin/bash -u ${UID} -g ${GID} ${USER} && \
+RUN groupadd ${USER} && \
+    useradd -m -s /bin/bash -g ${USER} ${USER} && \
     echo "${USER} ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/${USER} && \
     chmod 0440 /etc/sudoers.d/${USER}
 
@@ -56,7 +53,7 @@ USER ${USER}
 # Set the working directory.
 WORKDIR /home/${USER}/${PROJECT}
 
-# Set project folder permissions to current user.
+# Set user and group ownership to current user.
 RUN chown -R ${USER}:${USER} /home/${USER}/${PROJECT}
 
 # Define the default entry point.
