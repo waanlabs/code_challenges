@@ -15,8 +15,9 @@ import heapq
 import itertools
 import os
 from typing import Union
-from icecream import ic
-from pympler import asizeof
+
+# from icecream import ic
+# from pympler import asizeof
 
 
 class CalorieCounter:
@@ -144,8 +145,6 @@ class CalorieCounter:
             with open(self.puzzle_file_path, "r", encoding="utf-8") as file:
                 calories = [int(line) if line.strip() else "" for line in file]
 
-        except FileNotFoundError as error:
-            raise FileNotFoundError(f"File not found: {error}") from error
         except ValueError as error:
             raise ValueError(f"Invalid data: {error}") from error
 

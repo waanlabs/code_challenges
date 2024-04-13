@@ -6,8 +6,10 @@
         "args": {}
     },
     "mounts": [
-        "source=${localWorkspaceFolder},target=/home/wired/code_challenges,type=bind"
+        "source=${localWorkspaceFolder},target=/home/wired/code_challenges,type=bind",
+        "source=${localEnv:HOME}${localEnv:USERPROFILE}/.ssh,target=/home/wired/.ssh,type=bind,consistency=cached"
     ],
+    "remoteUser": "wired",
     "customizations": {
         "vscode": {
             "extensions": [
