@@ -8,7 +8,7 @@ File: calorie_counter.py
 Author: Waan <admin@waan.email>
 Version: 1.0.0
 Created: 01/12/2022
-Modified: 03/04/2024 by admin@waan.email
+Modified: 14/04/2024 by admin@waan.email
 """
 
 import heapq
