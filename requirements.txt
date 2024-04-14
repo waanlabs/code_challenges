@@ -91,11 +91,9 @@ setuptools==69.2.0
 shellingham==1.5.4
 six==1.16.0
 smmap==5.0.1
-snakeviz==2.2.0
 stevedore==5.2.0
 tomli==2.0.1
 tomlkit==0.12.4
-tornado==6.4
 trove-classifiers==2024.3.3
 typing_extensions==4.10.0
 urllib3==2.2.1
