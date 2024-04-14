@@ -6,7 +6,11 @@
         "args": {}
     },
     "mounts": [
-        "source=${localWorkspaceFolder},target=/home/wired/code_challenges,type=bind"
+        "type=bind,source=${localWorkspaceFolder},target=/home/wired/code_challenges",
+        "type=bind,source=\\\\wsl.localhost\\Ubuntu\\home\\wired\\.ssh,target=/home/wired/.ssh",
+        "type=bind,source=\\\\wsl.localhost\\Ubuntu\\home\\wired\\.gitconfig,target=/home/wired/.gitconfig",
+        "type=bind,source=\\\\wsl.localhost\\Ubuntu\\home\\wired\\.gnupg,target=/home/wired/.gnupg",
+        "type=bind,source=\\\\wsl.localhost\\Ubuntu\\home\\wired\\.vimrc,target=/home/wired/.vimrc"
     ],
     "customizations": {
         "vscode": {
@@ -59,5 +63,7 @@
                 "ms-vscode.live-server"
             ]
         }
-    }
+    },
+    "postCreateCommand": "chown -R wired:wired ~/.ssh ~/.gitconfig ~/.gnupg ~/.vimrc",
+    "remoteUser": "wired"
 }

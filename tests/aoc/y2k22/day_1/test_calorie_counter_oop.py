@@ -7,7 +7,7 @@ File: test_calorie_counter.py
 Author: Waan <admin@waan.email>
 Version: 1.0.0
 Created: 01/12/2022
-Modified: 03/04/2024 by admin@waan.email
+Modified: 12/04/2024 by admin@waan.email
 """
 
 import unittest
@@ -23,8 +23,6 @@ class TestCalorieCounterOop(unittest.TestCase):
     file path getter and setter, the read_and_process method, the max_group_sum method, and the
     sum_of_largest_three method.
 
-    Attributes
-    ----------
     max_group_sum: int
         The expected maximum sum of calorie groups.
     sum_of_largest_three: int

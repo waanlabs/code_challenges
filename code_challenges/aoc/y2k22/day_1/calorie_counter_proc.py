@@ -225,7 +225,6 @@ class CalorieCounter:
 #     If the script is being run directly (not imported as a module), the test function is called.
 #     """
 #     test()
-
 """
 ./code_challenges/aoc/y2k22/day_1/calorie_counter.py
 End of calorie_counter.py
