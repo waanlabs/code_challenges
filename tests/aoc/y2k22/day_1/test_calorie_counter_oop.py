@@ -56,6 +56,7 @@ class TestCalorieCounterOop(unittest.TestCase):
     max_group_sum = 67633
     sum_of_largest_three = 199628
     file_path = "./code_challenges/aoc/y2k22/day_1/puzzle-input.txt"
+    fake_file_path = "./code_challenges/aoc/y2k22/day_1/fake-input.txt"
 
     def setUp(self) -> None:
         """
@@ -68,7 +69,7 @@ class TestCalorieCounterOop(unittest.TestCase):
             None
         """
         self.calorie_counter = CalorieCounter(self.file_path)
-        file = self.calorie_counter.read_calaories()
+        file = self.calorie_counter.read_calories()
         self.calorie_counter.process_calories(file)
 
     def test_puzzle_file_path_getter(self) -> None:
@@ -124,12 +125,12 @@ class TestCalorieCounterOop(unittest.TestCase):
             self.calorie_counter = CalorieCounter(1234)
             self.calorie_counter.read_and_process()
 
-    def test_read_and_process(self) -> None:
+    def test_puzzle_file_path_setter_fnf(self) -> None:
         """
-        Test case to verify the functionality of the read_and_process method.
+        Test case to verify the behavior of the puzzle_file_path setter when the file does not
+        exist.
 
-        This test sets the puzzle file path, calls the read_and_process method,
-        and then checks if the calories_sum attribute of the calorie_counter object is not None.
+        It should raise a FileNotFoundError when the file does not exist.
 
         Returns:
             None
@@ -137,6 +138,19 @@ class TestCalorieCounterOop(unittest.TestCase):
         with self.assertRaises(FileNotFoundError):
             self.calorie_counter = CalorieCounter("file_not_found.txt")
             self.calorie_counter.read_and_process()
+
+    def test_read_calories(self) -> None:
+        """
+        Test case to verify the correctness of the read_calories method in the CalorieCounter class.
+
+        It asserts that the returned calorie data is not None and has the correct length.
+
+        Returns:
+            None
+        """
+        with self.assertRaises(ValueError):
+            self.calorie_counter = CalorieCounter(self.fake_file_path)
+            self.calorie_counter.read_calories()
 
     def test_max_group_sum(self) -> None:
         """

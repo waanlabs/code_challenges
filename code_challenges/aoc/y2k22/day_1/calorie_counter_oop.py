@@ -118,7 +118,7 @@ class CalorieCounter:
 
         self._file_path = file_path
 
-    def read_calaories(self) -> list[Union[int | str]]:
+    def read_calories(self) -> list[Union[int | str]]:
         """
         Reads the file and create a list.
 
@@ -137,15 +137,12 @@ class CalorieCounter:
         FileNotFoundError
             If the file is not found.
         """
-
         calories: list[Union[int | str]]
 
         try:
             with open(self.puzzle_file_path, "r", encoding="utf-8") as file:
                 calories = [int(line) if line.strip() else "" for line in file]
 
-        except FileNotFoundError as error:
-            raise FileNotFoundError(f"File not found: {error}") from error
         except ValueError as error:
             raise ValueError(f"Invalid data: {error}") from error
 
@@ -159,17 +156,7 @@ class CalorieCounter:
         ----------
         calories: list[int | str]
             list of integers or empty strings representing calorie data, or None
-
-        Raises
-        ------
-        ValueError
-            If the calorie data is empty.
         """
-        if not calories:
-            raise ValueError(
-                "Make sure the calories file is not empty and contains valid data."
-            )
-
         self.calories_sum = [
             sum(x for x in group if isinstance(x, int))
             for is_empty, group in itertools.groupby(calories, lambda x: x == "")
@@ -199,33 +186,33 @@ class CalorieCounter:
         return sum(heapq.nlargest(3, self.calories_sum)) if self.calories_sum else None
 
 
-# def test() -> None:
-#     """
-#     This function creates an instance of the CalorieCounter class, reads and processes the calorie
-#     data, and then prints the maximum sum of calorie groups and the sum of the three largest
-#     calorie groups.
-#     """
-#     try:
-#         calorie_counter = CalorieCounter(
-#             "./code_challenges/aoc/y2k22/day_1/puzzle-input.txt"
-#         )
-#         file = calorie_counter.read_calaories()
-#         calorie_counter.process_calories(file)
+def test() -> None:
+    """
+    This function creates an instance of the CalorieCounter class, reads and processes the calorie
+    data, and then prints the maximum sum of calorie groups and the sum of the three largest
+    calorie groups.
+    """
+    try:
+        calorie_counter = CalorieCounter(
+            "./code_challenges/aoc/y2k22/day_1/puzzle-input.txt"
+        )
+        file = calorie_counter.read_calories()
+        calorie_counter.process_calories(file)
 
-#         ic(calorie_counter.puzzle_file_path)
-#         ic(calorie_counter.max_group_sum())
-#         ic(calorie_counter.sum_of_largest_three())
-#         print(asizeof.asized(calorie_counter, detail=1).format())
+        ic(calorie_counter.puzzle_file_path)
+        ic(calorie_counter.max_group_sum())
+        ic(calorie_counter.sum_of_largest_three())
+        print(asizeof.asized(calorie_counter, detail=1).format())
 
-#     except (FileNotFoundError, TypeError, ValueError) as error:
-#         print(f"System error: {error}")
+    except (FileNotFoundError, TypeError, ValueError) as error:
+        print(f"System error: {error}")
 
 
-# if __name__ == "__main__":
-#     """
-#     If the script is being run directly (not imported as a module), the test function is called.
-#     """
-#     test()
+if __name__ == "__main__":
+    """
+    If the script is being run directly (not imported as a module), the test function is called.
+    """
+    test()
 
 """
 ./code_challenges/aoc/y2k22/day_1/calorie_counter.py
