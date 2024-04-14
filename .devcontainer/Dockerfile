@@ -63,9 +63,6 @@ RUN echo 'export GPG_TTY=$(tty)' >> ~/.bashrc
 # Switch to new sudo user.
 USER ${USER}
 
-# Set user and group ownership to current user.
-RUN chown -R ${USER}:${USER} /home/${USER}/${PROJECT}
-
 # Set the working directory.
 WORKDIR /home/${USER}/${PROJECT}
 
