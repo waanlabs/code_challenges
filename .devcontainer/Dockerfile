@@ -73,3 +73,5 @@ RUN chown -R ${USER}:${USER} /home/${USER}/${PROJECT}
 
 # Define the default entry point.
 ENTRYPOINT ["/bin/bash"]
+
+CMD ["./run.sh"]
