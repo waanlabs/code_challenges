@@ -11,8 +11,9 @@ Created: 01/12/2022
 Modified: 01/02/2024 by admin@waan.email
 """
 
-from fabric2 import task
 from typing import Any
+
+from fabric2 import task
 
 
 @task
@@ -20,18 +21,16 @@ def autoflake(ctx: Any) -> None:
     """
     Runs the autoflake tool to remove unused imports and variables in the code_challenges directory.
 
-    Parameters:
+    Parameters
     -----------
     ctx: Any
         The context object.
 
-    Returns:
+    Returns
     --------
     None
     """
-    ctx.run(
-        "autoflake --remove-all-unused-imports --recursive --remove-unused-variables --in-place code_challenges"
-    )
+    ctx.run("autoflake .")
 
 
 @task
@@ -39,7 +38,7 @@ def isort(ctx: Any) -> None:
     """
     Runs the isort tool to sort imports in the code_challenges directory.
 
-    Parameters:
+    Parameters
     -----------
     ctx: Any
         The context object.
@@ -48,7 +47,7 @@ def isort(ctx: Any) -> None:
     --------
     None
     """
-    ctx.run("isort code_challenges")
+    ctx.run("isort .")
 
 
 @task
@@ -168,7 +167,7 @@ def coverage(ctx: Any) -> None:
     --------
     None
     """
-    ctx.run("coverage report --show-missing")
+    ctx.run("coverage report")
 
 
 @task

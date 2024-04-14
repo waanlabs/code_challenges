@@ -1,6 +1,6 @@
 """
 This module contains optimized solution for Advent of Code (AoC) 2022 - Day 1.
-This is a class based solution for learning industrial programming.
+This is a functional programming solution for learning industrial programming.
 
 Package: code_challenges
 Subpackage: aoc/y2k22/day_1
@@ -15,6 +15,7 @@ import heapq
 import itertools
 import os
 from typing import Union
+
 
 # from icecream import ic
 # from pympler import asizeof
@@ -213,17 +214,12 @@ class CalorieCounter:
 #         )
 #         file = calorie_counter.read_calaories()
 #         calorie_counter.process_calories(file)
-
 #         ic(calorie_counter.puzzle_file_path)
 #         ic(calorie_counter.max_group_sum())
 #         ic(calorie_counter.sum_of_largest_three())
-
 #         print(asizeof.asized(calorie_counter, detail=1).format())
-
 #     except (FileNotFoundError, TypeError, ValueError) as error:
 #         print(f"System error: {error}")
-
-
 # if __name__ == "__main__":
 #     """
 #     If the script is being run directly (not imported as a module), the test function is called.

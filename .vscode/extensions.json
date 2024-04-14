@@ -8,7 +8,6 @@
         "aaron-bond.better-comments",
         "ms-python.vscode-pylance",
         "ms-python.debugpy",
-        "ms-toolsai.jupyter",
         "donjayamanne.python-environment-manager",
         "evendead.help-me-add",
         "eamodio.gitlens",
@@ -42,7 +41,12 @@
         "mgesbert.python-path",
         "ms-python.flake8",
         "slightc.pip-manager",
-        "ms-python.pylint"
+        "ms-python.pylint",
+        "formulahendry.auto-rename-tag",
+        "ms-vscode.live-server",
+        "ms-python.python",
+        "formulahendry.auto-close-tag",
+        "ms-vscode.test-adapter-converter"
     ],
     "unwantedRecommendations": []
 }

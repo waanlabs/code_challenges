@@ -1,6 +1,6 @@
 """
 This module contains optimized solution for Advent of Code (AoC) 2022 - Day 1.
-This is a class based solution for learning industrial programming.
+This is a object oriented solution for learning industrial programming.
 
 Package: code_challenges
 Subpackage: aoc/y2k22/day_1
@@ -18,7 +18,6 @@ from typing import Union
 
 # from icecream import ic
 # from pympler import asizeof
-# from pydantic import BaseModel
 
 
 class CalorieCounter:
@@ -146,8 +145,6 @@ class CalorieCounter:
             with open(self.puzzle_file_path, "r", encoding="utf-8") as file:
                 calories = [int(line) if line.strip() else "" for line in file]
 
-        except FileNotFoundError as error:
-            raise FileNotFoundError(f"File not found: {error}") from error
         except ValueError as error:
             raise ValueError(f"Invalid data: {error}") from error
 
@@ -217,7 +214,6 @@ class CalorieCounter:
 #         ic(calorie_counter.puzzle_file_path)
 #         ic(calorie_counter.max_group_sum())
 #         ic(calorie_counter.sum_of_largest_three())
-
 #         print(asizeof.asized(calorie_counter, detail=1).format())
 
 #     except (FileNotFoundError, TypeError, ValueError) as error:

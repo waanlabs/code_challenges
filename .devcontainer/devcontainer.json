@@ -6,7 +6,11 @@
         "args": {}
     },
     "mounts": [
-        "source=${localWorkspaceFolder},target=/home/wired/code_challenges,type=bind"
+        "type=bind,source=${localWorkspaceFolder},target=/home/wired/code_challenges",
+        "type=bind,source=\\\\wsl.localhost\\Ubuntu\\home\\wired\\.ssh,target=/home/wired/.ssh",
+        "type=bind,source=\\\\wsl.localhost\\Ubuntu\\home\\wired\\.gitconfig,target=/home/wired/.gitconfig",
+        "type=bind,source=\\\\wsl.localhost\\Ubuntu\\home\\wired\\.gnupg,target=/home/wired/.gnupg",
+        "type=bind,source=\\\\wsl.localhost\\Ubuntu\\home\\wired\\.vimrc,target=/home/wired/.vimrc"
     ],
     "customizations": {
         "vscode": {
@@ -19,7 +23,6 @@
                 "ms-python.vscode-pylance",
                 "ms-python.python",
                 "ms-python.debugpy",
-                "ms-toolsai.jupyter",
                 "donjayamanne.python-environment-manager",
                 "evendead.help-me-add",
                 "eamodio.gitlens",
@@ -53,8 +56,14 @@
                 "mgesbert.python-path",
                 "ms-python.flake8",
                 "slightc.pip-manager",
-                "ms-python.pylint"
+                "ms-python.pylint",
+                "formulahendry.auto-rename-tag",
+                "formulahendry.auto-close-tag",
+                "ms-vscode.test-adapter-converter",
+                "ms-vscode.live-server"
             ]
         }
-    }
+    },
+    "postCreateCommand": "chown -R wired:wired ~/.ssh ~/.gitconfig ~/.gnupg ~/.vimrc",
+    "remoteUser": "wired"
 }

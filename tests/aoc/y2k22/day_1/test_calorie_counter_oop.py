@@ -7,7 +7,7 @@ File: test_calorie_counter.py
 Author: Waan <admin@waan.email>
 Version: 1.0.0
 Created: 01/12/2022
-Modified: 03/04/2024 by admin@waan.email
+Modified: 12/04/2024 by admin@waan.email
 """
 
 import unittest
@@ -20,7 +20,7 @@ class TestCalorieCounterOop(unittest.TestCase):
 
     This test case contains multiple test methods to verify the functionality of the CalorieCounter
     class. It tests various methods and attributes of the CalorieCounter class, such as the puzzle
-    file path getter and setter, the read_and_process method, the max_group_sum method, and the
+    file path getter, setter, read_calories, process_claories, max_group_sum, and
     sum_of_largest_three method.
 
     Attributes
