@@ -35,6 +35,7 @@ RUN apt-get update && \
     vim \
     python3-pip \
     python3-venv && \
+<<<<<<< HEAD
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
@@ -47,6 +48,8 @@ RUN apt-get update && \
 # Install pinentry-tty for GPG.
 RUN apt-get update && \
     apt-get install pinentry-tty -y && \
+=======
+>>>>>>> main
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
