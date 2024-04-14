@@ -12,14 +12,13 @@ Modified: 01/02/2024 by admin@waan.email
 """
 
 from typing import Any
-
 from fabric2 import task
 
 
 @task
 def autoflake(ctx: Any) -> None:
     """
-    Runs the autoflake tool to remove unused imports and variables in the code_challenges directory.
+    Runs the autoflake tool to remove unused imports and variables.
 
     Parameters
     -----------
