@@ -74,4 +74,4 @@ RUN chown -R ${USER}:${USER} /home/${USER}/${PROJECT}
 # Define the default entry point.
 ENTRYPOINT ["/bin/bash"]
 
-CMD ["./run.sh"]
+CMD ["sh", "-c", "gpgconf --kill gpg-agent && gpg-agent --daemon"]
