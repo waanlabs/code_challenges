@@ -25,31 +25,16 @@ RUN apt-get update && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-# Install common tools.
+# Install common tools and Python packages.
 RUN apt-get update && \
     apt-get install -y software-properties-common \
     build-essential \
     git \
-    curl && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
-
-# Install Python packages.
-RUN apt-get update && \
-    apt-get install -y python3-pip \
+    curl \
+    pinentry-tty \
+    vim \
+    python3-pip \
     python3-venv && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
-
-# Install vim.
-RUN apt-get update && \
-    apt-get install -y vim && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
-
-# Install pinentry-tty for GPG.
-RUN apt-get update && \
-    apt-get install pinentry-tty -y && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
