@@ -19,9 +19,9 @@ import os
 # import pstats
 from typing import Union
 
-# from icecream import ic
-# from pympler import asizeof
-# from pydantic import BaseModel
+from icecream import ic
+from pympler import asizeof
+from pydantic import BaseModel
 
 
 class CalorieCounter:
