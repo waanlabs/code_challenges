@@ -8,16 +8,20 @@ File: calorie_counter.py
 Author: Waan <admin@waan.email>
 Version: 1.0.0
 Created: 01/12/2022
-Modified: 14/04/2024 by admin@waan.email
+Modified: 15/04/2024 by admin@waan.email
 """
 
 import heapq
 import itertools
 import os
+
+# import cProfile
+# import pstats
 from typing import Union
 
 # from icecream import ic
 # from pympler import asizeof
+# from pydantic import BaseModel
 
 
 class CalorieCounter:
@@ -213,7 +217,15 @@ class CalorieCounter:
 #     """
 #     If the script is being run directly (not imported as a module), the test function is called.
 #     """
+#     profiler = cProfile.Profile()
+#     profiler.enable()
+
 #     test()
+
+#     profiler.disable()
+#     profiler.print_stats(sort="time")
+#     stats = pstats.Stats(profiler).sort_stats("time")
+#     stats.dump_stats("my.prof")
 
 """
 ./code_challenges/aoc/y2k22/day_1/calorie_counter.py

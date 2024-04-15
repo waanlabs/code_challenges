@@ -28,6 +28,7 @@ vulture = "^2.11"
 pyroma = "^4.2"
 pygount = "^1.6.1"
 pympler = "^1.0.1"
+snakeviz = "^2.2.0"
 
 [tool.autoflake]
 remove-all-unused-imports = true

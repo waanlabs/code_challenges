@@ -24,12 +24,12 @@ vulture = "*"
 pyroma = "*"
 pygount = "*"
 pympler = "*"
+snakeviz = "*"
 
 [requires]
 python_version = "3.12"
 
 [scripts]
-autoflake = "autoflake -i -r ." # remove unused code
 isort = "isort code_challenges" # sort imports
 black = "black ." # format code
 flake = "flake8 ." # lint code
