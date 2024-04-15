@@ -29,6 +29,7 @@ jobs:
 
   isort:
     name: "Sort imports"
+    needs: autoflake
     runs-on: ubuntu-latest
 
     steps:
