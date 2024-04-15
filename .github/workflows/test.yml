@@ -1,4 +1,4 @@
-name: Test
+name: Code Cleanup
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
         - WR-54
 jobs:
   test:
-    name: "Test"
+    name: "Remove Unused Imports"
     runs-on: ubuntu-latest
 
     steps:
