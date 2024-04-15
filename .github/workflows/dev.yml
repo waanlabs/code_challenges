@@ -23,3 +23,7 @@ jobs:
 
     - name: Run autoflake
       run: autoflake .
+
+    - name: Run autoflake checkout
+      run: autoflake --check .
+
