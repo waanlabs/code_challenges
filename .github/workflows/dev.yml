@@ -4,6 +4,7 @@ on:
   push:
     branches:
         - WR-54
+
 jobs:
   autoflake:
     name: "Check for unused imports"
