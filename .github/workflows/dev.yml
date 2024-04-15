@@ -5,8 +5,8 @@ on:
     branches:
         - WR-54
 jobs:
-  test:
-    name: "Remove Unused Imports"
+  autoflake:
+    name: "Check for unused imports"
     runs-on: ubuntu-latest
 
     steps:
@@ -21,9 +21,27 @@ jobs:
     - name: Install autoflake
       run: pip install autoflake
 
-    - name: Run autoflake
-      run: autoflake .
-
-    - name: Run autoflake checkout
+    - name: Run autoflake check
       run: autoflake --check .
 
+    - name: Show autoflake results
+      run: autoflake .
+
+  isort:
+    name: "Sort imports"
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out code
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.12'
+
+    - name: Install isort
+      run: pip install isort
+
+    - name: Run isort
+      run: isort .
