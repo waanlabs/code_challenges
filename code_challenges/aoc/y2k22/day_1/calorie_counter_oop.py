@@ -16,7 +16,7 @@ import itertools
 import os
 
 # import cProfile
-# import pstats
+import pstats
 from typing import Union
 
 # from icecream import ic
