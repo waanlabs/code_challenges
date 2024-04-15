@@ -31,6 +31,7 @@ pympler = "^1.0.1"
 snakeviz = "^2.2.0"
 
 [tool.autoflake]
+check = true
 remove-all-unused-imports = true
 expand-star-imports = true
 ignore-init-module-imports = true
