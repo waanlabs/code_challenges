@@ -1,0 +1,25 @@
+name: Code Cleanup
+
+on:
+  push:
+    branches:
+        - WR-54
+jobs:
+  test:
+    name: "Remove Unused Imports"
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out code
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.12'
+
+    - name: Install autoflake
+      run: pip install autoflake
+
+    - name: Run autoflake
+      run: autoflake --remove-all-unused-imports --remove-unused-variables --in-place --recursive .
