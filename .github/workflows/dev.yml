@@ -1,4 +1,4 @@
-name: Code Cleanup
+name: Code Cleanup & Testing
 
 on:
   push:
@@ -8,6 +8,7 @@ jobs:
   autoflake:
     name: "Check for unused imports"
     runs-on: ubuntu-latest
+    environment: dev
 
     steps:
     - name: Check out code
@@ -31,6 +32,7 @@ jobs:
     name: "Sort imports"
     needs: autoflake
     runs-on: ubuntu-latest
+    environment: dev
 
     steps:
     - name: Check out code
@@ -51,6 +53,7 @@ jobs:
     name: "Format code"
     needs: isort
     runs-on: ubuntu-latest
+    environment: dev
 
     steps:
     - name: Check out code
@@ -66,3 +69,24 @@ jobs:
 
     - name: Run black
       run: black .
+
+  flake:
+    name: "Check for linting errors"
+    needs: black
+    runs-on: ubuntu-latest
+    environment: dev
+
+    steps:
+    - name: Check out code
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.12'
+
+    - name: Install flake8
+      run: pip install flake8
+
+    - name: Run flake8
+      run: flake8 .
