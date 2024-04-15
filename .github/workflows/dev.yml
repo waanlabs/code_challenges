@@ -46,3 +46,23 @@ jobs:
 
     - name: Run isort
       run: isort .
+
+  black:
+    name: "Format code"
+    needs: isort
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out code
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.12'
+
+    - name: Install black
+      run: pip install black
+
+    - name: Run black
+      run: black .
