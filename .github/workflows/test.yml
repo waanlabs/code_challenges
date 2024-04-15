@@ -3,7 +3,7 @@ name: Test
 on:
   push:
     branches:
-        - WR-52
+        - WR-54
 jobs:
   test:
     name: "Test"
