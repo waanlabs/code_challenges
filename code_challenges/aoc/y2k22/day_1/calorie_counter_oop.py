@@ -1,13 +1,13 @@
 """
-This module contains optimized solution for Advent of Code (AoC) 2022 - Day 1.
-This is a object oriented solution for learning industrial programming.
+This module contains an optimized (industrial) object oriented solution for
+Advent of Code (AoC) 2022 - Day 1.
 
 Package: code_challenges
 Subpackage: aoc/y2k22/day_1
 File: calorie_counter.py
 Author: Waan <admin@waan.email>
 Version: 1.0.0
-Created: 01/12/2022
+Created: 01/12/2022 by admin@waan.email
 Modified: 15/04/2024 by admin@waan.email
 """
 
