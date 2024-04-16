@@ -24,10 +24,10 @@ jobs:
       run: pip install autoflake
 
     - name: Run autoflake check
-      run: autoflake --check .
+      run: autoflake --check code_challenges
 
     - name: Show autoflake results
-      run: autoflake .
+      run: autoflake code_challenges
 
   isort:
     name: "Sort imports (isort)"
@@ -47,7 +47,7 @@ jobs:
       run: pip install isort
 
     - name: Run isort
-      run: isort .
+      run: isort code_challenges
 
   black:
     name: "Format code (black)"
@@ -70,7 +70,7 @@ jobs:
       run: pip install black
 
     - name: Run black
-      run: black .
+      run: black code_challenges
 
   flake:
     name: "Linter (flake8)"
@@ -91,7 +91,7 @@ jobs:
       run: pip install flake8
 
     - name: Run flake8
-      run: flake8 .
+      run: flake8 code_challenges
 
   pylint:
     name: "Static analysis (pylint)"
@@ -112,7 +112,7 @@ jobs:
       run: pip install pylint
 
     - name: Run pylint
-      run: pylint .
+      run: pylint code_challenges
 
   mypy:
     name: "Type checker (mypy)"
@@ -177,7 +177,7 @@ jobs:
       run: pip install radon
 
     - name: Run radon
-      run: radon cc -a code_challenges
+      run: radon cc -a -s code_challenges
 
   radon-mi:
     name: "Maintainability index (radon)"
@@ -198,4 +198,4 @@ jobs:
       run: pip install radon
 
     - name: Run radon
-      run: radon mi -a code_challenges
+      run: radon mi code_challenges
