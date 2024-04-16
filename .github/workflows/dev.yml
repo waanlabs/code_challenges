@@ -1,5 +1,4 @@
-name: Code cleanup
-
+name: Code Cleanup & Testing
 on:
   push:
     branches:
@@ -11,7 +10,7 @@ on:
 
 jobs:
   autoflake:
-    name: "Find unused imports (autoflake)"
+    name: "Unused Imports (Autoflake)"
     runs-on: ubuntu-latest
     environment: dev
 
@@ -27,10 +26,10 @@ jobs:
     - name: Install autoflake
       run: pip install autoflake
 
-    - name: Run check
+    - name: Run Check
       run: autoflake --check code_challenges
 
-    - name: Show results
+    - name: Show Results
       run: autoflake code_challenges
 
   isort:
