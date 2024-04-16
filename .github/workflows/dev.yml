@@ -52,7 +52,7 @@ jobs:
       run: pip install isort
 
     - name: Run isort
-      run: isort code_challenges
+      run: isort --check code_challenges
 
   black:
     name: "Format code (black)"
@@ -119,7 +119,7 @@ jobs:
       run: flake8 code_challenges
 
   pylint:
-    name: "Static analysis (pylint)"
+    name: "Static Analysis (Pylint)"
     needs: mypy
     runs-on: ubuntu-latest
     environment: dev
@@ -138,6 +138,32 @@ jobs:
 
     - name: Run pylint
       run: pylint code_challenges
+
+  test-coverage:
+    name: "Pytest and Coverage"
+    needs:
+      - pylint
+      - flake
+    runs-on: ubuntu-latest
+    environment: dev
+
+    steps:
+    - name: Check out code
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.12'
+
+    - name: Install pytest and coverage
+      run: pip install pytest coverage
+
+    - name: Run pytest
+      run: pytest --cov=code_challenges --cov-report=xml
+
+    - name: Show coverage
+      run: coverage report
 
   bandit:
     name: "Security checker (bandit)"
@@ -158,7 +184,7 @@ jobs:
       run: pip install bandit
 
     - name: Run banditd
-      run: bandit -r code_challenge
+      run: bandit -r code_challenges
 
   radon-cc:
     name: "Complexity index (radon)"
