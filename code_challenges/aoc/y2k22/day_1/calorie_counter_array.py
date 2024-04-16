@@ -1,5 +1,6 @@
 """
 This module contains optimized solution for Advent of Code (AoC) 2022 - Day 1.
+
 This is an array programming solution for learning industrial programming.
 
 Package: code_challenges
@@ -15,6 +16,7 @@ import heapq
 import itertools
 import os
 from typing import Union
+
 
 # from icecream import ic
 # from pympler import asizeof
