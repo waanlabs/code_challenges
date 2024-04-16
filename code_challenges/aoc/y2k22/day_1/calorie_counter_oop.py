@@ -2,8 +2,6 @@
 This module contains an optimized (industrial) object oriented solution for.
 Advent of Code (AoC) 2022 - Day 1.
 
-
-
 Package: code_challenges
 Subpackage: aoc/y2k22/day_1
 File: calorie_counter.py
@@ -24,6 +22,8 @@ from typing import Union
 
 # from icecream import ic
 # from pympler import asizeof
+# from pydantic import BaseModel
+
 # from pydantic import BaseModel
 
 
@@ -223,6 +223,7 @@ class CalorieCounter:
 #     profiler.print_stats(sort="time")
 #     stats = pstats.Stats(profiler).sort_stats("time")
 #     stats.dump_stats("my.prof")
+
 """
 ./code_challenges/aoc/y2k22/day_1/calorie_counter.py
 End of calorie_counter.py
