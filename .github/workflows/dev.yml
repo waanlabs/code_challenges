@@ -133,7 +133,7 @@ jobs:
       run: pip install mypy
 
     - name: Run mypy
-      run: mypy code_challenge
+      run: mypy code_challenges
 
   bandit:
     name: "Security checker (bandit)"
