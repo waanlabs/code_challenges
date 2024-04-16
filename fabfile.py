@@ -97,7 +97,7 @@ def pylint(ctx: Any) -> None:
     --------
     None
     """
-    ctx.run("pylint code_challenges")
+    ctx.run("pylint .")
 
 
 @task

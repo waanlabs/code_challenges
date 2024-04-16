@@ -30,7 +30,6 @@ snakeviz = "*"
 python_version = "3.12"
 
 [scripts]
-pylint = "pylint code_challenges" # lint code (advance)
 mypy = "mypy code_challenges" # type check
 bandit = "bandit -r code_challenges" # security check
 pytest = "pytest --cov=code_challenges --cov-report=xml" # run tests

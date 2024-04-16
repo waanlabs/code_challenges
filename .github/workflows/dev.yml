@@ -109,7 +109,28 @@ jobs:
         python-version: '3.12'
 
     - name: Install pylint
-      run: pip install pylint
+      run: pip install pylintdd
 
     - name: Run pylint
       run: pylint .
+
+  mypy:
+    name: "Run type checker (mypy)"
+    needs: flake
+    runs-on: ubuntu-latest
+    environment: dev
+
+    steps:
+    - name: Check out code
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.12'
+
+    - name: Install mypy
+      run: pip install mypy
+
+    - name: Run mypy
+      run: mypy .
