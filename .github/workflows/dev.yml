@@ -157,3 +157,24 @@ jobs:
 
     - name: Run bandit
       run: bandit -r code_challenge
+
+  radon:
+    name: "Code complexity (radon)"
+    needs: bandit
+    runs-on: ubuntu-latest
+    environment: dev
+
+    steps:
+    - name: Check out code
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.12'
+
+    - name: Install radon
+      run: pip install radon
+
+    - name: Run radon
+      run: radon cc code_challenge -a -na
