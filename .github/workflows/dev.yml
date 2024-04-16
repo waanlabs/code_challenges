@@ -31,7 +31,6 @@ jobs:
 
   isort:
     name: "Sort imports (isort)"
-    needs: autoflake
     runs-on: ubuntu-latest
     environment: dev
 
@@ -91,3 +90,24 @@ jobs:
 
     - name: Run flake8
       run: flake8 .
+
+  pylint:
+    name: "Run static analysis (pylint)"
+    needs: flake
+    runs-on: ubuntu-latest
+    environment: dev
+
+    steps:
+    - name: Check out code
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.12'
+
+    - name: Install pylint
+      run: pip install pylint
+
+    - name: Run pylint
+      run: pylint .
