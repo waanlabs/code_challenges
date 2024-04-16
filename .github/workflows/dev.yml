@@ -7,7 +7,7 @@ on:
 
 jobs:
   autoflake:
-    name: "Check for unused imports"
+    name: "Check imports (autoflake)"
     runs-on: ubuntu-latest
     environment: dev
 
@@ -30,7 +30,7 @@ jobs:
       run: autoflake .
 
   isort:
-    name: "Sort imports"
+    name: "Sort imports (isort)"
     needs: autoflake
     runs-on: ubuntu-latest
     environment: dev
@@ -51,7 +51,7 @@ jobs:
       run: isort .
 
   black:
-    name: "Format code"
+    name: "Format code (black)"
     needs: isort
     runs-on: ubuntu-latest
     environment: dev
@@ -72,7 +72,7 @@ jobs:
       run: black .
 
   flake:
-    name: "Run flake8 linter"
+    name: "Run linter (flake8)"
     needs: black
     runs-on: ubuntu-latest
     environment: dev
