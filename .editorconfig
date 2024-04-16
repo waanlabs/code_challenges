@@ -13,3 +13,6 @@ insert_final_newline = true
 
 [*.py]
 profile = black
+
+[*.yml]
+indent_size = 2

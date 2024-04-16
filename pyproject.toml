@@ -28,6 +28,7 @@ vulture = "^2.11"
 pyroma = "^4.2"
 pygount = "^1.6.1"
 pympler = "^1.0.1"
+snakeviz = "^2.2.0"
 
 [tool.autoflake]
 remove-all-unused-imports = true
@@ -50,6 +51,21 @@ skip = [".venv", "__init__.py,"]
 [tool.black]
 target-version = ['py312']
 exclude = "/(__init__.py|\\.git|\\.devcontainer|\\.github|\\.mypy_cache|\\.pytest_cache|\\.venv|__pycache__)/"
+
+[tool.flake8]
+count = true
+hang-closing = true
+max-line-length = 100
+max-doc-length = 100
+indent-size = 4
+statistics = true
+jobs = "auto"
+doctests = true
+max-complexity = 15
+extend-ignore = "W503"
+select = "E,W,F,C"
+exclude = [".git", "__pycache__", ".pytest_cache", ".venv"]
+ignore = ["E133", "W503"]
 
 [tool.pydocstringformatter]
 write = true

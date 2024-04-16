@@ -108,7 +108,7 @@ class TestCalorieCounterOop(unittest.TestCase):
         """
         with self.assertRaises(ValueError):
             self.calorie_counter = CalorieCounter("")
-            self.calorie_counter.read_and_process()
+            self.calorie_counter.read_calories()
 
     def test_puzzle_file_path_setter_invalid_string(self) -> None:
         """

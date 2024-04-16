@@ -8,7 +8,7 @@ File: calorie_counter.py
 Author: Waan <admin@waan.email>
 Version: 1.0.0
 Created: 01/12/2022
-Modified: 01/02/2024 by admin@waan.email
+Modified: 15/04/2024 by admin@waan.email
 """
 
 from typing import Any
@@ -18,7 +18,7 @@ from fabric2 import task
 @task
 def autoflake(ctx: Any) -> None:
     """
-    Runs the autoflake tool to remove unused imports and variables.
+    Runs autoflake to remove unused imports.
 
     Parameters
     -----------
@@ -97,7 +97,7 @@ def pylint(ctx: Any) -> None:
     --------
     None
     """
-    ctx.run("pylint code_challenges")
+    ctx.run("pylint .")
 
 
 @task
@@ -192,3 +192,9 @@ def check(ctx: Any) -> None:
     bandit(ctx)
     pytest(ctx)
     coverage(ctx)
+
+
+"""
+./fabfile.py
+End of fabfile.py
+"""
