@@ -51,7 +51,9 @@ jobs:
 
   black:
     name: "Format code (black)"
-    needs: isort
+    needs:
+      - autoflake
+      - isort
     runs-on: ubuntu-latest
     environment: dev
 
