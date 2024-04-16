@@ -11,7 +11,7 @@ on:
 
 jobs:
   autoflake:
-    name: "Unused imports (autoflake)"
+    name: "Find unused imports (autoflake)"
     runs-on: ubuntu-latest
     environment: dev
 
@@ -35,6 +35,7 @@ jobs:
 
   isort:
     name: "Sort imports (isort)"
+    needs: autoflake
     runs-on: ubuntu-latest
     environment: dev
 
@@ -57,7 +58,6 @@ jobs:
     name: "Format code (black)"
     needs:
       - autoflake
-      - isort
     runs-on: ubuntu-latest
     environment: dev
 
