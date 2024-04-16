@@ -177,7 +177,7 @@ jobs:
       run: pip install radon
 
     - name: Run radon
-      run: radon cc -a code_challenge
+      run: radon cc -a code_challenges
 
   radon-mi:
     name: "Maintainability index (radon)"
@@ -198,4 +198,4 @@ jobs:
       run: pip install radon
 
     - name: Run radon
-      run: radon mi -a code_challenge
+      run: radon mi -a code_challenges
