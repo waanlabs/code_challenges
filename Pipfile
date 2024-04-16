@@ -30,9 +30,6 @@ snakeviz = "*"
 python_version = "3.12"
 
 [scripts]
-isort = "isort code_challenges" # sort imports
-black = "black ." # format code
-flake = "flake8 ." # lint code
 pylint = "pylint code_challenges" # lint code (advance)
 mypy = "mypy code_challenges" # type check
 bandit = "bandit -r code_challenges" # security check
