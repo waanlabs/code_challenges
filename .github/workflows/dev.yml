@@ -133,7 +133,7 @@ jobs:
       run: pip install mypy
 
     - name: Run mypy
-      run: mypy .
+      run: mypy code_challenge
 
   bandit:
     name: "Security checker (bandit)"
@@ -155,10 +155,10 @@ jobs:
     - name: Install bandit
       run: pip install bandit
 
-    - name: Run bandit
+    - name: Run banditd
       run: bandit -r code_challenge
 
-  radon:
+  radon-cc:
     name: "Code complexity (radon)"
     needs: bandit
     runs-on: ubuntu-latest
@@ -177,4 +177,25 @@ jobs:
       run: pip install radon
 
     - name: Run radon
-      run: radon cc code_challenge -a -na
+      run: radon cc -a code_challenge
+
+  radon-mi:
+    name: "Maintainability index (radon)"
+    needs: bandit
+    runs-on: ubuntu-latest
+    environment: dev
+
+    steps:
+    - name: Check out code
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.12'
+
+    - name: Install radon
+      run: pip install radon
+
+    - name: Run radon
+      run: radon mi -a code_challenge
