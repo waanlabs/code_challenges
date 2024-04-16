@@ -1,0 +1,205 @@
+name: Code Cleanup & Testing
+
+on:
+  push:
+    branches:
+        - WR-54
+  pull_request:
+    branches:
+        - main
+        - python
+
+jobs:
+  autoflake:
+    name: "Unused imports (autoflake)"
+    runs-on: ubuntu-latest
+    environment: dev
+
+    steps:
+    - name: Check out code
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.12'
+
+    - name: Install autoflake
+      run: pip install autoflake
+
+    - name: Run autoflake check
+      run: autoflake --check code_challenges
+
+    - name: Show autoflake results
+      run: autoflake code_challenges
+
+  isort:
+    name: "Sort imports (isort)"
+    runs-on: ubuntu-latest
+    environment: dev
+
+    steps:
+    - name: Check out code
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.12'
+
+    - name: Install isort
+      run: pip install isort
+
+    - name: Run isort
+      run: isort code_challenges
+
+  black:
+    name: "Format code (black)"
+    needs:
+      - autoflake
+      - isort
+    runs-on: ubuntu-latest
+    environment: dev
+
+    steps:
+    - name: Check out code
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.12'
+
+    - name: Install black
+      run: pip install black
+
+    - name: Run black
+      run: black code_challenges
+
+  flake:
+    name: "Linter (flake8)"
+    needs: black
+    runs-on: ubuntu-latest
+    environment: dev
+
+    steps:
+    - name: Check out code
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.12'
+
+    - name: Install flake8
+      run: pip install flake8
+
+    - name: Run flake8
+      run: flake8 code_challenges
+
+  pylint:
+    name: "Static analysis (pylint)"
+    needs: flake
+    runs-on: ubuntu-latest
+    environment: dev
+
+    steps:
+    - name: Check out code
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.12'
+
+    - name: Install pylint
+      run: pip install pylint
+
+    - name: Run pylint
+      run: pylint code_challenges
+
+  mypy:
+    name: "Type checker (mypy)"
+    needs: flake
+    runs-on: ubuntu-latest
+    environment: dev
+
+    steps:
+    - name: Check out code
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.12'
+
+    - name: Install mypy
+      run: pip install mypy
+
+    - name: Run mypy
+      run: mypy code_challenges
+
+  bandit:
+    name: "Security checker (bandit)"
+    needs:
+      - pylint
+      - mypy
+    runs-on: ubuntu-latest
+    environment: dev
+
+    steps:
+    - name: Check out code
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.12'
+
+    - name: Install bandit
+      run: pip install bandit
+
+    - name: Run banditd
+      run: bandit -r code_challenge
+
+  radon-cc:
+    name: "Code complexity (radon)"
+    needs: bandit
+    runs-on: ubuntu-latest
+    environment: dev
+
+    steps:
+    - name: Check out code
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.12'
+
+    - name: Install radon
+      run: pip install radon
+
+    - name: Run radon
+      run: radon cc -a -s code_challenges
+
+  radon-mi:
+    name: "Maintainability index (radon)"
+    needs: bandit
+    runs-on: ubuntu-latest
+    environment: dev
+
+    steps:
+    - name: Check out code
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.12'
+
+    - name: Install radon
+      run: pip install radon
+
+    - name: Run radon
+      run: radon mi code_challenges
