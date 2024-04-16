@@ -1,7 +1,7 @@
+*.lock
 .cache
 .coverage
-*.lock
+.mypy_cache
 .pytest_cache
 __pycache__
 .venv
-/backup
