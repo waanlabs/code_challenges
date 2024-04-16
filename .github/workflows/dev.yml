@@ -53,33 +53,11 @@ jobs:
     - name: Run isort
       run: isort code_challenges
 
-  mypy:
-    name: "Type checker (mypy)"
+  black:
+    name: "Format code (black)"
     needs:
       - autoflake
       - isort
-
-    runs-on: ubuntu-latest
-    environment: dev
-
-    steps:
-      - name: Check out code
-        uses: actions/checkout@v4
-
-      - name: Set up Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: '3.12'
-
-      - name: Install mypy
-        run: pip install mypy
-
-      - name: Run mypy
-        run: mypy code_challenges
-
-  black:
-    name: "Format code (black)"
-    needs: mypy
     runs-on: ubuntu-latest
     environment: dev
 
@@ -97,6 +75,27 @@ jobs:
 
     - name: Run black
       run: black code_challenges
+
+  mypy:
+    name: "Type checker (mypy)"
+    needs: black
+    runs-on: ubuntu-latest
+    environment: dev
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.12'
+
+      - name: Install mypy
+        run: pip install mypy
+
+      - name: Run mypy
+        run: mypy code_challenges
 
   flake:
     name: "Linter (flake8)"
@@ -121,7 +120,7 @@ jobs:
 
   pylint:
     name: "Static analysis (pylint)"
-    needs: black
+    needs: mypy
     runs-on: ubuntu-latest
     environment: dev
 
