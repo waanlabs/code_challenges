@@ -7,7 +7,7 @@ on:
 
 jobs:
   autoflake:
-    name: "Check imports (autoflake)"
+    name: "Unused imports (autoflake)"
     runs-on: ubuntu-latest
     environment: dev
 
@@ -73,7 +73,7 @@ jobs:
       run: black .
 
   flake:
-    name: "Run linter (flake8)"
+    name: "Linter (flake8)"
     needs: black
     runs-on: ubuntu-latest
     environment: dev
@@ -94,7 +94,7 @@ jobs:
       run: flake8 .
 
   pylint:
-    name: "Run static analysis (pylint)"
+    name: "Static analysis (pylint)"
     needs: flake
     runs-on: ubuntu-latest
     environment: dev
@@ -115,7 +115,7 @@ jobs:
       run: pylint .
 
   mypy:
-    name: "Run type checker (mypy)"
+    name: "Type checker (mypy)"
     needs: flake
     runs-on: ubuntu-latest
     environment: dev
@@ -134,3 +134,26 @@ jobs:
 
     - name: Run mypy
       run: mypy .
+
+  bandit:
+    name: "Security checker (bandit)"
+    needs:
+      - pylint
+      - mypy
+    runs-on: ubuntu-latest
+    environment: dev
+
+    steps:
+    - name: Check out code
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.12'
+
+    - name: Install bandit
+      run: pip install bandit
+
+    - name: Run bandit
+      run: bandit -r code_challenge
