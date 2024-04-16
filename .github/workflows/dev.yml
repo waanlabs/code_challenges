@@ -70,7 +70,7 @@ jobs:
       run: pip install black
 
     - name: Run black
-      run: black code_challenges
+      run: black --check code_challenges
 
   mypy:
     name: "Type checker (mypy)"
