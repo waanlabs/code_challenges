@@ -49,7 +49,7 @@ lines_after_imports = 2
 skip = [".venv", "__init__.py,"]
 
 [tool.pydocstringformatter]
-write = true
+write = false
 exclude = ".venv"
 strip-whitespaces = true
 split-summary-body = false
