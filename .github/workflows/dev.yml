@@ -72,7 +72,7 @@ jobs:
       run: black .
 
   flake:
-    name: "Check for linting errors"
+    name: "Run flake8 linter"
     needs: black
     runs-on: ubuntu-latest
     environment: dev
