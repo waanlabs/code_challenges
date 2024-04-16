@@ -48,6 +48,12 @@ lines_before_imports = 1
 lines_after_imports = 2
 skip = [".venv", "__init__.py,"]
 
+[tool.pydocstringformatter]
+write = true
+exclude = ".venv"
+strip-whitespaces = true
+split-summary-body = false
+
 [tool.black]
 target-version = ['py312']
 exclude = "/(__init__.py|\\.git|\\.devcontainer|\\.github|\\.mypy_cache|\\.pytest_cache|\\.venv|__pycache__)/"
@@ -66,9 +72,6 @@ extend-ignore = "W503"
 select = "E,W,F,C"
 exclude = [".git", "__pycache__", ".pytest_cache", ".venv"]
 ignore = ["E133", "W503"]
-
-[tool.pydocstringformatter]
-write = true
 
 [build-system]
 requires = ["poetry-core"]

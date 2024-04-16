@@ -9,6 +9,26 @@ on:
         - python
 
 jobs:
+  pydocstringformatter:
+    name: "Format docblock (pydocstringformatter)"
+    runs-on: ubuntu-latest
+    environment: dev
+
+    steps:
+    - name: Check out code
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.12'
+
+    - name: Install pydocstringformatter
+      run: pip install pydocstringformatter
+
+    - name: Run pydocstringformatter
+      run: pydocstringformatter code_challenges
+
   autoflake:
     name: "Unused imports (autoflake)"
     runs-on: ubuntu-latest
