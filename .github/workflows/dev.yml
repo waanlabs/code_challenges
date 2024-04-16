@@ -10,7 +10,7 @@ on:
 
 jobs:
   autoflake:
-    name: "Unused Imports (Autoflake)"
+    name: "Unused imports (autoflake)"
     runs-on: ubuntu-latest
     environment: dev
 
@@ -26,11 +26,8 @@ jobs:
     - name: Install autoflake
       run: pip install autoflake
 
-    - name: Run Check
+    - name: Run autoflake
       run: autoflake --check code_challenges
-
-    - name: Show Results
-      run: autoflake code_challenges
 
   isort:
     name: "Sort imports (isort)"
