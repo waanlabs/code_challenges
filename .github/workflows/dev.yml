@@ -1,4 +1,4 @@
-name: Code Cleanup & Testing
+name: Code cleanup
 
 on:
   push:
@@ -27,10 +27,10 @@ jobs:
     - name: Install autoflake
       run: pip install autoflake
 
-    - name: Run autoflake check
+    - name: Run check
       run: autoflake --check code_challenges
 
-    - name: Show autoflake results
+    - name: Show results
       run: autoflake code_challenges
 
   isort:
@@ -164,7 +164,9 @@ jobs:
 
   radon-cc:
     name: "Code complexity (radon)"
-    needs: bandit
+    needs:
+      - black
+      - bandit
     runs-on: ubuntu-latest
     environment: dev
 
@@ -185,7 +187,9 @@ jobs:
 
   radon-mi:
     name: "Maintainability index (radon)"
-    needs: bandit
+    needs:
+      - black
+      - bandit
     runs-on: ubuntu-latest
     environment: dev
 
