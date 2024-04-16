@@ -53,11 +53,33 @@ jobs:
     - name: Run isort
       run: isort code_challenges
 
-  black:
-    name: "Format code (black)"
+  mypy:
+    name: "Type checker (mypy)"
     needs:
       - autoflake
       - isort
+
+    runs-on: ubuntu-latest
+    environment: dev
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.12'
+
+      - name: Install mypy
+        run: pip install mypy
+
+      - name: Run mypy
+        run: mypy code_challenges
+
+  black:
+    name: "Format code (black)"
+    needs: mypy
     runs-on: ubuntu-latest
     environment: dev
 
@@ -78,7 +100,7 @@ jobs:
 
   flake:
     name: "Linter (flake8)"
-    needs: black
+    needs: mypy
     runs-on: ubuntu-latest
     environment: dev
 
@@ -99,7 +121,7 @@ jobs:
 
   pylint:
     name: "Static analysis (pylint)"
-    needs: black
+    needs: mypy
     runs-on: ubuntu-latest
     environment: dev
 
@@ -118,32 +140,11 @@ jobs:
     - name: Run pylint
       run: pylint code_challenges
 
-  mypy:
-    name: "Type checker (mypy)"
-    needs: black
-    runs-on: ubuntu-latest
-    environment: dev
-
-    steps:
-    - name: Check out code
-      uses: actions/checkout@v4
-
-    - name: Set up Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: '3.12'
-
-    - name: Install mypy
-      run: pip install mypy
-
-    - name: Run mypy
-      run: mypy code_challenges
-
   bandit:
     name: "Security checker (bandit)"
     needs:
+      - flake
       - pylint
-      - mypy
     runs-on: ubuntu-latest
     environment: dev
 
@@ -165,7 +166,8 @@ jobs:
   radon-cc:
     name: "Code complexity (radon)"
     needs:
-      - black
+      - flake
+      - pylint
     runs-on: ubuntu-latest
     environment: dev
 
@@ -187,7 +189,8 @@ jobs:
   radon-mi:
     name: "Maintainability index (radon)"
     needs:
-      - black
+      - flake
+      - pylint
     runs-on: ubuntu-latest
     environment: dev
 
