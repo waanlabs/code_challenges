@@ -1,5 +1,5 @@
 """
-This module contains an optimized (industrial) object oriented solution for.
+This module contains an optimized (industrial) object oriented solution for
 Advent of Code (AoC) 2022 - Day 1.
 
 Package: code_challenges
@@ -21,6 +21,8 @@ from typing import Union
 
 # from icecream import ic
 # from pympler import asizeof
+
+# from pydantic import BaseModel
 
 
 class CalorieCounter:
@@ -190,11 +192,11 @@ class CalorieCounter:
         return sum(heapq.nlargest(3, self.calories_sum)) if self.calories_sum else None
 
 
-# def test() -> None:
+# def test() -> None:d
 #     """
 #     This function creates an instance of the CalorieCounter class, reads and processes the calorie
 #     data, and then prints the maximum sum of calorie groups and the sum of the three largest
-#     calorie groups.
+#     calorie groups.d
 #     """
 #     try:
 #         calorie_counter = CalorieCounter(
@@ -216,7 +218,15 @@ class CalorieCounter:
 #     """
 #     If the script is being run directly (not imported as a module), the test function is called.
 #     """
+#     profiler = cProfile.Profile()
+#     profiler.enable()
+
 #     test()
+
+#     profiler.disable()
+#     profiler.print_stats(sort="time")
+#     stats = pstats.Stats(profiler).sort_stats("time")
+#     stats.dump_stats("my.prof")
 
 """
 ./code_challenges/aoc/y2k22/day_1/calorie_counter.py

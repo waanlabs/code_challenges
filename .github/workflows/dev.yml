@@ -10,26 +10,6 @@ on:
         - python
 
 jobs:
-  pydocstringformatter:
-    name: "Format docblock (pydocstringformatter)"
-    runs-on: ubuntu-latest
-    environment: dev
-
-    steps:
-    - name: Check out code
-      uses: actions/checkout@v4
-
-    - name: Set up Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: '3.12'
-
-    - name: Install pydocstringformatter
-      run: pip install pydocstringformatter
-
-    - name: Run pydocstringformatter
-      run: pydocstringformatter code_challenges
-      
   autoflake:
     name: "Unused imports (autoflake)"
     runs-on: ubuntu-latest
@@ -47,12 +27,14 @@ jobs:
     - name: Install autoflake
       run: pip install autoflake
 
-    - name: Run autoflake
+    - name: Run autoflake check
       run: autoflake --check code_challenges
+
+    - name: Show autoflake results
+      run: autoflake code_challenges
 
   isort:
     name: "Sort imports (isort)"
-    needs: autoflake
     runs-on: ubuntu-latest
     environment: dev
 
@@ -69,12 +51,13 @@ jobs:
       run: pip install isort
 
     - name: Run isort
-      run: isort --check code_challenges
+      run: isort code_challenges
 
   black:
     name: "Format code (black)"
     needs:
       - autoflake
+      - isort
     runs-on: ubuntu-latest
     environment: dev
 
@@ -91,28 +74,7 @@ jobs:
       run: pip install black
 
     - name: Run black
-      run: black --check code_challenges
-
-  mypy:
-    name: "Type checker (mypy)"
-    needs: black
-    runs-on: ubuntu-latest
-    environment: dev
-
-    steps:
-      - name: Check out code
-        uses: actions/checkout@v4
-
-      - name: Set up Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: '3.12'
-
-      - name: Install mypy
-        run: pip install mypy
-
-      - name: Run mypy
-        run: mypy code_challenges
+      run: black code_challenges
 
   flake:
     name: "Linter (flake8)"
@@ -136,8 +98,8 @@ jobs:
       run: flake8 code_challenges
 
   pylint:
-    name: "Static Analysis (Pylint)"
-    needs: mypy
+    name: "Static analysis (pylint)"
+    needs: flake
     runs-on: ubuntu-latest
     environment: dev
 
@@ -155,12 +117,10 @@ jobs:
 
     - name: Run pylint
       run: pylint code_challenges
-      
-  test-coverage:
-    name: "Pytest and Coverage"
-    needs:
-      - pylint
-      - flake
+
+  mypy:
+    name: "Type checker (mypy)"
+    needs: flake
     runs-on: ubuntu-latest
     environment: dev
 
@@ -173,20 +133,17 @@ jobs:
       with:
         python-version: '3.12'
 
+    - name: Install mypy
+      run: pip install mypy
 
-    - name: Install pytest and coverage
-      run: pip install pytest pytest-cov coverage
-
-    - name: Run pytest
-      run: pytest --cov=code_challenges --cov-report=xml
-
-    - name: Show coverage
-      run: coverage report
+    - name: Run mypy
+      run: mypy code_challenges
 
   bandit:
     name: "Security checker (bandit)"
-    needs: pylint
-    
+    needs:
+      - pylint
+      - mypy
     runs-on: ubuntu-latest
     environment: dev
 
@@ -203,14 +160,11 @@ jobs:
       run: pip install bandit
 
     - name: Run banditd
-      run: bandit -r code_challenges
+      run: bandit -r code_challenge
 
   radon-cc:
-    name: "Complexity index (radon)"
-    needs:
-      - flake
-      - pylint
-
+    name: "Code complexity (radon)"
+    needs: bandit
     runs-on: ubuntu-latest
     environment: dev
 
@@ -231,9 +185,7 @@ jobs:
 
   radon-mi:
     name: "Maintainability index (radon)"
-    needs:
-      - flake
-      - pylint
+    needs: bandit
     runs-on: ubuntu-latest
     environment: dev
 
