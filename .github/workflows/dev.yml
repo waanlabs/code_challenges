@@ -166,7 +166,6 @@ jobs:
     name: "Code complexity (radon)"
     needs:
       - black
-      - bandit
     runs-on: ubuntu-latest
     environment: dev
 
@@ -189,7 +188,6 @@ jobs:
     name: "Maintainability index (radon)"
     needs:
       - black
-      - bandit
     runs-on: ubuntu-latest
     environment: dev
 
