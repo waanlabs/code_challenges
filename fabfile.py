@@ -11,9 +11,25 @@ Created: 01/12/2022
 Modified: 15/04/2024 by admin@waan.email
 """
 
+from fabric2 import task
 from typing import Any
 
-from fabric2 import task
+
+@task
+def pydocstringformatter(ctx: Any) -> None:
+    """
+    Runs the pydocstringformatter tool to format the docstrings in the code_challenges directory.
+
+    Parameters
+    -----------
+    ctx: Any
+        The context object.
+
+    Returns
+    --------
+    None
+    """
+    ctx.run("pydocstringformatter .")
 
 
 @task
@@ -48,23 +64,6 @@ def isort(ctx: Any) -> None:
     None
     """
     ctx.run("isort .")
-
-
-@task
-def pydocstringformatter(ctx: Any) -> None:
-    """
-    Runs the pydocstringformatter tool to format the docstrings in the code_challenges directory.
-
-    Parameters
-    -----------
-    ctx: Any
-        The context object.
-
-    Returns
-    --------
-    None
-    """
-    ctx.run("pydocstringformatter .")
 
 
 @task

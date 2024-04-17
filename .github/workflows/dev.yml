@@ -4,6 +4,7 @@ on:
   push:
     branches:
         - WR-54
+
   pull_request:
     branches:
         - main
