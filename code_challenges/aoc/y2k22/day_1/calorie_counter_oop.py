@@ -1,5 +1,5 @@
 """
-This module contains an optimized (industrial) object oriented solution for.
+This module contains an optimized (industrial) object oriented solution for
 Advent of Code (AoC) 2022 - Day 1.
 
 Package: code_challenges
@@ -16,7 +16,7 @@ import itertools
 import os
 
 # import cProfile
-# import pstats
+# import pstatsdd
 from typing import Union
 
 
