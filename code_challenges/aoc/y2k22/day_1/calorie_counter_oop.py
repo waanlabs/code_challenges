@@ -224,6 +224,7 @@ class CalorieCounter:
 #     stats = pstats.Stats(profiler).sort_stats("time")
 #     stats.dump_stats("my.prof")
 
+
 """
 ./code_challenges/aoc/y2k22/day_1/calorie_counter.py
 End of calorie_counter.py
