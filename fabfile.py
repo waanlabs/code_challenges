@@ -1,6 +1,5 @@
 """
-This module contains optimized solution for Advent of Code 2022 - Day 1.
-This is a class based solution for learning industrial programming.
+This module.
 
 Package: code_challenges
 Subpackage: aoc/y2k22/day_1
