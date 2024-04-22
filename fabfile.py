@@ -28,7 +28,7 @@ def pydocstringformatter(ctx: Any) -> None:
     --------
     None
     """
-    ctx.run("pydocstringformatter code_challenges")
+    ctx.run("pydocstringformatter .")
 
 
 @task
@@ -36,7 +36,7 @@ def autoflake(ctx: Any) -> None:
     """
     Runs autoflake to remove unused imports.
 
-    Parameters
+    Parametersd
     -----------
     ctx: Any
         The context object.
