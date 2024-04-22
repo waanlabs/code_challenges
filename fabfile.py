@@ -1,5 +1,5 @@
 """
-This module.
+#TODO Add a description of the module here.
 
 Package: code_challenges
 Subpackage: aoc/y2k22/day_1
@@ -49,7 +49,7 @@ def autoflake(ctx: Any) -> None:
 
 
 @task
-def isort(ctx: Any) -> None:
+def isort(ctx: Any) -> None:d
     """
     Runs the isort tool to sort imports in the code_challenges directory.
 
