@@ -17,7 +17,7 @@ from typing import Any
 @task
 def pydocstringformatter(ctx: Any) -> None:
     """
-    Runs the pydocstringformatter tool to format the docstrings in the code_challenges directory.
+    Runs the pydocstringformatter tool to format the docblock.
 
     Parameters
     -----------
@@ -199,6 +199,7 @@ def check(ctx: Any) -> None:
     --------
     None
     """
+    pydocstringformatter(ctx)
     autoflake(ctx)
     isort(ctx)
     black(ctx)
