@@ -30,6 +30,12 @@ pygount = "^1.6.1"
 pympler = "^1.0.1"
 snakeviz = "^2.2.0"
 
+[tool.pydocstringformatter]
+write = true
+exclude = ["**/.venv/**"]
+strip-whitespaces = true
+split-summary-body = false
+
 [tool.autoflake]
 remove-all-unused-imports = true
 expand-star-imports = true
@@ -47,12 +53,6 @@ line_length = 100
 lines_before_imports = 1
 lines_after_imports = 2
 skip = [".venv", "__init__.py"]
-
-[tool.pydocstringformatter]
-write = true
-exclude = [".venv"]
-strip-whitespaces = true
-split-summary-body = false
 
 [tool.black]
 target-version = ['py312']
