@@ -49,7 +49,7 @@ def autoflake(ctx: Any) -> None:
 
 
 @task
-def isort(ctx: Any) -> None:
+def isort(ctx: Any) -> None:d
     """
     Runs the isort tool to sort imports in the code_challenges directory.
 
