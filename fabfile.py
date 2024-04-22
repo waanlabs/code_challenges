@@ -1,5 +1,5 @@
 """
-This module.
+#TODO Add a description of the module here.
 
 Package: code_challenges
 Subpackage: aoc/y2k22/day_1
@@ -36,7 +36,7 @@ def autoflake(ctx: Any) -> None:
     """
     Runs autoflake to remove unused imports.
 
-    Parameters
+    Parametersd
     -----------
     ctx: Any
         The context object.
