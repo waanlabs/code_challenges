@@ -28,7 +28,7 @@ def pydocstringformatter(ctx: Any) -> None:
     --------
     None
     """
-    ctx.run("pydocstringformatter .")
+    ctx.run("pydocstringformatter code_challenges")
 
 
 @task

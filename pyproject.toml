@@ -46,11 +46,11 @@ profile = "black"
 line_length = 100
 lines_before_imports = 1
 lines_after_imports = 2
-skip = [".venv", "__init__.py,"]
+skip = [".venv", "__init__.py"]
 
 [tool.pydocstringformatter]
-write = false
-exclude = ".venv"
+write = true
+exclude = [".venv"]
 strip-whitespaces = true
 split-summary-body = false
 
