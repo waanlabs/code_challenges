@@ -6,7 +6,7 @@ Subpackage: aoc/y2k22/day_1
 File: calorie_counter.py
 Author: Waan <admin@waan.email>
 Version: 1.0.0
-Created: 01/12/2022
+Created: 01/12/2022 by admin@waan.email
 Modified: 15/04/2024 by admin@waan.email
 """
 
