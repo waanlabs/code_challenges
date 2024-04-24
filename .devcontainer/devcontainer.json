@@ -60,7 +60,8 @@
                 "formulahendry.auto-rename-tag",
                 "formulahendry.auto-close-tag",
                 "ms-vscode.test-adapter-converter",
-                "ms-vscode.live-server"
+                "ms-vscode.live-server",
+                "PeterSteiner.pip-installer"
             ]
         }
     },

@@ -46,7 +46,8 @@
         "ms-vscode.live-server",
         "ms-python.python",
         "formulahendry.auto-close-tag",
-        "ms-vscode.test-adapter-converter"
+        "ms-vscode.test-adapter-converter",
+        "petersteiner.pip-installer"
     ],
     "unwantedRecommendations": []
 }

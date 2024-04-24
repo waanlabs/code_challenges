@@ -20,12 +20,12 @@ def pydocstringformatter(ctx: Any) -> None:
     Runs the pydocstringformatter tool to format the docblock.
 
     Parameters
-    -----------
+    ----------
     ctx: Any
         The context object.
 
     Returns
-    --------
+    -------
     None
     """
     ctx.run("pydocstringformatter .")
@@ -42,7 +42,7 @@ def autoflake(ctx: Any) -> None:
         The context object.
 
     Returns
-    --------
+    -------
     None
     """
     ctx.run("autoflake .")
@@ -54,12 +54,12 @@ def isort(ctx: Any) -> None:
     Runs the isort tool to sort imports in the code_challenges directory.
 
     Parameters
-    -----------
+    ----------
     ctx: Any
         The context object.
 
     Returns
-    --------
+    -------
     None
     """
     ctx.run("isort .")
@@ -70,13 +70,13 @@ def black(ctx: Any) -> None:
     """
     Runs the black tool to format the code in the code_challenges directory.
 
-    Parameters:
-    -----------
+    Parameters
+    ----------
     ctx: Any
         The context object.
 
-    Returns:
-    --------
+    Returns
+    -------
     None
     """
     ctx.run("black .")
@@ -87,13 +87,13 @@ def flake(ctx: Any) -> None:
     """
     Runs the flake8 tool to check for PEP 8 compliance in the code_challenges directory.
 
-    Parameters:
-    -----------
+    Parameters
+    ----------
     ctx: Any
         The context object.
 
-    Returns:
-    --------
+    Returns
+    -------
     None
     """
     ctx.run("flake8 .")
@@ -104,13 +104,13 @@ def pylint(ctx: Any) -> None:
     """
     Runs the pylint tool to perform static code analysis on the code_challenges directory.
 
-    Parameters:
-    -----------
+    Parameters
+    ----------
     ctx: Any
         The context object.
 
-    Returns:
-    --------
+    Returns
+    -------
     None
     """
     ctx.run("pylint .")
@@ -121,13 +121,13 @@ def mypy(ctx: Any) -> None:
     """
     Runs the mypy tool to perform static type checking on the code_challenges directory.
 
-    Parameters:
-    -----------
+    Parameters
+    ----------
     ctx: Any
         The context object.
 
-    Returns:
-    --------
+    Returns
+    -------
     None
     """
     ctx.run("mypy code_challenges")
@@ -138,13 +138,13 @@ def bandit(ctx: Any) -> None:
     """
     Runs the bandit tool to perform security analysis on the code_challenges directory.
 
-    Parameters:
-    -----------
+    Parameters
+    ----------
     ctx: Any
         The context object.
 
-    Returns:
-    --------
+    Returns
+    -------
     None
     """
     ctx.run("bandit -r code_challenges")
@@ -156,13 +156,13 @@ def pytest(ctx: Any) -> None:
     Runs pytest to execute the tests in the code_challenges directory and generate a
     coverage report.
 
-    Parameters:
-    -----------
+    Parameters
+    ----------
     ctx: Any
         The context object.
 
-    Returns:
-    --------
+    Returns
+    -------
     None
     """
     ctx.run("pytest --cov=code_challenges --cov-report=xml")
@@ -173,13 +173,13 @@ def coverage(ctx: Any) -> None:
     """
     Runs coverage to generate a coverage report for the code_challenges directory.
 
-    Parameters:
-    -----------
+    Parameters
+    ----------
     ctx: Any
         The context object.
 
-    Returns:
-    --------
+    Returns
+    -------
     None
     """
     ctx.run("coverage report")
@@ -190,13 +190,13 @@ def check(ctx: Any) -> None:
     """
     Runs a series of tasks to check the code quality and test coverage in the code_challenges.
 
-    Parameters:
-    -----------
+    Parameters
+    ----------
     ctx: Any
         The context object.
 
-    Returns:
-    --------
+    Returns
+    -------
     None
     """
     pydocstringformatter(ctx)
