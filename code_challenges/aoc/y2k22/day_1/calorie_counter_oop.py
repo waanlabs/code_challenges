@@ -69,7 +69,7 @@ class CalorieCounter:
 
     def __del__(self) -> None:
         """
-        Call destructor to free up memory (C-style practice).
+        Call destructor to free up memory (C-style).
 
         Note
         ----
