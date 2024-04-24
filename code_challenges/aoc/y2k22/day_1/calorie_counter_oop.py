@@ -14,15 +14,12 @@ Modified: 15/04/2024 by admin@waan.email
 import heapq
 import itertools
 import os
-
-# import cProfile
-# import pstatsdd
+import gc
+import cProfile
+import pstats
 from typing import Union
-
-
-# from icecream import ic
-# from pympler import asizeof
-# from pydantic import BaseModel
+from icecream import ic
+from pympler import asizeof
 
 # from pydantic import BaseModel
 
@@ -210,12 +207,16 @@ class CalorieCounter:
 #         ic(calorie_counter.max_group_sum())
 #         ic(calorie_counter.sum_of_largest_three())
 #         print(asizeof.asized(calorie_counter, detail=1).format())
+
 #     except (FileNotFoundError, TypeError, ValueError) as error:
 #         print(f"System error: {error}")
+
+
 # if __name__ == "__main__":
 #     """
 #     If the script is being run directly (not imported as a module), the test function is called.
 #     """
+#     gc.disable()
 #     profiler = cProfile.Profile()
 #     profiler.enable()
 #     test()
@@ -223,7 +224,7 @@ class CalorieCounter:
 #     profiler.print_stats(sort="time")
 #     stats = pstats.Stats(profiler).sort_stats("time")
 #     stats.dump_stats("my.prof")
-
+#     gc.enable()
 
 """
 ./code_challenges/aoc/y2k22/day_1/calorie_counter.py
