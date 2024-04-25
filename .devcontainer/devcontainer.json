@@ -61,7 +61,8 @@
                 "formulahendry.auto-close-tag",
                 "ms-vscode.test-adapter-converter",
                 "ms-vscode.live-server",
-                "PeterSteiner.pip-installer"
+                "ms-python.isort",
+                "njqdev.vscode-python-typehint"
             ]
         }
     },

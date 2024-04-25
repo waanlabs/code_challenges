@@ -47,7 +47,8 @@
         "ms-python.python",
         "formulahendry.auto-close-tag",
         "ms-vscode.test-adapter-converter",
-        "petersteiner.pip-installer"
+        "ms-python.isort",
+        "njqdev.vscode-python-typehint"
     ],
     "unwantedRecommendations": []
 }
