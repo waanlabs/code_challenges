@@ -48,7 +48,8 @@
         "formulahendry.auto-close-tag",
         "ms-vscode.test-adapter-converter",
         "ms-python.isort",
-        "njqdev.vscode-python-typehint"
+        "njqdev.vscode-python-typehint",
+        "almenon.arepl"
     ],
     "unwantedRecommendations": []
 }

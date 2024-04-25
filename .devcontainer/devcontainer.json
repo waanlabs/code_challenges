@@ -62,7 +62,8 @@
                 "ms-vscode.test-adapter-converter",
                 "ms-vscode.live-server",
                 "ms-python.isort",
-                "njqdev.vscode-python-typehint"
+                "njqdev.vscode-python-typehint",
+                "almenon.arepl"
             ]
         }
     },
