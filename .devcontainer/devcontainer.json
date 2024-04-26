@@ -7,15 +7,16 @@
     },
     "mounts": [
         "type=bind,source=${localWorkspaceFolder},target=/home/wired/code_challenges",
-        "type=bind,source=\\\\wsl.localhost\\Ubuntu\\home\\wired\\.ssh,target=/home/wired/.ssh",
-        "type=bind,source=\\\\wsl.localhost\\Ubuntu\\home\\wired\\.gitconfig,target=/home/wired/.gitconfig",
-        "type=bind,source=\\\\wsl.localhost\\Ubuntu\\home\\wired\\.gnupg,target=/home/wired/.gnupg",
-        "type=bind,source=\\\\wsl.localhost\\Ubuntu\\home\\wired\\.vimrc,target=/home/wired/.vimrc"
+        "type=bind,source=/Users/wired/.vimrc,target=/home/wired/.vimrc"
+        // "type=bind,source=\\\\wsl.localhost\\Ubuntu\\home\\wired\\.ssh,target=/home/wired/.ssh",
+        // "type=bind,source=\\\\wsl.localhost\\Ubuntu\\home\\wired\\.gitconfig,target=/home/wired/.gitconfig",
+        // "type=bind,source=\\\\wsl.localhost\\Ubuntu\\home\\wired\\.gnupg,target=/home/wired/.gnupg",
+        // "type=bind,source=\\\\wsl.localhost\\Ubuntu\\home\\wired\\.vimrc,target=/home/wired/.vimrc"
     ],
     "customizations": {
         "vscode": {
             "extensions": [
-                "aaron-boddddnd.better-comments",
+                "aaron-bond.better-comments",
                 "ms-azuretools.vscode-docker",
                 "GitHub.copilot",
                 "GitHub.copilot-chat",
@@ -67,6 +68,6 @@
             ]
         }
     },
-    "postCreateCommand": "chown -R wired:wired ~/.ssh ~/.gitconfig ~/.gnupg ~/.vimrc",
+    "postCreateCommand": "chown -R wired:wired ~/.ssh ~/.gitconfig ~/.gnupg ~/.vimrc && gpgconf --kill gpg-agent && gpg-agent --daemon",
     "remoteUser": "wired"
 }
