@@ -164,7 +164,7 @@ class CalorieCounter:
         """
         self.calories_sum = [
             sum(x for x in group if isinstance(x, int))
-            for is_empty, group in itertools.groupby(calories, lambda x: x == "")
+            for is_empty, group in itertools.groupby(lambda x: x == "", calories)
             if not is_empty
         ]
 
