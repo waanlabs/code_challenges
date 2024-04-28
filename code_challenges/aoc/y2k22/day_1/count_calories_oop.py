@@ -1,14 +1,13 @@
 """
-This module contains an optimized (industrial) object oriented solution for
-Advent of Code (AoC) 2022 - Day 1.
+This module contains an optimized object oriented solution for Advent of Code (AoC) 2022 - Day 1.
 
 Package: code_challenges
 Subpackage: aoc/y2k22/day_1
-File: calorie_counter.py
+File: count_calories_oop.py
 Author: Waan <admin@waan.email>
 Version: 1.0.0
 Created: 01/12/2022 by admin@waan.email
-Modified: 15/04/2024 by admin@waan.email
+Modified: 28/04/2024 by admin@waan.email
 """
 
 import heapq
@@ -24,7 +23,7 @@ from typing import Union
 # from pydantic import BaseModel
 
 
-class CalorieCounter:
+class CountCalories:
     """
     A class to represent a calorie counter for Advent of Code (AoC) 2022 - Day 1.
 
@@ -77,8 +76,10 @@ class CalorieCounter:
         """
         if hasattr(self, "calories_sum"):
             del self.calories_sum
+            print("Deleted __del__.calories_sum")
 
         if hasattr(self, "_file_path"):
+            print("Deleted __del__._file_path")
             del self._file_path
 
     @property
@@ -123,6 +124,17 @@ class CalorieCounter:
 
         self._file_path = file_path
 
+    @puzzle_file_path.deleter
+    def puzzle_file_path(self) -> None:
+        """
+        Delete the file path associated with the calorie counter.
+
+        Note
+        ----
+            This method is not necessary since the destructor is called automatically.
+        """
+        del self._file_path
+
     def read_calories(self) -> list[Union[int | str]]:
         """
         Reads the file and create a list.
@@ -164,7 +176,7 @@ class CalorieCounter:
         """
         self.calories_sum = [
             sum(x for x in group if isinstance(x, int))
-            for is_empty, group in itertools.groupby(lambda x: x == "", calories)
+            for is_empty, group in itertools.groupby(calories, lambda x: x == "")
             if not is_empty
         ]
 
@@ -194,18 +206,20 @@ class CalorieCounter:
 # def test() -> None:
 #     """
 #     This function creates an instance of the CalorieCounter class, reads and processes the calorie
-#     data, and then prints the maximum sum of calorie groups and the sum of the three largest
+#     data, and then prints the sum of  maximum calories group  and the sum of the three largest
 #     calorie groups.
 #     """
 #     try:
-#         calorie_counter = CalorieCounter(
+#         count_calories = CountCalories(
 #             "./code_challenges/aoc/y2k22/day_1/puzzle-input.txt"
 #         )
-#         file = calorie_counter.read_calories()
-#         calorie_counter.process_calories(file)
+#         calories_list = count_calories.read_calories()
+#         ic(calories_list)
+#         calorie_counter.process_calories(calorie_list)
 #         ic(calorie_counter.puzzle_file_path)
 #         ic(calorie_counter.max_group_sum())
 #         ic(calorie_counter.sum_of_largest_three())
+#         del calorie_counter.puzzle_file_path
 #         print(asizeof.asized(calorie_counter, detail=1).format())
 
 #     except (FileNotFoundError, TypeError, ValueError) as error:
