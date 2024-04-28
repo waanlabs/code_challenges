@@ -18,7 +18,8 @@ from typing import Union
 # import gc
 # import cProfile
 # import pstats
-# from icecream import ic
+from icecream import ic
+
 # from pympler import asizeof
 # from pydantic import BaseModel
 
@@ -221,23 +222,30 @@ def test() -> None:
         del count_calories.puzzle_file_path
         print(asizeof.asized(count_calories, detail=1).format())
 
-#     except (FileNotFoundError, TypeError, ValueError) as error:
-#         print(f"System error: {error}")
+        # calorie_counter.process_calories(calorie_list)
+        # ic(calorie_counter.puzzle_file_path)
+        # ic(calorie_counter.max_group_sum())
+        # ic(calorie_counter.sum_of_largest_three())
+        # del calorie_counter.puzzle_file_path
+        # print(asizeof.asized(calorie_counter, detail=1).format())
+
+    except (FileNotFoundError, TypeError, ValueError) as error:
+        print(f"System error: {error}")
 
 
-# if __name__ == "__main__":
-#     """
-#     If the script is being run directly (not imported as a module), the test function is called.
-#     """
-#     gc.disable()
-#     profiler = cProfile.Profile()
-#     profiler.enable()
-#     test()
-#     profiler.disable()
-#     profiler.print_stats(sort="time")
-#     stats = pstats.Stats(profiler).sort_stats("time")
-#     stats.dump_stats("my.prof")
-#     gc.enable()
+if __name__ == "__main__":
+    """
+    If the script is being run directly (not imported as a module), the test function is called.
+    """
+    # gc.disable()
+    # profiler = cProfile.Profile()
+    # profiler.enable()
+    test()
+    # profiler.disable()
+    # profiler.print_stats(sort="time")
+    # stats = pstats.Stats(profiler).sort_stats("time")
+    # stats.dump_stats("my.prof")
+    # gc.enable()
 
 """
 Path: code_challenges/aoc/y2k22/day_1/calorie_counter.py
