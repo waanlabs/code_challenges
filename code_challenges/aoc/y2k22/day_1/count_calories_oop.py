@@ -1,14 +1,13 @@
 """
-This module contains an optimized (industrial) object oriented solution for
-Advent of Code (AoC) 2022 - Day 1.
+This module contains an optimized object oriented solution for Advent of Code (AoC) 2022 - Day 1.
 
 Package: code_challenges
 Subpackage: aoc/y2k22/day_1
-File: calorie_counter.py
+File: count_calories_oop.py
 Author: Waan <admin@waan.email>
 Version: 1.0.0
 Created: 01/12/2022 by admin@waan.email
-Modified: 15/04/2024 by admin@waan.email
+Modified: 28/04/2024 by admin@waan.email
 """
 
 import heapq
@@ -19,12 +18,13 @@ from typing import Union
 # import gc
 # import cProfile
 # import pstats
-# from icecream import ic
+from icecream import ic
+
 # from pympler import asizeof
 # from pydantic import BaseModel
 
 
-class CalorieCounter:
+class CountCalories:
     """
     A class to represent a calorie counter for Advent of Code (AoC) 2022 - Day 1.
 
@@ -77,8 +77,10 @@ class CalorieCounter:
         """
         if hasattr(self, "calories_sum"):
             del self.calories_sum
+            print("Deleted __del__.calories_sum")
 
         if hasattr(self, "_file_path"):
+            print("Deleted __del__._file_path")
             del self._file_path
 
     @property
@@ -122,6 +124,17 @@ class CalorieCounter:
             raise FileNotFoundError(f"File not found: {file_path}")
 
         self._file_path = file_path
+
+    @puzzle_file_path.deleter
+    def puzzle_file_path(self) -> None:
+        """
+        Delete the file path associated with the calorie counter.
+
+        Note
+        ----
+            This method is not necessary since the destructor is called automatically.
+        """
+        del self._file_path
 
     def read_calories(self) -> list[Union[int | str]]:
         """
@@ -191,40 +204,43 @@ class CalorieCounter:
         return sum(heapq.nlargest(3, self.calories_sum)) if self.calories_sum else None
 
 
-# def test() -> None:
-#     """
-#     This function creates an instance of the CalorieCounter class, reads and processes the calorie
-#     data, and then prints the maximum sum of calorie groups and the sum of the three largest
-#     calorie groups.
-#     """
-#     try:
-#         calorie_counter = CalorieCounter(
-#             "./code_challenges/aoc/y2k22/day_1/puzzle-input.txt"
-#         )
-#         file = calorie_counter.read_calories()
-#         calorie_counter.process_calories(file)
-#         ic(calorie_counter.puzzle_file_path)
-#         ic(calorie_counter.max_group_sum())
-#         ic(calorie_counter.sum_of_largest_three())
-#         print(asizeof.asized(calorie_counter, detail=1).format())
+def test() -> None:
+    """
+    This function creates an instance of the CalorieCounter class, reads and processes the calorie
+    data, and then prints the sum of  maximum calories group  and the sum of the three largest
+    calorie groups.
+    """
+    try:
+        count_calories = CountCalories(
+            "./code_challenges/aoc/y2k22/day_1/puzzle-input.txt"
+        )
+        calories_list = count_calories.read_calories()
+        ic(calories_list)
 
-#     except (FileNotFoundError, TypeError, ValueError) as error:
-#         print(f"System error: {error}")
+        # calorie_counter.process_calories(calorie_list)
+        # ic(calorie_counter.puzzle_file_path)
+        # ic(calorie_counter.max_group_sum())
+        # ic(calorie_counter.sum_of_largest_three())
+        # del calorie_counter.puzzle_file_path
+        # print(asizeof.asized(calorie_counter, detail=1).format())
+
+    except (FileNotFoundError, TypeError, ValueError) as error:
+        print(f"System error: {error}")
 
 
-# if __name__ == "__main__":
-#     """
-#     If the script is being run directly (not imported as a module), the test function is called.
-#     """
-#     gc.disable()
-#     profiler = cProfile.Profile()
-#     profiler.enable()
-#     test()
-#     profiler.disable()
-#     profiler.print_stats(sort="time")
-#     stats = pstats.Stats(profiler).sort_stats("time")
-#     stats.dump_stats("my.prof")
-#     gc.enable()
+if __name__ == "__main__":
+    """
+    If the script is being run directly (not imported as a module), the test function is called.
+    """
+    # gc.disable()
+    # profiler = cProfile.Profile()
+    # profiler.enable()
+    test()
+    # profiler.disable()
+    # profiler.print_stats(sort="time")
+    # stats = pstats.Stats(profiler).sort_stats("time")
+    # stats.dump_stats("my.prof")
+    # gc.enable()
 
 """
 ./code_challenges/aoc/y2k22/day_1/calorie_counter.py
