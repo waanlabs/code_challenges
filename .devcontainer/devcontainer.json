@@ -75,6 +75,6 @@
             ]
         }
     },
-    "postCreateCommand": "chown -R wired:wired ~/.ssh ~/.gitconfig ~/.gnupg ~/.vimrc && gpgconf --kill gpg-agent && gpg-agent --daemon",
+    "postCreateCommand": "chown -R wired:wired ~/.ssh ~/.gitconfig ~/.gnupg ~/.vimrc",
     "remoteUser": "wired"
 }
