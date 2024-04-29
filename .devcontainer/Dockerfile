@@ -65,14 +65,12 @@ USER ${USER}
 # Install pyenv and set env.
 RUN curl https://pyenv.run | bash
 
-RUN echo '\n' && \
-    echo 'export PATH="$HOME/.pyenv/bin:$PATH"' >> $HOME/.profile && \
+RUN echo 'export PATH="$HOME/.pyenv/bin:$PATH"' >> $HOME/.profile && \
     echo 'eval "$(pyenv init --path)"' >> $HOME/.profile && \
     echo 'eval "$(pyenv virtualenv-init -)"' >> $HOME/.profile
 
 # Add TTY to .bashrc for GPG.
-RUN echo '\n' && \
-    echo 'export GPG_TTY=$(tty)' >> ~/.profile
+RUN echo 'export GPG_TTY=$(tty)' >> ~/.profile
 
 # Set the working directory.
 WORKDIR /home/${USER}/${PROJECT}
