@@ -49,7 +49,9 @@
         "ms-vscode.test-adapter-converter",
         "ms-python.isort",
         "njqdev.vscode-python-typehint",
-        "almenon.arepl"
+        "almenon.arepl",
+        "timonwong.shellcheck",
+        "rogalmic.bash-debug"
     ],
     "unwantedRecommendations": []
 }
