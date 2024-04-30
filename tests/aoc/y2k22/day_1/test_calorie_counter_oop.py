@@ -12,10 +12,10 @@ Modified: 12/04/2024 by admin@waan.email
 
 import unittest
 
-from code_challenges.aoc.y2k22.day_1.count_calories_oop import CalorieCounter
+from code_challenges.aoc.y2k22.day_1.count_calories_oop import CountCalories
 
 
-class TestCalorieCounterOop(unittest.TestCase):
+class TestCountCaloriesOop(unittest.TestCase):
     """
     A test case for the CalorieCounter class.
 
@@ -69,9 +69,7 @@ class TestCalorieCounterOop(unittest.TestCase):
         Returns:
             None
         """
-        self.calorie_counter = CalorieCounter(self.file_path)
-        file = self.calorie_counter.read_calories()
-        self.calorie_counter.process_calories(file)
+        self.count_calories = CountCalories(self.file_path)
 
     def test_puzzle_file_path_getter(self) -> None:
         """
@@ -83,8 +81,7 @@ class TestCalorieCounterOop(unittest.TestCase):
         Returns:
             None
         """
-        self.calorie_counter.puzzle_file_path = self.file_path
-        self.assertEqual(self.calorie_counter.puzzle_file_path, self.file_path)
+        self.assertEqual(self.count_calories.puzzle_file_path, self.file_path)
 
     def test_puzzle_file_path_setter(self) -> None:
         """
@@ -96,8 +93,7 @@ class TestCalorieCounterOop(unittest.TestCase):
         Returns:
             None
         """
-        self.calorie_counter.puzzle_file_path = self.file_path
-        self.assertEqual(self.calorie_counter._file_path, self.file_path)
+        self.assertEqual(self.count_calories._file_path, self.file_path)
 
     def test_puzzle_file_path_setter_empty_string(self) -> None:
         """
@@ -108,10 +104,10 @@ class TestCalorieCounterOop(unittest.TestCase):
             None
         """
         with self.assertRaises(ValueError):
-            self.calorie_counter = CalorieCounter("")
-            self.calorie_counter.read_calories()
+            self.count_calories = CountCalories("")
+            self.count_calories.read_calories()
 
-    def test_puzzle_file_path_setter_invalid_string(self) -> None:
+    def test_puzzle_file_path_setter_invalid_type(self) -> None:
         """
         Test case to verify the behavior of the puzzle_file_path setter when an invalid string is
         provided.
@@ -123,8 +119,8 @@ class TestCalorieCounterOop(unittest.TestCase):
             None
         """
         with self.assertRaises(TypeError):
-            self.calorie_counter = CalorieCounter(1234)
-            self.calorie_counter.read_and_process()
+            self.count_calories = CountCalories(1234)
+            self.count_calories.read_and_process()
 
     def test_puzzle_file_path_setter_fnf(self) -> None:
         """
@@ -137,10 +133,32 @@ class TestCalorieCounterOop(unittest.TestCase):
             None
         """
         with self.assertRaises(FileNotFoundError):
-            self.calorie_counter = CalorieCounter("file_not_found.txt")
-            self.calorie_counter.read_and_process()
+            self.count_calories = CountCalories("file_not_found.txt")
+            self.count_calories.read_calories()
 
-    def test_read_calories(self) -> None:
+    def test_puzzle_file_path_deleter(self) -> None:
+        """
+        Test case to verify the behavior of the puzzle_file_path deleter.
+
+        It asserts that the `_file_path` attribute is deleted after calling the deleter method.
+
+        Returns:
+            None
+        """
+        del self.count_calories.puzzle_file_path
+        self.assertFalse(hasattr(self.count_calories, "_file_path"))
+
+    def test_read_calories(self):
+        calories_list = self.count_calories.read_calories()
+
+        # Check that each item in the list is either an int or an empty string
+        for item in calories_list:
+            self.assertTrue(isinstance(item, int) or item == "")
+
+        # Check that calories is a list
+        self.assertIsInstance(calories_list, list)
+
+    def test_read_calories_invalid_data(self) -> None:
         """
         Test case to verify the correctness of the read_calories method in the CalorieCounter class.
 
@@ -150,8 +168,8 @@ class TestCalorieCounterOop(unittest.TestCase):
             None
         """
         with self.assertRaises(ValueError):
-            self.calorie_counter = CalorieCounter(self.fake_file_path)
-            self.calorie_counter.read_calories()
+            self.count_calories = CountCalories(self.fake_file_path)
+            self.count_calories.read_calories()
 
     def test_max_group_sum(self) -> None:
         """
@@ -163,7 +181,10 @@ class TestCalorieCounterOop(unittest.TestCase):
         Returns:
             None
         """
-        self.assertEqual(self.calorie_counter.max_group_sum(), self.max_group_sum)
+        self.count_calories = CountCalories(self.file_path)
+        calories_list = self.count_calories.read_calories()
+        self.count_calories.process_calories(calories_list)
+        self.assertEqual(self.count_calories.max_group_sum(), self.max_group_sum)
 
     def test_sum_of_largest_three(self) -> None:
         """
@@ -176,8 +197,10 @@ class TestCalorieCounterOop(unittest.TestCase):
         Returns:
             None
         """
+        calories_list = self.count_calories.read_calories()
+        self.count_calories.process_calories(calories_list)
         self.assertEqual(
-            self.calorie_counter.sum_of_largest_three(), self.sum_of_largest_three
+            self.count_calories.sum_of_largest_three(), self.sum_of_largest_three
         )
 
 
