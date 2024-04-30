@@ -46,18 +46,18 @@ RUN apt-get update && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-# Create a non-root user, add to sudo group, and configure sudoers.
-RUN groupadd ${USER} && \
-    useradd -m -s /bin/bash -g ${USER} ${USER} && \
-    echo "${USER} ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/${USER} && \
-    chmod 0440 /etc/sudoers.d/${USER}
-
 # Setup UTF-8 locale and set env.
 RUN sed -i '/^#.* en_US.UTF-8 UTF-8/s/^#//' /etc/locale.gen && \
     locale-gen en_US.UTF-8
 
 ENV LANG en_US.UTF-8
 ENV LC_ALL en_US.UTF-8
+
+# Create a non-root user, add to sudo group, and configure sudoers.
+RUN groupadd ${USER} && \
+    useradd -m -s /bin/bash -g ${USER} ${USER} && \
+    echo "${USER} ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/${USER} && \
+    chmod 0440 /etc/sudoers.d/${USER}
 
 # Switch to new sudo user.
 USER ${USER}
