@@ -19,37 +19,39 @@ ENV DEBIAN_FRONTEND=noninteractive
 # Set the timezone to EST (Eastern Standard Time).
 ENV TZ=EST
 
-# Update package lists and install sudo.
+# Install required packages.
 RUN apt-get update && \
-    apt-get install -y sudo && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
-
-# Install common tools and Python packages.
-RUN apt-get update && \
-    apt-get install -y software-properties-common \
+    apt-get install -y sudo \
+    software-properties-common \
     build-essential \
-    bash-completion \
+    make \
+    wget \
     git \
     curl \
-    pinentry-tty \
     vim \
-    python3-pip \
-    python3-venv && \
+    llvm \
+    locales \
+    libssl-dev \
+    zlib1g-dev \
+    libbz2-dev \
+    libreadline-dev \
+    libsqlite3-dev \
+    libncurses-dev \
+    xz-utils \
+    tk-dev \
+    libffi-dev \
+    liblzma-dev \
+    libssl-dev \
+    libffi-dev && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-# Install vim.
-RUN apt-get update && \
-    apt-get install -y vim && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
+# Setup UTF-8 locale and set env.
+RUN sed -i '/^#.* en_US.UTF-8 UTF-8/s/^#//' /etc/locale.gen && \
+    locale-gen en_US.UTF-8
 
-# Install pinentry-tty for GPG.
-RUN apt-get update && \
-    apt-get install pinentry-tty -y && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
+ENV LANG en_US.UTF-8
+ENV LC_ALL en_US.UTF-8
 
 # Create a non-root user, add to sudo group, and configure sudoers.
 RUN groupadd ${USER} && \
@@ -57,11 +59,18 @@ RUN groupadd ${USER} && \
     echo "${USER} ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/${USER} && \
     chmod 0440 /etc/sudoers.d/${USER}
 
-# Add TTY to .bashrc for GPG.
-RUN echo 'export GPG_TTY=$(tty)' >> ~/.bashrc
-
 # Switch to new sudo user.
 USER ${USER}
+
+# Install pyenv and set env.
+RUN curl https://pyenv.run | bash
+
+RUN echo 'export PATH="$HOME/.pyenv/bin:$PATH"' >> $HOME/.profile && \
+    echo 'eval "$(pyenv init --path)"' >> $HOME/.profile && \
+    echo 'eval "$(pyenv virtualenv-init -)"' >> $HOME/.profile
+
+# Add TTY to .bashrc for GPG.
+RUN echo 'export GPG_TTY=$(tty)' >> ~/.profile
 
 # Set the working directory.
 WORKDIR /home/${USER}/${PROJECT}
@@ -69,5 +78,5 @@ WORKDIR /home/${USER}/${PROJECT}
 # Set user and group ownership to current user.
 RUN sudo chown -R ${USER}:${USER} /home/${USER}/${PROJECT}
 
-# Define the default entry point.
+# Bash as default entry point.
 ENTRYPOINT ["/bin/bash"]

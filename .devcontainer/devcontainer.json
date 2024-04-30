@@ -64,7 +64,10 @@
                 "ms-vscode.live-server",
                 "ms-python.isort",
                 "njqdev.vscode-python-typehint",
-                "almenon.arepl"
+                "almenon.arepl",
+                "mads-hartmann.bash-ide-vscode",
+                "timonwong.shellcheck",
+                "rogalmic.bash-debug"
             ]
         }
     },
