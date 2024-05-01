@@ -67,7 +67,8 @@
                 "almenon.arepl",
                 "mads-hartmann.bash-ide-vscode",
                 "timonwong.shellcheck",
-                "rogalmic.bash-debug"
+                "rogalmic.bash-debug",
+                "adpyke.codesnap"
             ]
         }
     },
