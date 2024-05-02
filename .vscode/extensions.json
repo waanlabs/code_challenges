@@ -51,7 +51,8 @@
         "njqdev.vscode-python-typehint",
         "almenon.arepl",
         "timonwong.shellcheck",
-        "rogalmic.bash-debug"
+        "rogalmic.bash-debug",
+        "adpyke.codesnap"
     ],
     "unwantedRecommendations": []
 }
