@@ -47,7 +47,7 @@ In case the Elves get hungry and need extra snacks, they need to know which Elf 
 
 *Source: <https://adventofcode.com/2022/day/1>*
 
-## Part Two
+## Part 2
 
 By the time you calculate the answer to the Elves' question, they've already realized that the Elf carrying the most Calories of food might eventually run out of snacks.
 
