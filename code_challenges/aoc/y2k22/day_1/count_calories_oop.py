@@ -14,6 +14,11 @@ import heapq
 import itertools
 import os
 from typing import Union
+import gc
+import cProfile
+import pstats
+from icecream import ic
+from pympler import asizeof
 
 # import gc
 # import cProfile
