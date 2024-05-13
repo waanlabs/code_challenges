@@ -14,18 +14,12 @@ import heapq
 import itertools
 import os
 from typing import Union
-
-# import gc
-# import cProfile
-# import pstats
-<<<<<<< HEAD
+import gc
+import cProfile
+import pstats
 from icecream import ic
 from pympler import asizeof
 
-=======
-# from icecream import ic
-# from pympler import asizeof
->>>>>>> adf3557 (Update.)
 # from pydantic import BaseModel
 
 
@@ -227,8 +221,8 @@ def test() -> None:
         del count_calories.puzzle_file_path
         print(asizeof.asized(count_calories, detail=1).format())
 
-#     except (FileNotFoundError, TypeError, ValueError) as error:
-#         print(f"System error: {error}")
+    except (FileNotFoundError, TypeError, ValueError) as error:
+        print(f"System error: {error}")
 
 
 if __name__ == "__main__":
