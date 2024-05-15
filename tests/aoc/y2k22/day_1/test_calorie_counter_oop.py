@@ -12,7 +12,7 @@ Modified: 12/04/2024 by admin@waan.email
 
 import unittest
 
-from code_challenges.aoc.y2k22.day_1.count_calories_oop import CountCalories
+from .....code_challenges.aoc.y2k22.day_1.count_calories_oop import CountCalories
 
 
 class TestCountCaloriesOop(unittest.TestCase):
