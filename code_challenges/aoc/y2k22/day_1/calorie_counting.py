@@ -11,6 +11,7 @@ with open(puzzle_file_path, "r", encoding="utf-8") as file:
 calorie_sum: list[int] = []
 calorie_group_sum: int = 0
 
+
 for calorie in calorie_list:
     if calorie != "":
         calorie_group_sum += int(calorie)
