@@ -1,6 +1,5 @@
 """
-This module contains optimized solution for Advent of Code (AoC) 2022 - Day 1.
-This is a functional programming solution for learning industrial programming.
+This module contains an optimized functional solution for Advent of Code (AoC) 2022 - Day 1.
 
 Package: code_challenges
 Subpackage: aoc/y2k22/day_1

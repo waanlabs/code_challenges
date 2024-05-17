@@ -11,7 +11,7 @@
         "type=bind,source=\\\\wsl.localhost\\Ubuntu\\home\\wired\\.gitconfig,target=/home/wired/.gitconfig",
         "type=bind,source=\\\\wsl.localhost\\Ubuntu\\home\\wired\\.gnupg,target=/home/wired/.gnupg",
         "type=bind,source=\\\\wsl.localhost\\Ubuntu\\home\\wired\\.vimrc,target=/home/wired/.vimrc"
-        // "type=bind,source=/Users/wired/.vimrc,target=/home/wired/.vimrc"
+        // for OSX "type=bind,source=/Users/wired/.vimrc,target=/home/wired/.vimrc"
     ],
     "customizations": {
         "vscode": {
@@ -73,5 +73,6 @@
         }
     },
     "postCreateCommand": "chown -R wired:wired ~/.ssh ~/.gitconfig ~/.gnupg ~/.vimrc",
+    // for OSX "postCreateCommand": "chown -R wired:wired ~/.vimrc",
     "remoteUser": "wired"
 }
