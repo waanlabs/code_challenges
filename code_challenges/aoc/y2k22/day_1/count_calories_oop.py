@@ -7,13 +7,14 @@ File: count_calories_oop.py
 Author: Waan <admin@waan.email>
 Version: 1.0.0
 Created: 01/12/2022 by admin@waan.email
-Modified: 28/04/2024 by admin@waan.email
+Modified: 20/05/2024 by admin@waan.email
 """
 
 import heapq
 import itertools
 import os
 from typing import Union
+from aoc_data_reader import AocDataReader
 
 # import gc
 # import cProfile
@@ -55,7 +56,7 @@ class CountCalories:
     file_path: str
     calories_sum: list[int]
 
-    def __init__(self, file_path: str) -> None:
+    def __init__(self, file_path: str, data_reader: AocDataReader) -> None:
         """
         Constructs all the necessary attributes for the calorie counter object.
 
@@ -65,10 +66,12 @@ class CountCalories:
             The file path of the calorie data.
         """
         self.puzzle_file_path = file_path
+        self.data_reader = data_reader
+        self.calories_sum = []
 
     def __del__(self) -> None:
         """
-        Call destructor to free up memory (C/zig-style).
+        Call destructor to free up memory (C-style).
 
         Note
         ----
@@ -154,16 +157,10 @@ class CountCalories:
         FileNotFoundError
             If the file is not found.
         """
-        calories: list[Union[int | str]]
+        if not self.puzzle_file_path:
+            raise FileNotFoundError(f"File not found: {self.puzzle_file_path}.")
 
-        try:
-            with open(self.puzzle_file_path, "r", encoding="utf-8") as file:
-                calories = [int(line) if line.strip() else "" for line in file]
-
-        except ValueError as error:
-            raise ValueError(f"Invalid data: {error}") from error
-
-        return calories
+        return self.data_reader.read_data(self.puzzle_file_path)
 
     def process_calories(self, calories: list[Union[int | str]]) -> None:
         """
@@ -180,7 +177,6 @@ class CountCalories:
             if not is_empty
         ]
 
-    @staticmethod
     def max_group_sum(self) -> int | None:
         """
         Returns the maximum sum of calorie groups.
