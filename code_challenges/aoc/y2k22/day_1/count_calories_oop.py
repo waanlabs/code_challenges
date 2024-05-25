@@ -177,6 +177,7 @@ class CountCalories:
             if not is_empty
         ]
 
+    @staticmethod
     def max_group_sum(self) -> int | None:
         """
         Returns the maximum sum of calorie groups.
