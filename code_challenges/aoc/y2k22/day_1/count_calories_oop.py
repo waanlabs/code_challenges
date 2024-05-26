@@ -4,16 +4,17 @@ This module contains an optimized object oriented solution for Advent of Code (A
 Package: code_challenges
 Subpackage: aoc/y2k22/day_1
 File: count_calories_oop.py
-Author: Waan <admin@waan.email>
+Author: waanlabs <support@waan.email>
 Version: 1.0.0
-Created: 01/12/2022 by admin@waan.email
-Modified: 20/05/2024 by admin@waan.email
+Created: 01/12/2022 by waanlabs
+Modified: 20/05/2024 by waanlabs
 """
 
 import heapq
 import itertools
 import os
 from typing import Union
+from data_config import DataConfig
 from aoc_data_reader import AocDataReader
 
 # import gc
@@ -56,16 +57,16 @@ class CountCalories:
     file_path: str
     calories_sum: list[int]
 
-    def __init__(self, file_path: str, data_reader: AocDataReader) -> None:
+    def __init__(self, data_config: DataConfig, data_reader: AocDataReader) -> None:
         """
-        Constructs all the necessary attributes for the calorie counter object.
-
-        Parameters
-        ----------
-        file_path: str
-            The file path of the calorie data.
+                Constructs all the necessary attributes for the calorie counter object.
+        ⌈
+                Parameters
+                ----------
+                file_path: str
+                    The file path of the calorie data.
         """
-        self.puzzle_file_path = file_path
+        self.puzzle_file_path = data_config
         self.data_reader = data_reader
         self.calories_sum = []
 
@@ -177,7 +178,6 @@ class CountCalories:
             if not is_empty
         ]
 
-    @staticmethod
     def max_group_sum(self) -> int | None:
         """
         Returns the maximum sum of calorie groups.
@@ -239,5 +239,5 @@ class CountCalories:
 
 """
 Path: code_challenges/aoc/y2k22/day_1/calorie_counter.py
-End of calorie_counter.py
+End of count_calories_oop.py
 """

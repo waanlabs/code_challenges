@@ -2,7 +2,8 @@
 FROM ubuntu:24.04
 
 # Dockblock.
-LABEL maintainer="waan<admin@waan.email>"
+LABEL author="waanlabs"
+LABEL email="support@waan.email"
 LABEL description="Ubuntu Dev Container"
 LABEL website="https://waan.io"
 LABEL origin="https://github.com/waanlabs/code_challenges"

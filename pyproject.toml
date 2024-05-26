@@ -2,7 +2,7 @@
 name = "code_challenges"
 version = "1.0.0"
 description = "A collection of code challenges and solutions | May the force be with you"
-authors = ["waan <admin@waan.email>"]
+authors = ["waanlabs"]
 license = "MIT"
 readme = "README.md"
 
