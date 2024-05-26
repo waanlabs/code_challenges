@@ -14,6 +14,7 @@ import heapq
 import itertools
 import os
 from typing import Union
+from data_config import DataConfig
 from aoc_data_reader import AocDataReader
 
 # import gc
@@ -56,16 +57,16 @@ class CountCalories:
     file_path: str
     calories_sum: list[int]
 
-    def __init__(self, file_path: str, data_reader: AocDataReader) -> None:
+    def __init__(self, data_config: DataConfig, data_reader: AocDataReader) -> None:
         """
-        Constructs all the necessary attributes for the calorie counter object.
-
-        Parameters
-        ----------
-        file_path: str
-            The file path of the calorie data.
+                Constructs all the necessary attributes for the calorie counter object.
+        ⌈
+                Parameters
+                ----------
+                file_path: str
+                    The file path of the calorie data.
         """
-        self.puzzle_file_path = file_path
+        self.puzzle_file_path = data_config
         self.data_reader = data_reader
         self.calories_sum = []
 
@@ -238,5 +239,5 @@ class CountCalories:
 
 """
 Path: code_challenges/aoc/y2k22/day_1/calorie_counter.py
-End of calorie_counter.py
+End of count_calories_oop.py
 """
