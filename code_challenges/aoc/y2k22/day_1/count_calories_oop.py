@@ -4,10 +4,10 @@ This module contains an optimized object oriented solution for Advent of Code (A
 Package: code_challenges
 Subpackage: aoc/y2k22/day_1
 File: count_calories_oop.py
-Author: Waan <admin@waan.email>
+Author: waanlabs <support@waan.email>
 Version: 1.0.0
-Created: 01/12/2022 by admin@waan.email
-Modified: 20/05/2024 by admin@waan.email
+Created: 01/12/2022 by waanlabs
+Modified: 20/05/2024 by waanlabs
 """
 
 import heapq
