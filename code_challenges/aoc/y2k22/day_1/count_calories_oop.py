@@ -54,11 +54,10 @@ class CountCalories:
 
     calories_sum: list[int]
 
-
     def __init__(self, file_path: str) -> None:
         """
         Constructs all the necessary attributes for the calorie counter object.
-        
+
         Parameters
         ----------
         file_path: str
