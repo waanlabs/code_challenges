@@ -15,11 +15,15 @@ class AocDataReader(DataReader):
         """
         Reads data from a file and returns a list of integers or empty strings.
 
-        Args:
-            file_path (str): The path to the file to be read.
+        Parameters
+        ----------
+        file_path: str
+            The path to the file to be read.
 
-        Returns:
-            List[Union[int, str]]: A list containing integers or empty strings.
+        Returns
+        -------
+        List[Union[int, str]]
+            A list containing integers or empty strings.
 
         """
         with open(file_path, "r", encoding="utf-8") as file:
