@@ -29,8 +29,6 @@ class CountCalories:
 
     Attributes
     ----------
-    file_path: str
-        The file path of the calorie data.
     calories_sum: list[int]
         A list of sums of calorie groups.
 
