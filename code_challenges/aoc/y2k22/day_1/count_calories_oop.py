@@ -75,11 +75,9 @@ class CountCalories:
         """
         if hasattr(self, "calories_sum"):
             del self.calories_sum
-            print("Deleted __del__.calories_sum")
 
         if hasattr(self, "_file_path"):
             del self._file_path
-            print("Deleted __del__._file_path")
 
     @property
     def puzzle_file_path(self) -> str:
