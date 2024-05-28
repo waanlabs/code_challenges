@@ -1,4 +1,4 @@
-# TODO | Add docblocks
+# TODO | Add docblock
 import os
 from pydantic import BaseModel, validator
 
