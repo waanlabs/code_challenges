@@ -1,3 +1,4 @@
+# TODO Clean docblocks
 """
 This module contains an optimized object-oriented solution for Advent of Code (AoC) 2022 - Day 1.
 
