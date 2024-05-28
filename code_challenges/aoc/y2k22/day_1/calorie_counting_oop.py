@@ -87,9 +87,12 @@ class CalorieCounting:
 
         if hasattr(self, "_file_path"):
             del self._file_path
+<<<<<<< HEAD:code_challenges/aoc/y2k22/day_1/calorie_counting_oop.py
 
         if hasattr(self, "data_reader"):
             del self.data_reader
+=======
+>>>>>>> f1df00e (TODO for docblock (#74)):code_challenges/aoc/y2k22/day_1/count_calories_oop.py
 
     @property
     def puzzle_file_path(self) -> str:
