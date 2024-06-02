@@ -31,7 +31,7 @@ class CountCalories:
     Attributes
     ----------
     calories_sum: list[int]
-        A list of sums of calorie groups.
+        A list of calorie sums by calorie groups.
 
     Methods
     -------
@@ -152,7 +152,7 @@ class CountCalories:
         parameters
         ----------
         calories: list[int | str]
-            list of integers or empty strings representing calorie data, or None
+            list of integers or empty strings representing calorie data, or None.
         """
         self.calories_sum = [
             sum(x for x in group if isinstance(x, int))
@@ -207,14 +207,13 @@ def test() -> None:
 
 
 if __name__ == "__main__":
-    #     """
-    # If the script is being run directly (not imported as a module), the test
-    # function is
+    # """
+    # If the script is being run directly (not imported as a module), the test function is
     # called.
-    #     """
-    #     gc.disable()
-    #     profiler = cProfile.Profile()
-    #     profiler.enable()
+    #
+    # gc.disable()
+    # profiler = cProfile.Profile()
+    # profiler.enable()
     test()
     # profiler.disable()
     # profiler.print_stats(sort="time")
