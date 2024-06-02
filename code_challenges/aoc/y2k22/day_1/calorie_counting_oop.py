@@ -1,14 +1,18 @@
-# TODO Clean docblocks
+# TODO | Clean docblocks
 """
-This module contains an optimized object oriented solution for Advent of Code (AoC) 2022 - Day 1.
+This module contains an optimized object-oriented solution for Advent of Code (AoC) 2022 - Day 1.
+
+The class CalorieCounting is designed to read calorie data from a file, process the data to
+calculate the group with the maximum calories, and determine the sum of the three largest calorie
+groups.
 
 Package: code_challenges
 Subpackage: aoc/y2k22/day_1
-File: count_calories_oop.py
+File: calorie_counting_oop.py
 Author: waanlabs <support@waan.email>
 Version: 1.0.0
 Created: 01/12/2022 by waanlabs
-Modified: 20/05/2024 by waanlabs
+Modified: 02/06/2024 by waanlabs
 """
 
 import heapq
@@ -24,7 +28,7 @@ from aoc_data_reader import AocDataReader
 # from pympler import asizeof
 
 
-class CountCalories:
+class CalorieCounting:
     """
     A class to represent a calorie counter for Advent of Code (AoC) 2022 - Day 1.
 
@@ -36,18 +40,18 @@ class CountCalories:
     Methods
     -------
     @property
-    puzzle_file_path():
+    puzzle_file_path()
         Returns the file path associated with the calorie counter.
     @puzzle_file_path.setter
-    puzzle_file_path():
+    puzzle_file_path()
         Set the file path for the puzzle input.
-    read_calaories():
+    read_calaories()
         Reads the file and create a list.
-    process_calories():
+    process_calories()
         Processes the calorie data.
-    max_group_sum():
+    max_group_sum()
         Returns the maximum sum of calorie groups.
-    sum_of_largest_three():
+    sum_of_largest_three()
         Returns the sum of the three largest calorie groups.
     """
 
@@ -69,15 +73,24 @@ class CountCalories:
         """
         Call destructor to free up memory (C-style).
 
+        This method is automatically called when the object is about to be destroyed.
+        It can be used to perform any necessary cleanup operations before the object is
+        removed from memory.
+
         Note
         ----
-            Since Python is a GC language, explicit del is not necessary.
+        Since Python is a garbage-collected language, explicit deletion is not necessary.
+        The purpose of this method is to provide a way to release any resources or perform
+        cleanup tasks.
         """
         if hasattr(self, "calories_sum"):
             del self.calories_sum
 
         if hasattr(self, "_file_path"):
             del self._file_path
+
+        if hasattr(self, "data_reader"):
+            del self.data_reader
 
     @property
     def puzzle_file_path(self) -> str:
@@ -126,22 +139,12 @@ class CountCalories:
 
     def read_calories(self) -> list[Union[int | str]]:
         """
-        Reads the file and create a list.
+        Read the calories data from file and return a list of integers or empty strings.
 
         Returns
         -------
         list[Union[int, str]]
             The calorie data.
-
-        Parameters
-        ----------
-        calories: list[Union[int, str]]
-            list of integers or empty strings representing calorie data, or None
-
-        Raises
-        ------
-        FileNotFoundError
-            If the file is not found.
         """
         return self.data_reader.read_data(self.puzzle_file_path)
 
@@ -191,7 +194,7 @@ def test() -> None:
     """
     try:
         file_path = "./puzzle-input.txt"
-        count_calories = CountCalories(file_path)
+        count_calories = Count(file_path)
         calories_list = count_calories.read_calories()
         count_calories.process_calories(calories_list)
         # ic(count_calories.puzzle_file_path)
