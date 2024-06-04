@@ -29,7 +29,6 @@ class CalorieCounting:
     calculate the group with the maximum calories, and determine the sum of the three largest
     calorie groups.
 
-
     Attributes
     ----------
     calories_sum: list[int]
