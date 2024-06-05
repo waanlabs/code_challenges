@@ -4,21 +4,22 @@ This module contains an optimized object-oriented solution for Advent of Code (A
 Package: code_challenges
 Subpackage: aoc/y2k22/day_1
 File: calorie_counting_oop.py
-Author: waanlabs <support@waan.email>
+Author: waanlabs <support@waanlabs.com>
 Version: 1.0.0
 Created: 01/12/2022 by waanlabs
 Modified: 02/06/2024 by waanlabs
 """
 
+# import gc
 import heapq
 import itertools
+
+# import cProfile
+# import pstats
 from typing import Union
 from data_config import DataConfig
 from aoc_data_reader import AocDataReader
 
-# import gc
-# import cProfile
-# import pstats
 # from icecream import ic
 # from pympler import asizeof
 
@@ -182,16 +183,22 @@ def test() -> None:
     """
     try:
         file_path = "./puzzle-input.txt"
+        # file_path = "./code_challenges/aoc/y2k22/day_1/puzzle-input.txt"
         calorie_counting = CalorieCounting(file_path)
         calories_list = calorie_counting.read_calories()
         calorie_counting.process_calories(calories_list)
-        # ic(count_calories.puzzle_file_path)
-        # ic(count_calories.max_group_sum())
+
+        # ic(calorie_counting.puzzle_file_path)
+        # ic(calorie_counting.max_group_sum())
+        # ic(calorie_counting.sum_of_largest_three())
+
+        print(calorie_counting.puzzle_file_path)
         print(calorie_counting.max_group_sum())
-        # ic(count_calories.sum_of_largest_three())
         print(calorie_counting.sum_of_largest_three())
-        # del count_calories.puzzle_file_path
-        # print(asizeof.asized(count_calories, detail=1).format())
+
+        del calorie_counting.puzzle_file_path
+
+        # print(asizeof.asized(calorie_counting, detail=1).format())
 
     except (FileNotFoundError, TypeError, ValueError) as error:
         print(f"Application Error: {error}")
