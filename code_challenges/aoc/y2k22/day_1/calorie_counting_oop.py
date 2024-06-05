@@ -1,32 +1,35 @@
 # TODO Clean docblocks
 """
-This module contains an optimized object oriented solution for Advent of Code (AoC) 2022 - Day 1.
+This module contains an optimized object-oriented solution for Advent of Code (AoC) 2022 - Day 1.
 
 Package: code_challenges
 Subpackage: aoc/y2k22/day_1
-File: count_calories_oop.py
-Author: waanlabs <support@waan.email>
+File: calorie_counting_oop.py
+Author: waanlabs <support@waanlabs.com>
 Version: 1.0.0
 Created: 01/12/2022 by waanlabs
-Modified: 20/05/2024 by waanlabs
+Modified: 02/06/2024 by waanlabs
 """
 
+# import gc
 import heapq
 import itertools
+
+# import cProfile
+# import pstats
 from typing import Union
 from data_config import DataConfig
 from aoc_data_reader import AocDataReader
 
-# import gc
-# import cProfile
-# import pstats
 # from icecream import ic
 # from pympler import asizeof
 
 
-class CountCalories:
+class CalorieCounting:
     """
-    A class to represent a calorie counter for Advent of Code (AoC) 2022 - Day 1.
+    The class CalorieCounting is designed to read calorie data from a file, process the data to
+    calculate the group with the maximum calories, and determine the sum of the three largest
+    calorie groups.
 
     Attributes
     ----------
@@ -36,18 +39,18 @@ class CountCalories:
     Methods
     -------
     @property
-    puzzle_file_path():
+    puzzle_file_path()
         Returns the file path associated with the calorie counter.
     @puzzle_file_path.setter
-    puzzle_file_path():
+    puzzle_file_path()
         Set the file path for the puzzle input.
-    read_calaories():
+    read_calaories()
         Reads the file and create a list.
-    process_calories():
+    process_calories()
         Processes the calorie data.
-    max_group_sum():
+    max_group_sum()
         Returns the maximum sum of calorie groups.
-    sum_of_largest_three():
+    sum_of_largest_three()
         Returns the sum of the three largest calorie groups.
     """
 
@@ -62,22 +65,34 @@ class CountCalories:
         file_path: str
             The file path of the calorie data.
         """
-        self.puzzle_file_path = file_path  # This will call the setter
+        self.puzzle_file_path = file_path
         self.data_reader = AocDataReader()
 
     def __del__(self) -> None:
         """
         Call destructor to free up memory (C-style).
 
+        This method is automatically called when the object is about to be destroyed.
+        It can be used to perform any necessary cleanup operations before the object is
+        removed from memory.
+
         Note
         ----
-            Since Python is a GC language, explicit del is not necessary.
+        Since Python is a garbage-collected language, explicit deletion is not necessary.
+        The purpose of this method is to provide a way to release any resources or perform
+        cleanup tasks.
         """
         if hasattr(self, "calories_sum"):
             del self.calories_sum
 
         if hasattr(self, "_file_path"):
             del self._file_path
+<<<<<<< HEAD:code_challenges/aoc/y2k22/day_1/calorie_counting_oop.py
+
+        if hasattr(self, "data_reader"):
+            del self.data_reader
+=======
+>>>>>>> f1df00e (TODO for docblock (#74)):code_challenges/aoc/y2k22/day_1/count_calories_oop.py
 
     @property
     def puzzle_file_path(self) -> str:
@@ -100,15 +115,6 @@ class CountCalories:
         ----------
         file_path: str
             The file path to set.
-
-        Raises
-        ------
-        ValueError
-            If the file path is an empty string.
-        TypeError
-            If the file path is not a string.
-        FileNotFoundError
-            If the file does not exist.
         """
         data_config = DataConfig(file_path=file_path)
         self._file_path = data_config.file_path
@@ -120,28 +126,18 @@ class CountCalories:
 
         Note
         ----
-            This method is not necessary since the destructor is called automatically.
+        This method is not necessary since the destructor is called automatically.
         """
         del self._file_path
 
     def read_calories(self) -> list[Union[int | str]]:
         """
-        Reads the file and create a list.
+        Read the calories data from file and return a list of integers or empty strings.
 
         Returns
         -------
         list[Union[int, str]]
             The calorie data.
-
-        Parameters
-        ----------
-        calories: list[Union[int, str]]
-            list of integers or empty strings representing calorie data, or None
-
-        Raises
-        ------
-        FileNotFoundError
-            If the file is not found.
         """
         return self.data_reader.read_data(self.puzzle_file_path)
 
@@ -191,26 +187,32 @@ def test() -> None:
     """
     try:
         file_path = "./puzzle-input.txt"
-        count_calories = CountCalories(file_path)
-        calories_list = count_calories.read_calories()
-        count_calories.process_calories(calories_list)
-        # ic(count_calories.puzzle_file_path)
-        # ic(count_calories.max_group_sum())
-        print(count_calories.max_group_sum())
-        # ic(count_calories.sum_of_largest_three())
-        print(count_calories.sum_of_largest_three())
-        # del count_calories.puzzle_file_path
-        # print(asizeof.asized(count_calories, detail=1).format())
+        # file_path = "./code_challenges/aoc/y2k22/day_1/puzzle-input.txt"
+        calorie_counting = CalorieCounting(file_path)
+        calories_list = calorie_counting.read_calories()
+        calorie_counting.process_calories(calories_list)
+
+        # ic(calorie_counting.puzzle_file_path)
+        # ic(calorie_counting.max_group_sum())
+        # ic(calorie_counting.sum_of_largest_three())
+
+        print(calorie_counting.puzzle_file_path)
+        print(calorie_counting.max_group_sum())
+        print(calorie_counting.sum_of_largest_three())
+
+        del calorie_counting.puzzle_file_path
+
+        # print(asizeof.asized(calorie_counting, detail=1).format())
 
     except (FileNotFoundError, TypeError, ValueError) as error:
-        print(f"Application error: {error}")
+        print(f"Application Error: {error}")
 
 
 if __name__ == "__main__":
-    # """
-    # If the script is being run directly (not imported as a module), the test function is
-    # called.
-    #
+    """
+    If the script is being run directly (not imported as a module), the test function is
+    called.
+    """
     # gc.disable()
     # profiler = cProfile.Profile()
     # profiler.enable()
